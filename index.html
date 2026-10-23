@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stac.crate · Developer Toolkits &amp; Starter Packs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- === TOP NAVBAR === -->
+  <header class="top-navbar" id="top-navbar">
+    <div class="nav-container">
+      <div class="nav-brand-section">
+        <a href="#landing" class="brand-logo" id="brand-logo">
+          <span class="brand-box">
+            <span class="brand-box-inner"></span>
+          </span>
+          <span class="brand-text">stac<span class="brand-accent">.crate</span></span>
+        </a>
+      </div>
+
+      <nav class="nav-links-section" id="nav-links-section">
+        <a href="#landing" class="nav-link" data-view="landing">Landing</a>
+        <a href="#explore" class="nav-link" data-view="explore">Explore Crates</a>
+        <a href="#crate" class="nav-link" data-view="crate" data-crate-id="ws101">Crate View (@charles/ws101)</a>
+        <a href="#profile" class="nav-link" data-view="profile">Public Profile (@charles)</a>
+        <a href="#dashboard" class="nav-link" data-view="dashboard">Dashboard Vault</a>
+      </nav>
+
+      <div class="nav-actions-section">
+        <button class="nav-search-trigger" id="nav-search-trigger" type="button" aria-label="Search">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span class="search-label">Search crates, tools...</span>
+          <kbd class="search-kbd">⌘K</kbd>
+        </button>
+
+        <div class="nav-auth-container" id="nav-auth-container">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- === MAIN CONTENT CONTAINER === -->
+  <main class="app-main" id="app-main">
+
+    <!-- === LANDING VIEW === -->
+    <section class="view-panel" id="view-landing">
+      <div class="hero-container">
+        <div class="hero-columns">
+          <div class="hero-left">
+            <div class="hero-pill-badge">
+              <span class="badge-sparkle">✨</span> Built for HNU &amp; BSIT Student Developers
+            </div>
+            <h1 class="hero-title">
+              Stop losing dev links in<br>
+              <span class="hero-title-accent">buried group chats.</span>
+            </h1>
+            <p class="hero-description">
+              Bundle CDN tags, PHP boilerplates, and zero-key APIs into one clean, verified URL that your classmates can copy or fork in a single click.
+            </p>
+
+            <form class="claim-handle-form" id="landing-claim-form" onsubmit="return false;">
+              <div class="handle-input-wrapper">
+                <span class="handle-prefix">stac.crate/@</span>
+                <input type="text" id="landing-handle-input" class="handle-input" value="charles" placeholder="username" spellcheck="false" autocomplete="off">
+                <span class="handle-status-badge" id="landing-handle-status">✓ Available</span>
+              </div>
+              <button type="submit" class="btn btn-accent" id="landing-claim-btn">
+                Create Free Crate →
+              </button>
+            </form>
+
+            <div class="hero-trust-strip">
+              <span class="trust-item"><span class="trust-check">✓</span> Free for Students</span>
+              <span class="trust-divider">·</span>
+              <span class="trust-item"><span class="trust-check">✓</span> Auto 200 OK Checks</span>
+              <span class="trust-divider">·</span>
+              <span class="trust-item"><span class="trust-check">✓</span> 1-Click Snippet Copy</span>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="live-mockup-window">
+              <div class="mockup-header">
+                <div class="mockup-dots">
+                  <span class="mock-dot dot-red"></span>
+                  <span class="mock-dot dot-yellow"></span>
+                  <span class="mock-dot dot-green"></span>
+                </div>
+                <div class="mockup-url-bar">
+                  <span class="mockup-url-text">stac.crate/@charles/ws101</span>
+                  <span class="mockup-alive-pill"><span class="alive-dot"></span> 6/6 Alive</span>
+                </div>
+              </div>
+
+              <div class="mockup-body">
+                <div class="mockup-crate-meta">
+                  <h3 class="mockup-crate-title">WS101: Web Dev Starter Pack</h3>
+                  <p class="mockup-crate-subtitle">Curated by Charles Sevilla (@charles) · 42 classmates forked</p>
+                </div>
+
+                <div class="mockup-snippet-list">
+                  <div class="mockup-snippet-row">
+                    <div class="mockup-snippet-info">
+                      <span class="mockup-tool-name">Tailwind CSS Play CDN</span>
+                      <code class="mockup-code-preview">&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</code>
+                    </div>
+                    <button class="btn btn-xs btn-outline copy-trigger" data-copy='<script src="https://cdn.tailwindcss.com"></script>'>Copy</button>
+                  </div>
+
+                  <div class="mockup-snippet-row">
+                    <div class="mockup-snippet-info">
+                      <span class="mockup-tool-name">PHP PDO Prepared Wrapper</span>
+                      <code class="mockup-code-preview">$pdo = new PDO("mysql:host=localhost;dbname=ws101", $u, $p);</code>
+                    </div>
+                    <button class="btn btn-xs btn-outline copy-trigger" data-copy='$pdo = new PDO("mysql:host=localhost;dbname=ws101", $u, $p);'>Copy</button>
+                  </div>
+
+                  <div class="mockup-snippet-row">
+                    <div class="mockup-snippet-info">
+                      <span class="mockup-tool-name">JSONPlaceholder Fake REST</span>
+                      <code class="mockup-code-preview">https://jsonplaceholder.typicode.com/posts</code>
+                    </div>
+                    <button class="btn btn-xs btn-outline copy-trigger" data-copy="https://jsonplaceholder.typicode.com/posts">Copy</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-fold-indicator">
+          <a href="#how-it-works" class="fold-pill-link">
+            <span>↓ Scroll to explore how it works</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="how-it-works-section" id="how-it-works">
+        <div class="section-header-centered">
+          <span class="section-label">HOW STAC.CRATE WORKS</span>
+          <h2 class="section-title">Curate in 2 minutes. Share with the whole class.</h2>
+          <p class="section-subtitle">No more pasting 30 fragmented URLs into Discord, Messenger, or Google Docs before project demos.</p>
+        </div>
+
+        <div class="how-cards-grid">
+          <div class="how-card">
+            <div class="how-card-badge">STEP 1</div>
+            <h3 class="how-card-title">1. Pack links &amp; code snippets</h3>
+            <p class="how-card-desc">Group your CDN scripts, database config files, icons, and API URLs into a single, clean workspace.</p>
+            <div class="how-card-preview preview-pack">
+              <div class="mini-tool-input-row">
+                <span class="mini-label">Tool:</span>
+                <span class="mini-val">Tailwind CSS Play CDN</span>
+              </div>
+              <div class="mini-tool-input-row">
+                <span class="mini-label">Snippet:</span>
+                <span class="mini-code">&lt;script src="..."&gt;</span>
+              </div>
+              <div class="mini-tool-tag-row">
+                <span class="mini-tag">Frontend</span>
+                <span class="mini-tag">CDN</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="how-card">
+            <div class="how-card-badge">STEP 2</div>
+            <h3 class="how-card-title">2. Auto-verify 200 OK status</h3>
+            <p class="how-card-desc">Automated pings monitor every link in your crates. Flag broken CDN endpoints or 404s before exam grading.</p>
+            <div class="how-card-preview preview-health">
+              <div class="mini-health-row">
+                <span class="mini-status-ok">● 200 OK (84ms)</span>
+                <span class="mini-health-name">cdn.tailwindcss.com</span>
+              </div>
+              <div class="mini-health-row">
+                <span class="mini-status-ok">● 200 OK (112ms)</span>
+                <span class="mini-health-name">jsonplaceholder.typicode...</span>
+              </div>
+              <div class="mini-health-row">
+                <span class="mini-status-warn">⚠️ 404 Deprecated</span>
+                <span class="mini-health-fix-link">Fix in 1 click →</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="how-card">
+            <div class="how-card-badge">STEP 3</div>
+            <h3 class="how-card-title">3. Share 1 short URL or Fork</h3>
+            <p class="how-card-desc">Classmates open your clean URL to copy snippets with zero ads, or 1-click fork the stack into their own vault.</p>
+            <div class="how-card-preview preview-share">
+              <div class="mini-share-row">
+                <span class="mini-share-url">stac.crate/@charles/ws101</span>
+                <button class="btn btn-xs btn-outline">Copy</button>
+              </div>
+              <div class="mini-share-btn-row">
+                <button class="btn btn-xs btn-accent">🍴 Fork Crate (42)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="trending-section" id="trending">
+        <div class="section-header-flex">
+          <div>
+            <span class="section-label">TRENDING AT HOLY NAME UNIVERSITY (HNU)</span>
+            <h2 class="section-title">Popular student starter packs</h2>
+          </div>
+          <a href="#explore" class="section-link-more">Browse all public crates →</a>
+        </div>
+
+        <div class="crates-grid" id="landing-trending-grid">
+        </div>
+      </div>
+
+      <div class="cta-banner-section">
+        <div class="cta-dark-banner">
+          <div class="cta-banner-content">
+            <span class="cta-mini-label">CLAIM YOUR VAULT</span>
+            <h2 class="cta-banner-title">Ready to pack your first toolkit?</h2>
+            <p class="cta-banner-subtitle">Join student developers from Holy Name University sharing lab boilerplates and clean references.</p>
+            <form class="cta-claim-form" id="cta-claim-form" onsubmit="return false;">
+              <div class="handle-input-wrapper dark-wrapper">
+                <span class="handle-prefix">stac.crate/@</span>
+                <input type="text" id="cta-handle-input" class="handle-input" value="charles" placeholder="username">
+              </div>
+              <button type="submit" class="btn btn-accent" id="cta-claim-btn">
+                Claim @charles Free →
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SIGN IN VIEW === -->
+    <section class="view-panel" id="view-signin">
+      <div class="auth-split-container">
+        <div class="auth-showcase-panel">
+          <div class="auth-showcase-inner">
+            <span class="showcase-tag">STAC.CRATE FOR STUDENTS</span>
+            <h2 class="showcase-title">Pack your tools.<br>Share your stack.</h2>
+            <p class="showcase-desc">Bundle CDN links, boilerplates, and free APIs into one verified link that teammates can fork in a single click.</p>
+
+            <div class="showcase-card">
+              <div class="showcase-card-header">
+                <span class="showcase-url">stac.crate/@charles/ws101</span>
+                <span class="showcase-forks">42 forks</span>
+              </div>
+              <h4 class="showcase-card-title">WS101: Web Dev Starter</h4>
+              <p class="showcase-card-author">Curated by @charles · 6 verified tools</p>
+              <div class="showcase-tools-mini">
+                <div class="mini-tool-chip">
+                  <span>Tailwind CSS Play CDN</span>
+                  <span class="mini-chip-copy">Copy</span>
+                </div>
+                <div class="mini-tool-chip">
+                  <span>PHP PDO Database Wrapper</span>
+                  <span class="mini-chip-copy">Copy</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-footer-note">
+              <span>Built for student builders &amp; academic collaboration</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-form-panel">
+          <div class="auth-form-card">
+            <div class="auth-header">
+              <h2 class="auth-title">Sign in</h2>
+              <p class="auth-subtitle">Access your crates and saved toolkits.</p>
+            </div>
+
+            <form class="auth-form" id="form-signin" onsubmit="return false;">
+              <div class="form-group">
+                <label for="signin-email" class="form-label">EMAIL OR HANDLE</label>
+                <input type="text" id="signin-email" class="form-input" value="charles.sevilla@hnu.edu.ph" required autocomplete="username">
+              </div>
+
+              <div class="form-group">
+                <div class="label-row">
+                  <label for="signin-password" class="form-label">PASSWORD</label>
+                  <a href="#signin" class="form-link-subtle" onclick="alert('Demo account: use pre-filled credentials.'); return false;">Forgot password?</a>
+                </div>
+                <input type="password" id="signin-password" class="form-input" value="password123" required autocomplete="current-password">
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="btn-submit-signin">
+                Sign In →
+              </button>
+            </form>
+
+            <div class="auth-switch-links">
+              <a href="#explore" class="auth-sub-link">Browse Public Crates ↗</a>
+              <span class="auth-sep">·</span>
+              <a href="#signup" class="auth-sub-link">New here? Claim your handle →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SIGN UP VIEW === -->
+    <section class="view-panel" id="view-signup">
+      <div class="auth-split-container">
+        <div class="auth-showcase-panel">
+          <div class="auth-showcase-inner">
+            <span class="showcase-tag">CLAIM YOUR HANDLE</span>
+            <h2 class="showcase-title">Claim your handle.<br>Share in seconds.</h2>
+            <p class="showcase-desc">Your personal developer vault for classes, group projects, and hackathons.</p>
+
+            <div class="identity-card-preview">
+              <div class="id-avatar-circle">CS</div>
+              <div class="id-info">
+                <h4 class="id-name" id="preview-id-name">Charles Sevilla</h4>
+                <p class="id-role">BSIT Sophomore · Holy Name University (HNU)</p>
+                <div class="id-url-pill">
+                  <span class="id-url-text" id="preview-id-url">Public profile: stac.crate/@charles</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="id-features-list">
+              <div class="id-feat-row">✓ Unlimited Crates · ✓ 1-Click Forking · ✓ Auto 200 OK Checks</div>
+            </div>
+
+            <div class="showcase-footer-note">
+              <span>Free forever for students · No ID upload required</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-form-panel">
+          <div class="auth-form-card">
+            <div class="auth-header">
+              <h2 class="auth-title">Create account</h2>
+              <p class="auth-subtitle">Claim your handle to curate and clone toolkits.</p>
+            </div>
+
+            <form class="auth-form" id="form-signup" onsubmit="return false;">
+              <div class="form-group">
+                <label for="signup-name" class="form-label">FULL NAME</label>
+                <input type="text" id="signup-name" class="form-input" value="Charles Sevilla" required>
+              </div>
+
+              <div class="form-group">
+                <label for="signup-handle" class="form-label">HANDLE</label>
+                <div class="handle-input-wrapper">
+                  <span class="handle-prefix">stac.crate/@</span>
+                  <input type="text" id="signup-handle" class="handle-input" value="charles" required>
+                  <span class="handle-status-badge">✓ Available</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="signup-email" class="form-label">EMAIL</label>
+                <input type="email" id="signup-email" class="form-input" value="charles.sevilla@hnu.edu.ph" required>
+              </div>
+
+              <div class="form-group">
+                <label for="signup-password" class="form-label">PASSWORD</label>
+                <input type="password" id="signup-password" class="form-input" value="superstrongpass123" required>
+                <div class="password-strength-container">
+                  <div class="strength-bar-track">
+                    <div class="strength-bar-fill strength-strong"></div>
+                  </div>
+                  <span class="strength-label">Strong password</span>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="btn-submit-signup">
+                Create Free Account →
+              </button>
+            </form>
+
+            <div class="auth-switch-links">
+              <a href="#explore" class="auth-sub-link">Explore Public Crates ↗</a>
+              <span class="auth-sep">·</span>
+              <a href="#signin" class="auth-sub-link">Already have a handle? Sign In →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === EXPLORE VIEW === -->
+    <section class="view-panel" id="view-explore">
+      <div class="view-container">
+        <div class="explore-header">
+          <h1 class="view-heading">Explore Public Crates</h1>
+          <p class="view-subheading">Peer-curated starter packs, CDN links, and zero-key APIs verified for student projects.</p>
+        </div>
+
+        <div class="explore-filter-bar">
+          <div class="filter-categories-list" id="explore-categories">
+            <button class="filter-pill active" data-category="All">All (9)</button>
+            <button class="filter-pill" data-category="WS101 Web Dev">WS101 Web Dev</button>
+            <button class="filter-pill" data-category="Free APIs">Free APIs</button>
+            <button class="filter-pill" data-category="PHP &amp; MySQL">PHP &amp; MySQL</button>
+            <button class="filter-pill" data-category="UI &amp; Icons">UI &amp; Icons</button>
+          </div>
+
+          <div class="explore-filter-controls">
+            <div class="search-input-box">
+              <input type="text" id="explore-search-input" class="search-input-field" placeholder="Search crates, tools, or tags...">
+            </div>
+            <button class="btn btn-outline btn-toggle-filter" id="explore-toggle-alive" type="button">
+              <span class="toggle-dot"></span> Verified Alive Only
+            </button>
+          </div>
+        </div>
+
+        <div class="crates-grid" id="explore-crates-grid">
+        </div>
+      </div>
+    </section>
+
+    <!-- === CRATE DETAIL VIEW === -->
+    <section class="view-panel" id="view-crate">
+      <div class="view-container">
+        <div class="crate-detail-breadcrumb" id="crate-breadcrumb">
+          <a href="#explore" class="breadcrumb-item">Explore</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-item" id="crate-bread-handle">@charles</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current" id="crate-bread-slug">ws101-starter-pack</span>
+        </div>
+
+        <div class="crate-detail-header-card">
+          <div class="crate-header-main">
+            <div class="crate-header-title-row">
+              <h1 class="crate-title" id="crate-detail-title">WS101: Web Dev Starter Pack</h1>
+              <span class="visibility-pill" id="crate-detail-visibility">Public</span>
+            </div>
+            <p class="crate-description" id="crate-detail-description">
+              Essential provision kit for 2nd-year Web Systems: CDN styling, PDO database script, and mock APIs.
+            </p>
+
+            <div class="crate-meta-row">
+              <div class="crate-author-pill">
+                <span class="author-avatar" id="crate-author-avatar">CS</span>
+                <span class="author-meta-text" id="crate-author-meta">
+                  Curated by Charles Sevilla (@charles) · Updated 2d ago · <span class="alive-dot"></span> 6/6 links healthy
+                </span>
+              </div>
+
+              <div class="crate-action-buttons">
+                <button class="copy-url-pill copy-trigger" id="crate-copy-url-btn" data-copy="stac.crate/@charles/ws101">
+                  <span id="crate-short-url-text">stac.crate/@charles/ws101</span>
+                  <span class="copy-pill-badge">Copy</span>
+                </button>
+                <button class="btn btn-accent" id="crate-fork-btn">
+                  🍴 Fork Crate (<span id="crate-fork-count">42</span>)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="crate-tools-filter-bar">
+          <div class="filter-categories-list" id="crate-tools-categories">
+            <button class="filter-pill active" data-category="All">All</button>
+          </div>
+        </div>
+
+        <div class="tools-grid-2col" id="crate-tools-grid">
+        </div>
+      </div>
+    </section>
+
+    <!-- === DASHBOARD VAULT VIEW === -->
+    <section class="view-panel" id="view-dashboard">
+      <div class="view-container">
+        <div class="dashboard-header-row">
+          <div>
+            <h1 class="view-heading">Good afternoon, Charles</h1>
+            <div class="dashboard-metrics-strip" id="dashboard-metrics-strip">
+              <span class="metric-item">4 Crates</span>
+              <span class="metric-sep">·</span>
+              <span class="metric-item">61 Total Forks</span>
+              <span class="metric-sep">·</span>
+              <span class="metric-item">348 Profile Views</span>
+              <span class="metric-sep">·</span>
+              <span class="metric-health-badge health-warning" id="dashboard-health-badge">
+                ⚠️ 17/18 Links Alive (1 Flagged 404)
+              </span>
+            </div>
+          </div>
+
+          <div class="dashboard-header-actions">
+            <button class="btn btn-outline" id="dashboard-btn-rescan" type="button">
+              <span class="rescan-icon">↻</span> Re-scan links
+            </button>
+            <button class="btn btn-primary" id="dashboard-btn-new-crate" type="button">
+              + New Crate
+            </button>
+          </div>
+        </div>
+
+        <div class="dashboard-tabs-bar">
+          <button class="dash-tab active" data-tab="my-crates" id="tab-my-crates">My Crates (4)</button>
+          <button class="dash-tab" data-tab="forked" id="tab-forked">Forked from Peers (2)</button>
+          <button class="dash-tab" data-tab="starred" id="tab-starred">Starred Tools (12)</button>
+        </div>
+
+        <div class="dashboard-tab-content" id="dashboard-tab-content">
+          <div class="vault-rows-list" id="vault-rows-list">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === PUBLIC PROFILE VIEW === -->
+    <section class="view-panel" id="view-profile">
+      <div class="view-container">
+        <div class="profile-header-card">
+          <div class="profile-header-top">
+            <div class="profile-avatar-large">CS</div>
+            <div class="profile-title-area">
+              <div class="profile-name-row">
+                <h1 class="profile-name">Charles Sevilla</h1>
+                <span class="profile-handle-pill">@charles</span>
+              </div>
+              <p class="profile-bio">BSIT Sophomore · Holy Name University (HNU) · Curating Web Systems &amp; backend starter packs.</p>
+              <div class="profile-stats-strip">
+                <span>📦 3 Public Crates</span>
+                <span class="stat-sep">·</span>
+                <span>🍴 61 Total Classmate Forks</span>
+                <span class="stat-sep">·</span>
+                <span class="stat-status-alive">● 18/18 Public Links Verified 200 OK</span>
+              </div>
+            </div>
+            <div class="profile-header-actions">
+              <button class="copy-url-pill copy-trigger" data-copy="stac.crate/@charles">
+                <span>stac.crate/@charles</span>
+                <span class="copy-pill-badge">Copy</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="profile-tabs-bar">
+            <button class="profile-tab active" data-tab="published" id="ptab-published">Published Crates (3)</button>
+            <button class="profile-tab" data-tab="forked" id="ptab-forked">Forked from Classmates (2)</button>
+          </div>
+        </div>
+
+        <div class="crates-grid" id="profile-crates-grid">
+        </div>
+
+        <div class="profile-pinned-snippets-section">
+          <div class="pinned-section-header">
+            <span class="section-label">QUICK REFERENCE</span>
+            <h3 class="pinned-section-title">Pinned Quick-Copy Snippets by @charles</h3>
+          </div>
+
+          <div class="pinned-snippets-grid">
+            <div class="pinned-snippet-card">
+              <div class="pinned-header">
+                <span class="pinned-tool-title">Tailwind Play CDN (HTML Head)</span>
+                <button class="btn btn-xs btn-outline copy-trigger" data-copy='<script src="https://cdn.tailwindcss.com"></script>'>Copy</button>
+              </div>
+              <code class="pinned-code-block">&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</code>
+            </div>
+
+            <div class="pinned-snippet-card">
+              <div class="pinned-header">
+                <span class="pinned-tool-title">PHP PDO MySQL Strict Connection</span>
+                <button class="btn btn-xs btn-outline copy-trigger" data-copy='$pdo = new PDO("mysql:host=localhost;dbname=app", "root", "");'>Copy</button>
+              </div>
+              <code class="pinned-code-block">$pdo = new PDO("mysql:host=localhost;dbname=app", "root", "");</code>
+            </div>
+
+            <div class="pinned-snippet-card">
+              <div class="pinned-header">
+                <span class="pinned-tool-title">JSONPlaceholder Fetch Template</span>
+                <button class="btn btn-xs btn-outline copy-trigger" data-copy="fetch('https://jsonplaceholder.typicode.com/posts/1').then(r => r.json()).then(console.log);">Copy</button>
+              </div>
+              <code class="pinned-code-block">fetch('https://jsonplaceholder.typicode.com/posts/1').then(r => r.json()).then(console.log);</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- === FOOTER === -->
+  <footer class="app-footer" id="app-footer">
+    <div class="footer-container">
+      <div class="footer-top-row">
+        <div class="footer-brand-col">
+          <div class="brand-logo">
+            <span class="brand-box"><span class="brand-box-inner"></span></span>
+            <span class="brand-text">stac<span class="brand-accent">.crate</span></span>
+          </div>
+          <p class="footer-tagline">Minimalist developer vault for student builders, starter kits, and verified links.</p>
+          <p class="footer-academic-info">Holy Name University (HNU) · College of Computer Studies · BSIT Web Systems 101</p>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-links-heading">Explore &amp; Jump</h4>
+          <ul class="footer-links-list">
+            <li><a href="#landing">Landing Page</a></li>
+            <li><a href="#explore">Explore Public Crates</a></li>
+            <li><a href="#crate" data-crate-id="ws101">WS101 Starter Pack</a></li>
+            <li><a href="#profile">Charles Sevilla (@charles)</a></li>
+            <li><a href="#dashboard">Dashboard Vault</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-links-heading">Curator &amp; Repo</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://github.com/Chakeyy/Stac.crate" target="_blank" rel="noopener">GitHub: Chakeyy/Stac.crate</a></li>
+            <li><a href="mailto:charles.sevilla@hnu.edu.ph">charles.sevilla@hnu.edu.ph</a></li>
+            <li><a href="#signin">Demo Sign In</a></li>
+            <li><a href="#signup">Demo Sign Up</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div class="footer-copy-text">
+          &copy; 2026 Stac.crate · Built for Holy Name University BSIT Students. All links auto-monitored.
+        </div>
+        <div class="footer-reset-area">
+          <button class="footer-reset-btn" id="footer-reset-demo" type="button">
+            ↻ Reset Demo Data
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- === CREATE EDIT CRATE MODAL === -->
+  <div class="modal-backdrop" id="modal-create-crate" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="modal-create-title">Create New Crate</h2>
+          <span class="modal-subtitle" id="modal-create-subtitle">stac.crate/@charles/new-crate</span>
+        </div>
+        <button class="modal-close-btn" id="modal-create-close" type="button" aria-label="Close">✕</button>
+      </div>
+
+      <form class="modal-form" id="form-create-crate" onsubmit="return false;">
+        <input type="hidden" id="modal-crate-edit-id" value="">
+        <div class="form-grid-2col">
+          <div class="form-group form-col-span-2">
+            <label for="crate-form-title" class="form-label">CRATE TITLE</label>
+            <input type="text" id="crate-form-title" class="form-input" placeholder="e.g. WS101: Web Dev Starter Pack" required>
+          </div>
+
+          <div class="form-group">
+            <label for="crate-form-category" class="form-label">TOPIC TAG</label>
+            <select id="crate-form-category" class="form-select">
+              <option value="WS101 Web Dev">WS101 Web Dev</option>
+              <option value="Free APIs">Free APIs</option>
+              <option value="PHP &amp; MySQL">PHP &amp; MySQL</option>
+              <option value="UI &amp; Icons">UI &amp; Icons</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="crate-form-visibility" class="form-label">VISIBILITY</label>
+            <select id="crate-form-visibility" class="form-select">
+              <option value="Public">🌐 Public</option>
+              <option value="Private">🔒 Private</option>
+            </select>
+          </div>
+
+          <div class="form-group form-col-span-2">
+            <label for="crate-form-desc" class="form-label">SHORT SUMMARY</label>
+            <textarea id="crate-form-desc" class="form-textarea" rows="2" placeholder="Essential provision kit for 2nd-year Web Systems..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-tools-section">
+          <div class="modal-tools-header">
+            <h3 class="modal-tools-title">TOOLS IN THIS CRATE (<span id="modal-tools-count">0</span>)</h3>
+          </div>
+
+          <div class="modal-tools-list" id="modal-tools-list">
+          </div>
+
+          <div class="tool-editor-box" id="tool-editor-box">
+            <h4 class="tool-editor-heading" id="tool-editor-heading">Add Tool to Crate</h4>
+            <div class="tool-editor-inputs">
+              <div class="form-group">
+                <label for="editor-tool-name" class="form-label">TOOL NAME</label>
+                <input type="text" id="editor-tool-name" class="form-input" placeholder="e.g. Tailwind CSS Play CDN">
+              </div>
+
+              <div class="form-group">
+                <label for="editor-tool-category" class="form-label">CATEGORY</label>
+                <select id="editor-tool-category" class="form-select">
+                  <option value="Frontend">Frontend</option>
+                  <option value="Backend">Backend</option>
+                  <option value="APIs">APIs</option>
+                  <option value="Assets">Assets</option>
+                  <option value="Docs">Docs</option>
+                </select>
+              </div>
+
+              <div class="form-group form-col-span-2">
+                <label for="editor-tool-snippet" class="form-label">SNIPPET OR TARGET URL</label>
+                <textarea id="editor-tool-snippet" class="form-textarea" rows="2" placeholder="<script src='...'> or https://..."></textarea>
+              </div>
+
+              <div class="form-group form-col-span-2">
+                <label for="editor-tool-tip" class="form-label">CURATOR NOTE / TIP (OPTIONAL)</label>
+                <input type="text" id="editor-tool-tip" class="form-input" placeholder="Great for rapid lab prototypes without configuring a build step.">
+              </div>
+
+              <div class="tool-editor-actions form-col-span-2">
+                <button type="button" class="btn btn-outline" id="editor-btn-cancel">Clear</button>
+                <button type="button" class="btn btn-accent" id="editor-btn-done">Done</button>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-dashed-add" id="btn-show-tool-editor">
+            + Add Tool or Snippet
+          </button>
+        </div>
+
+        <div class="modal-footer">
+          <div class="modal-status-text">
+            <span class="alive-dot"></span> All links verified returning 200 OK
+          </div>
+          <div class="modal-footer-actions">
+            <button type="button" class="btn btn-outline" id="modal-create-btn-cancel">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="modal-create-btn-submit">Publish Crate →</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- === COMMAND PALETTE MODAL === -->
+  <div class="modal-backdrop" id="modal-cmd-k" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="cmd-palette-card">
+      <div class="cmd-input-row">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="cmd-search-input" class="cmd-input" placeholder="Search crates, tools, snippets... (e.g. PDO, Tailwind, MySQL)" autocomplete="off">
+        <kbd class="cmd-esc-badge" id="cmd-btn-esc">ESC</kbd>
+      </div>
+
+      <div class="cmd-results-area" id="cmd-results-area">
+      </div>
+
+      <div class="cmd-palette-footer">
+        <span>↑↓ Navigate</span>
+        <span class="cmd-footer-sep">·</span>
+        <span>↵ Copy Snippet</span>
+        <span class="cmd-footer-sep">·</span>
+        <span>⌘↵ Open Crate</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- === FORK CRATE MODAL === -->
+  <div class="modal-backdrop" id="modal-fork-crate" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card modal-md">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title">Fork Crate to Your Vault</h2>
+          <p class="modal-subtitle" id="fork-modal-subtitle">Clone crate under your handle @charles to customize.</p>
+        </div>
+        <button class="modal-close-btn" id="modal-fork-close" type="button" aria-label="Close">✕</button>
+      </div>
+
+      <div class="fork-modal-body">
+        <div class="fork-dest-row">
+          <span class="fork-label">NEW CRATE URL UNDER YOUR HANDLE</span>
+          <div class="fork-url-box">
+            <span class="fork-url-text" id="fork-dest-url">stac.crate/@charles/zero-budget-student-apis</span>
+          </div>
+        </div>
+
+        <div class="fork-tools-selection">
+          <div class="fork-tools-header">
+            <span class="fork-label" id="fork-selection-label">SELECT TOOLS TO INCLUDE</span>
+          </div>
+          <div class="fork-tools-checklist" id="fork-tools-checklist">
+          </div>
+        </div>
+
+        <div class="fork-attribution-box">
+          <p class="fork-attr-text" id="fork-attr-text">
+            Original curator credit preserved. This will be marked as forked from the author.
+          </p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="modal-fork-btn-cancel">Cancel</button>
+        <button type="button" class="btn btn-accent" id="modal-fork-btn-submit">🍴 Create Fork →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- === FIX BROKEN LINK DRAWER === -->
+  <div class="drawer-backdrop" id="drawer-fix-link" aria-hidden="true">
+    <aside class="drawer-panel" role="dialog" aria-modal="true">
+      <div class="drawer-header">
+        <div class="drawer-alert-pill">
+          <span class="alert-dot-red"></span> HTTP 404 ALERT
+        </div>
+        <button class="modal-close-btn" id="drawer-btn-close" type="button" aria-label="Close">✕</button>
+      </div>
+
+      <div class="drawer-title-area">
+        <h2 class="drawer-title">Resolve Broken Tool Link</h2>
+        <p class="drawer-subtitle" id="drawer-crate-context">Crate: Personal Hackathon Boilerplate · Checked 14 mins ago</p>
+      </div>
+
+      <div class="drawer-body">
+        <div class="drawer-section">
+          <span class="drawer-section-label">FLAGGED TOOL</span>
+          <div class="flagged-tool-card">
+            <h4 class="flagged-tool-name" id="drawer-tool-name">Stripe Test Webhook CLI Docs</h4>
+            <div class="flagged-tool-url" id="drawer-broken-url">https://stripe.com/docs/webhooks/test-local-v1</div>
+            <div class="flagged-tool-status">
+              <span class="status-badge-red">Response: 404 Not Found (Page moved or deprecated)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="drawer-section">
+          <span class="drawer-section-label">✓ VERIFIED REPLACEMENT SUGGESTION (200 OK)</span>
+          <div class="suggested-replacement-card">
+            <span class="suggest-lead">Official Redirect Detected:</span>
+            <div class="suggested-url" id="drawer-suggested-url">https://docs.stripe.com/webhooks/quickstart</div>
+            <button type="button" class="btn btn-xs btn-outline btn-use-suggested" id="drawer-btn-use-suggested">
+              Use Verified URL →
+            </button>
+          </div>
+        </div>
+
+        <div class="drawer-section">
+          <span class="drawer-section-label">OR PASTE UPDATED URL / SNIPPET</span>
+          <div class="form-group">
+            <input type="text" id="drawer-manual-input" class="form-input" value="https://docs.stripe.com/webhooks/quickstart">
+            <div class="live-ping-status">
+              <span class="alive-dot"></span> Live ping check: 200 OK (118ms)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="drawer-footer">
+        <button type="button" class="btn btn-danger-outline" id="drawer-btn-remove-tool">Remove Tool</button>
+        <button type="button" class="btn btn-accent" id="drawer-btn-save">Save &amp; Mark Healthy →</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- === TOAST NOTIFICATION CONTAINER === -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

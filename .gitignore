@@ -1,0 +1,6 @@
+*.svg
+preview.html
+generate-wireframes.js
+build-in-figma-console.js
+node_modules/
+.DS_Store
