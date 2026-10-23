@@ -24,11 +24,11 @@
       </div>
 
       <nav class="nav-links-section" id="nav-links-section">
-        <a href="#landing" class="nav-link" data-view="landing">Landing</a>
-        <a href="#explore" class="nav-link" data-view="explore">Explore Crates</a>
-        <a href="#crate" class="nav-link" data-view="crate" data-crate-id="ws101">Crate View (@charles/ws101)</a>
-        <a href="#profile" class="nav-link" data-view="profile">Public Profile (@charles)</a>
-        <a href="#dashboard" class="nav-link" data-view="dashboard">Dashboard Vault</a>
+        <a href="#landing" class="nav-link" data-view="landing"><span class="nav-label-desktop">Landing</span><span class="nav-label-mobile">Landing</span></a>
+        <a href="#explore" class="nav-link" data-view="explore"><span class="nav-label-desktop">Explore Crates</span><span class="nav-label-mobile">Explore</span></a>
+        <a href="#crate" class="nav-link" data-view="crate" data-crate-id="ws101"><span class="nav-label-desktop">Crate View (@charles/ws101)</span><span class="nav-label-mobile">Crate View</span></a>
+        <a href="#profile" class="nav-link" data-view="profile"><span class="nav-label-desktop">Public Profile (@charles)</span><span class="nav-label-mobile">Profile</span></a>
+        <a href="#dashboard" class="nav-link" data-view="dashboard"><span class="nav-label-desktop">Dashboard Vault</span><span class="nav-label-mobile">My Vault</span></a>
       </nav>
 
       <div class="nav-actions-section">
@@ -539,7 +539,7 @@
               </div>
             </div>
             <div class="profile-header-actions">
-              <button class="copy-url-pill copy-trigger" data-copy="stac.crate/@charles">
+              <button class="copy-url-pill copy-trigger" id="profile-share-btn" data-copy="stac.crate/@charles">
                 <span>stac.crate/@charles</span>
                 <span class="copy-pill-badge">Copy</span>
               </button>

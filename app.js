@@ -697,7 +697,7 @@ function renderNavAuthArea() {
         <span class="user-avatar-xs">${state.user.initials || "CS"}</span>
         <span>@${state.user.handle}</span>
       </div>
-      <a href="#dashboard" class="btn btn-xs btn-outline">Dashboard</a>
+      <a href="#dashboard" class="btn btn-xs btn-outline nav-extra-link">Dashboard</a>
       <button type="button" class="btn-out" id="nav-btn-logout" title="Sign Out">Out</button>
     `;
 
@@ -719,7 +719,7 @@ function renderNavAuthArea() {
   } else {
     container.innerHTML = `
       <a href="#signin" class="btn btn-xs btn-outline">Sign In</a>
-      <a href="#signup" class="btn btn-xs btn-accent">Claim Handle →</a>
+      <a href="#signup" class="btn btn-xs btn-accent nav-extra-link">Claim Handle →</a>
     `;
   }
 }
@@ -1170,7 +1170,7 @@ function renderVaultRows(myCrates, forkedCrates) {
             </span>
           </div>
           <div class="vault-row-meta">
-            <span style="max-width: 450px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(toolsSummary)}</span>
+            <span class="vault-tools-summary">${escapeHtml(toolsSummary)}</span>
             <span>·</span>
             <span>${crate.forks || 0} forks</span>
             <span>·</span>
