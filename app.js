@@ -4,8 +4,8 @@ const DEFAULT_USER = {
   initials: "CS",
   handle: "charles",
   email: "charles.sevilla@hnu.edu.ph",
-  role: "BSIT Sophomore · Holy Name University (HNU)",
-  bio: "BSIT Sophomore · Holy Name University (HNU) · Curating Web Systems & backend starter packs.",
+  role: "Student Curator · Web & Product Systems",
+  bio: "Curating essential productivity tools, research links, and web starter packs.",
   profileViews: 348
 };
 
@@ -14,8 +14,8 @@ const CURATORS = {
     name: "Charles Sevilla",
     handle: "@charles",
     initials: "CS",
-    role: "BSIT Sophomore · Holy Name University (HNU)",
-    bio: "BSIT Sophomore · Holy Name University (HNU) · Curating Web Systems & backend starter packs.",
+    role: "Student Curator · Web & Product Systems",
+    bio: "Curating essential productivity tools, research links, and web starter packs.",
     email: "charles.sevilla@hnu.edu.ph",
     pinnedSnippets: [
       {
@@ -36,8 +36,8 @@ const CURATORS = {
     name: "Miko Santos",
     handle: "@dev_miko",
     initials: "MS",
-    role: "BSIT Junior · Holy Name University (HNU)",
-    bio: "BSIT Junior · Holy Name University (HNU) · Building zero-budget REST APIs and backend tools.",
+    role: "Digital Creator · APIs & Everyday Web",
+    bio: "Curating zero-budget online utilities, public APIs, and creative resources.",
     email: "miko.santos@hnu.edu.ph",
     pinnedSnippets: [
       {
@@ -45,7 +45,7 @@ const CURATORS = {
         code: "https://dummyjson.com/products"
       },
       {
-        title: "Open-Meteo Weather API (Tagbilaran)",
+        title: "Open-Meteo Weather API",
         code: "https://api.open-meteo.com/v1/forecast?latitude=9.64&longitude=123.85&current_weather=true"
       },
       {
@@ -58,8 +58,8 @@ const CURATORS = {
     name: "Alyssa Cruz",
     handle: "@alyssa_ui",
     initials: "AC",
-    role: "BSIT Sophomore · Holy Name University (HNU)",
-    bio: "BSIT Sophomore · Holy Name University (HNU) · Designing minimalist UI kits, SVG icons, and CSS systems.",
+    role: "UI & Visual Designer",
+    bio: "Designing minimalist UI kits, typography pairings, and visual bookmark collections.",
     email: "alyssa.cruz@hnu.edu.ph",
     pinnedSnippets: [
       {
@@ -80,8 +80,8 @@ const CURATORS = {
     name: "Carlos Reyes",
     handle: "@carlos_tech",
     initials: "CR",
-    role: "BSIT Senior · Holy Name University (HNU)",
-    bio: "BSIT Senior · Holy Name University (HNU) · PHP, PDO database security, and SQL query optimization.",
+    role: "Software Builder · Backend & Security",
+    bio: "Curating database security guides, auth patterns, and developer utilities.",
     email: "carlos.reyes@hnu.edu.ph",
     pinnedSnippets: [
       {
@@ -102,8 +102,8 @@ const CURATORS = {
     name: "Sarah Lim",
     handle: "@sarah_codes",
     initials: "SL",
-    role: "BSIT Sophomore · Holy Name University (HNU)",
-    bio: "BSIT Sophomore · Holy Name University (HNU) · Frontend layout architecture, CSS Grid, and responsive design.",
+    role: "Frontend Designer & Creator",
+    bio: "Curating responsive web layouts, creative inspiration, and design systems.",
     email: "sarah.lim@hnu.edu.ph",
     pinnedSnippets: [
       {
@@ -124,8 +124,8 @@ const CURATORS = {
     name: "Miguel Tan",
     handle: "@miguel_data",
     initials: "MT",
-    role: "BSIT Junior · Holy Name University (HNU)",
-    bio: "BSIT Junior · Holy Name University (HNU) · Open Philippine datasets, GeoJSON, and civic tech APIs.",
+    role: "Civic Tech Researcher",
+    bio: "Curating open datasets, geographic resources, and public digital tools.",
     email: "miguel.tan@hnu.edu.ph",
     pinnedSnippets: [
       {
@@ -144,9 +144,297 @@ const CURATORS = {
   }
 };
 
-const DEFAULT_STARRED_TOOL_IDS = ["t1", "t2", "t3", "t4", "t5", "t6"];
+const DEFAULT_STARRED_TOOL_IDS = ["t_res1", "t_des1", "t_util1", "t_stu1", "t1", "t2"];
 
 const DEFAULT_CRATES = [
+  {
+    id: "academic-research",
+    slug: "academic-research-tools",
+    shortUrl: "stac.crate/@charles/research",
+    title: "Academic & Research Toolkit",
+    handle: "@charles",
+    authorName: "Charles Sevilla",
+    authorInitials: "CS",
+    category: "Research & Study",
+    visibility: "Public",
+    coverTheme: "theme-sky",
+    coverImage: "assets/covers/cover-research.jpg",
+    stackIcons: ["assets/icons/google.svg", "assets/icons/notion.svg", "assets/icons/chrome.svg"],
+    forks: 38,
+    views: 245,
+    updatedAt: "1d ago",
+    description: "Scholarly search, visual citation graphs, reference annotation, and literature review copilot.",
+    tools: [
+      {
+        id: "t_res1",
+        name: "Google Scholar",
+        category: "Research",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/google.svg",
+        url: "https://scholar.google.com",
+        action: "Launch App ↗",
+        desc: "Comprehensive academic index for peer-reviewed papers, conference proceedings, and books.",
+        tip: "Click 'Cite' below any search result to copy formatted APA, MLA, or Chicago references.",
+        docsUrl: "https://scholar.google.com"
+      },
+      {
+        id: "t_res2",
+        name: "Connected Papers",
+        category: "Discovery",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/chrome.svg",
+        url: "https://www.connectedpapers.com",
+        action: "Launch App ↗",
+        desc: "Visual similarity graph mapping co-citations and derivatives from any seminal academic paper.",
+        tip: "Ideal for writing literature reviews and identifying foundational prior work.",
+        docsUrl: "https://www.connectedpapers.com"
+      },
+      {
+        id: "t_res3",
+        name: "Zotero Research Library",
+        category: "Citations",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/notion.svg",
+        url: "https://www.zotero.org",
+        action: "Launch App ↗",
+        desc: "Open-source reference assistant: saves PDFs, syncs annotations, and exports BibTeX citations.",
+        tip: "Add the Zotero browser extension to capture research papers in a single click.",
+        docsUrl: "https://www.zotero.org"
+      },
+      {
+        id: "t_res4",
+        name: "SciSpace AI Paper Copilot",
+        category: "Study",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/google.svg",
+        url: "https://typeset.io",
+        action: "Launch App ↗",
+        desc: "AI research copilot that explains complex papers, simplifies formulas, and extracts key takeaways.",
+        tip: "Highlight any confusing paragraph to generate an intuitive plain-English summary.",
+        docsUrl: "https://typeset.io"
+      }
+    ]
+  },
+  {
+    id: "creative-assets",
+    slug: "creative-design-vault",
+    shortUrl: "stac.crate/@alyssa_ui/creative",
+    title: "Creator & Visual Design Vault",
+    handle: "@alyssa_ui",
+    authorName: "Alyssa Cruz",
+    authorInitials: "AC",
+    category: "Design & Media",
+    visibility: "Public",
+    coverTheme: "theme-violet",
+    coverImage: "assets/covers/cover-figma.jpg",
+    stackIcons: ["assets/icons/photoshop.svg", "assets/icons/figma.svg", "assets/icons/canva.svg"],
+    forks: 45,
+    views: 290,
+    updatedAt: "2d ago",
+    description: "In-browser Photoshop editor, 500k+ vector SVGs, royalty-free stock imagery, and color harmonies.",
+    tools: [
+      {
+        id: "t_des1",
+        name: "Photopea Online Photoshop",
+        category: "Editor",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/photoshop.svg",
+        url: "https://www.photopea.com",
+        action: "Launch App ↗",
+        desc: "In-browser image editor supporting PSD, AI, XD, and RAW files with zero installation.",
+        tip: "Runs completely in WebAssembly with full layer styles, masks, and smart objects.",
+        docsUrl: "https://www.photopea.com"
+      },
+      {
+        id: "t_des2",
+        name: "SVG Repo Vector Library",
+        category: "Assets",
+        healthy: true,
+        kind: "resource",
+        icon: "assets/icons/figma.svg",
+        url: "https://www.svgrepo.com",
+        action: "Explore ↗",
+        desc: "Searchable directory of 500,000+ open-licensed vector icons and illustrations.",
+        tip: "Filter by 'Monocolor' to grab clean minimalist icons for presentation slides.",
+        docsUrl: "https://www.svgrepo.com"
+      },
+      {
+        id: "t_des3",
+        name: "Coolors Palette Generator",
+        category: "Design",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/canva.svg",
+        url: "https://coolors.co",
+        action: "Launch App ↗",
+        desc: "Fast color scheme generator with contrast checker, blind simulator, and CSS hex export.",
+        tip: "Tap the spacebar to roll new color harmonies; click the padlock on colors to freeze them.",
+        docsUrl: "https://coolors.co"
+      },
+      {
+        id: "t_des4",
+        name: "Unsplash High-Res Media",
+        category: "Media",
+        healthy: true,
+        kind: "resource",
+        icon: "assets/icons/chrome.svg",
+        url: "https://unsplash.com",
+        action: "Explore ↗",
+        desc: "Curated high-resolution photography for presentation decks, headers, and creative mockups.",
+        tip: "Use orientation=landscape and hex filters to match your slide deck aesthetic.",
+        docsUrl: "https://unsplash.com"
+      }
+    ]
+  },
+  {
+    id: "daily-web-utilities",
+    slug: "everyday-web-utilities",
+    shortUrl: "stac.crate/@dev_miko/utilities",
+    title: "Everyday Web Utilities",
+    handle: "@dev_miko",
+    authorName: "Miko Santos",
+    authorInitials: "MS",
+    category: "Productivity & Tools",
+    visibility: "Public",
+    coverTheme: "theme-emerald",
+    coverImage: "assets/covers/cover-tools.jpg",
+    stackIcons: ["assets/icons/chrome.svg", "assets/icons/canva.svg", "assets/icons/google.svg"],
+    forks: 29,
+    views: 180,
+    updatedAt: "3d ago",
+    description: "Handy browser utilities: collaborative whiteboard, disposable email, multi-engine scanner, and PDF suite.",
+    tools: [
+      {
+        id: "t_util1",
+        name: "Excalidraw Virtual Board",
+        category: "Productivity",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/canva.svg",
+        url: "https://excalidraw.com",
+        action: "Launch App ↗",
+        desc: "Virtual whiteboard with hand-drawn aesthetic, end-to-end encryption, and live peer collaboration.",
+        tip: "Click 'Live Collaboration' to generate a room link for brainstorming with classmates.",
+        docsUrl: "https://excalidraw.com"
+      },
+      {
+        id: "t_util2",
+        name: "10 Minute Disposable Mail",
+        category: "Privacy",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/google.svg",
+        url: "https://10minutemail.com",
+        action: "Launch App ↗",
+        desc: "Temporary self-destructing disposable email address for one-time verification codes.",
+        tip: "Protects your primary inbox from newsletter spam and aggressive marketing trackers.",
+        docsUrl: "https://10minutemail.com"
+      },
+      {
+        id: "t_util3",
+        name: "VirusTotal URL & File Scanner",
+        category: "Security",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/chrome.svg",
+        url: "https://www.virustotal.com",
+        action: "Launch App ↗",
+        desc: "Analyze suspicious files, domains, and links through 70+ leading antivirus engines in seconds.",
+        tip: "Paste unfamiliar links before opening them to verify safe browsing reputation.",
+        docsUrl: "https://www.virustotal.com"
+      },
+      {
+        id: "t_util4",
+        name: "ILovePDF Online Toolkit",
+        category: "Productivity",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/chrome.svg",
+        url: "https://www.ilovepdf.com",
+        action: "Launch App ↗",
+        desc: "Online document toolkit to merge, split, compress, convert, and sign PDF files with zero watermark.",
+        tip: "Use 'Compress PDF' to shrink multi-page assignment submissions below portal upload limits.",
+        docsUrl: "https://www.ilovepdf.com"
+      }
+    ]
+  },
+  {
+    id: "student-survival",
+    slug: "college-study-pack",
+    shortUrl: "stac.crate/@sarah_codes/study",
+    title: "College Study & Productivity Pack",
+    handle: "@sarah_codes",
+    authorName: "Sarah Lim",
+    authorInitials: "SL",
+    category: "Student Essentials",
+    visibility: "Public",
+    coverTheme: "theme-amber",
+    coverImage: "assets/covers/cover-study.jpg",
+    stackIcons: ["assets/icons/notion.svg", "assets/icons/canva.svg", "assets/icons/chrome.svg"],
+    forks: 33,
+    views: 220,
+    updatedAt: "4d ago",
+    description: "Slide deck templates, spaced repetition flashcards, 25/5 Pomodoro focus timer, and step-by-step math solver.",
+    tools: [
+      {
+        id: "t_stu1",
+        name: "Canva Presentations & Decks",
+        category: "Design",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/canva.svg",
+        url: "https://www.canva.com",
+        action: "Launch App ↗",
+        desc: "Drag-and-drop presentation creator with thousands of academic slide deck templates and charts.",
+        tip: "Export to PDF or PPTX format for offline presentation in classroom projectors.",
+        docsUrl: "https://www.canva.com"
+      },
+      {
+        id: "t_stu2",
+        name: "AnkiWeb Spaced Repetition",
+        category: "Study",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/notion.svg",
+        url: "https://ankiweb.net",
+        action: "Launch App ↗",
+        desc: "Web version of the active recall flashcard system based on cognitive spacing intervals.",
+        tip: "Review cards for 10 minutes every morning to cement terms before midterms and finals.",
+        docsUrl: "https://ankiweb.net"
+      },
+      {
+        id: "t_stu3",
+        name: "Pomofocus Study Timer",
+        category: "Productivity",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/chrome.svg",
+        url: "https://pomofocus.io",
+        action: "Launch App ↗",
+        desc: "Customizable 25/5 Pomodoro rhythm timer with task estimation and session history.",
+        tip: "25 minutes of deep undistracted focus followed by a 5-minute break prevents study fatigue.",
+        docsUrl: "https://pomofocus.io"
+      },
+      {
+        id: "t_stu4",
+        name: "Wolfram|Alpha Math Engine",
+        category: "Study",
+        healthy: true,
+        kind: "app",
+        icon: "assets/icons/chrome.svg",
+        url: "https://www.wolframalpha.com",
+        action: "Launch App ↗",
+        desc: "Computational intelligence engine computing answers across calculus, statistics, physics, and chemistry.",
+        tip: "Shows step-by-step problem verification to help understand mathematical proofs.",
+        docsUrl: "https://www.wolframalpha.com"
+      }
+    ]
+  },
   {
     id: "ws101",
     slug: "ws101-starter-pack",
@@ -718,6 +1006,15 @@ function getToolIcon(tool, crate) {
   if (tool && tool.icon) return tool.icon;
   const name = (tool && tool.name ? tool.name.toLowerCase() : "");
   const cat = (tool && tool.category ? tool.category.toLowerCase() : "");
+  if (name.includes("google") || name.includes("scholar")) return "assets/icons/google.svg";
+  if (name.includes("canva") || name.includes("excalidraw")) return "assets/icons/canva.svg";
+  if (name.includes("notion") || name.includes("zotero") || name.includes("anki")) return "assets/icons/notion.svg";
+  if (name.includes("photopea") || name.includes("photoshop")) return "assets/icons/photoshop.svg";
+  if (name.includes("markdown")) return "assets/icons/markdown.svg";
+  if (name.includes("trello") || name.includes("kanban")) return "assets/icons/trello.svg";
+  if (name.includes("firefox")) return "assets/icons/firefox.svg";
+  if (name.includes("pdf") || name.includes("virus") || name.includes("chrome") || name.includes("timer") || name.includes("wolfram")) return "assets/icons/chrome.svg";
+  if (name.includes("mail") || name.includes("email")) return "assets/icons/google.svg";
   if (name.includes("tailwind")) return "assets/icons/tailwindcss.svg";
   if (name.includes("php")) return "assets/icons/php.svg";
   if (name.includes("mysql") || name.includes("sql")) return "assets/icons/mysql.svg";
@@ -733,14 +1030,16 @@ function getToolIcon(tool, crate) {
   if (name.includes("vscode") || name.includes("devdocs") || name.includes("editor")) return "assets/icons/vscode.svg";
   if (name.includes("js") || name.includes("javascript") || name.includes("visualgo") || name.includes("fetch")) return "assets/icons/javascript.svg";
   if (crate && Array.isArray(crate.stackIcons) && crate.stackIcons.length > 0) return crate.stackIcons[0];
+  if (cat === "research" || cat === "study") return "assets/icons/google.svg";
+  if (cat === "design" || cat === "media" || cat === "assets") return "assets/icons/figma.svg";
+  if (cat === "productivity" || cat === "privacy") return "assets/icons/chrome.svg";
   if (cat === "frontend") return "assets/icons/html5.svg";
   if (cat === "backend") return "assets/icons/php.svg";
   if (cat === "apis") return "assets/icons/json.svg";
-  if (cat === "assets") return "assets/icons/figma.svg";
-  return "assets/icons/vscode.svg";
+  return "assets/icons/chrome.svg";
 }
 
-const STORAGE_KEY = "stac_crate_vault_v3";
+const STORAGE_KEY = "stac_crate_vault_v4";
 
 // === APPLICATION STATE ===
 const state = {
@@ -765,7 +1064,7 @@ function loadStateFromStorage() {
   try {
     let raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) {
-      raw = localStorage.getItem("stac_crate_vault_v2") || localStorage.getItem("stac_crate_vault_v1");
+      raw = localStorage.getItem("stac_crate_vault_v3") || localStorage.getItem("stac_crate_vault_v2") || localStorage.getItem("stac_crate_vault_v1");
     }
     if (raw) {
       const parsed = JSON.parse(raw);
@@ -779,12 +1078,15 @@ function loadStateFromStorage() {
         const category = defaultMatch ? defaultMatch.category : (crate.category || "General");
         const stackIcons = (Array.isArray(crate.stackIcons) && crate.stackIcons.length > 0)
           ? crate.stackIcons
-          : (defaultMatch ? defaultMatch.stackIcons : ["assets/icons/vscode.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"]);
+          : (defaultMatch ? defaultMatch.stackIcons : ["assets/icons/chrome.svg", "assets/icons/google.svg", "assets/icons/notion.svg"]);
         const tools = (crate.tools || []).map(t => {
           const defaultTool = defaultMatch ? (defaultMatch.tools || []).find(dt => dt.id === t.id) : null;
           return {
             ...t,
-            icon: t.icon || (defaultTool ? defaultTool.icon : getToolIcon(t, crate))
+            icon: t.icon || (defaultTool ? defaultTool.icon : getToolIcon(t, crate)),
+            kind: t.kind || (defaultTool ? defaultTool.kind : (t.url ? "app" : "template")),
+            action: t.action || (defaultTool ? defaultTool.action : "Launch App ↗"),
+            url: t.url || (defaultTool ? defaultTool.url : (t.snippet && t.snippet.startsWith("http") ? t.snippet : null))
           };
         });
         return {
@@ -796,6 +1098,13 @@ function loadStateFromStorage() {
           tools
         };
       });
+
+      DEFAULT_CRATES.forEach(dc => {
+        if (!state.crates.some(c => c.id === dc.id)) {
+          state.crates.push(JSON.parse(JSON.stringify(dc)));
+        }
+      });
+
       state.starredToolIds = Array.isArray(parsed.starredToolIds) ? parsed.starredToolIds : [...DEFAULT_STARRED_TOOL_IDS];
       saveStateToStorage();
       return;
@@ -1374,8 +1683,8 @@ function setupAuthForms() {
         handle: handle.replace("@", ""),
         email,
         initials,
-        role: "BSIT Sophomore · Holy Name University (HNU)",
-        bio: `BSIT Sophomore · Holy Name University (HNU) · Curating ${handle}'s starter packs.`,
+        role: "Student Curator · Web & Productivity",
+        bio: `Curating ${handle}'s visual bookmark toolkits and study packs.`,
         profileViews: 1
       };
       saveStateToStorage();
@@ -1675,6 +1984,38 @@ function renderCrateToolsGrid(tools) {
   grid.innerHTML = filtered.map(t => {
     const isStarred = state.starredToolIds.includes(t.id);
     const toolIcon = getToolIcon(t, crate);
+    const targetUrl = t.url || (t.snippet && t.snippet.startsWith("http") ? t.snippet : null);
+    const isWebLink = Boolean(targetUrl);
+    const kind = t.kind || (isWebLink ? "app" : "template");
+
+    let kindBadge = "";
+    if (kind === "app") {
+      kindBadge = `<span class="tool-kind-badge kind-app">🚀 Web App</span>`;
+    } else if (kind === "resource") {
+      kindBadge = `<span class="tool-kind-badge kind-resource">📚 Resource</span>`;
+    } else if (kind === "guide" || kind === "cheatsheet") {
+      kindBadge = `<span class="tool-kind-badge kind-guide">📝 Guide</span>`;
+    } else {
+      kindBadge = `<span class="tool-kind-badge kind-template">⚡ Template</span>`;
+    }
+
+    const payloadBlock = isWebLink ? `
+      <div class="tool-link-payload">
+        <span class="tool-url-preview">${escapeHtml(targetUrl)}</span>
+        <div class="tool-payload-buttons">
+          <a href="${escapeHtml(targetUrl)}" target="_blank" rel="noopener" class="btn btn-xs btn-primary">
+            ${escapeHtml(t.action || "Launch App ↗")}
+          </a>
+          <button class="btn btn-xs btn-outline copy-trigger" data-copy="${escapeHtml(targetUrl)}">Copy URL</button>
+        </div>
+      </div>
+    ` : `
+      <div class="tool-snippet-block">
+        <code class="tool-code">${escapeHtml(t.snippet || "")}</code>
+        <button class="btn btn-xs btn-outline copy-trigger" data-copy="${escapeHtml(t.snippet || "")}">Copy</button>
+      </div>
+    `;
+
     return `
       <div class="tool-card">
         <div class="tool-card-header">
@@ -1684,24 +2025,22 @@ function renderCrateToolsGrid(tools) {
             </span>
             <span class="${t.healthy ? "alive-dot" : "alert-dot-red"}"></span>
             <h3 class="tool-card-name">${escapeHtml(t.name)}</h3>
+            ${kindBadge}
             <span class="tool-category-badge">${escapeHtml(t.category || "General")}</span>
           </div>
           <div class="tool-card-actions">
-            ${!t.healthy ? `<button type="button" class="btn btn-xs btn-outline btn-fix-tool" data-crate-id="${escapeHtml(crate.id)}" style="color: var(--red); border-color: var(--red);">⚠️ Fix Link</button>` : ""}
+            ${!t.healthy ? `<button type="button" class="btn btn-xs btn-outline btn-fix-tool" data-crate-id="${escapeHtml(crate ? crate.id : "")}" style="color: var(--red); border-color: var(--red);">⚠️ Fix Link</button>` : ""}
             <button type="button" class="tool-star-btn ${isStarred ? "starred" : ""}" data-tool-id="${escapeHtml(t.id)}" title="${isStarred ? "Remove from Starred" : "Star this tool"}">
               <span class="star-icon">${isStarred ? "★" : "☆"}</span>
               <span class="star-label">${isStarred ? "Starred" : "Star"}</span>
             </button>
-            ${t.docsUrl ? `<a href="${escapeHtml(t.docsUrl)}" target="_blank" rel="noopener" class="tool-docs-link">Docs ↗</a>` : ""}
+            ${t.docsUrl && t.docsUrl !== targetUrl ? `<a href="${escapeHtml(t.docsUrl)}" target="_blank" rel="noopener" class="tool-docs-link">Docs ↗</a>` : ""}
           </div>
         </div>
 
         <p class="tool-card-desc">${escapeHtml(t.desc || "")}</p>
 
-        <div class="tool-snippet-block">
-          <code class="tool-code">${escapeHtml(t.snippet || "")}</code>
-          <button class="btn btn-xs btn-outline copy-trigger" data-copy="${escapeHtml(t.snippet || "")}">Copy</button>
-        </div>
+        ${payloadBlock}
 
         ${t.tip ? `<div class="tool-tip-box">💡 ${escapeHtml(t.tip)}</div>` : ""}
       </div>
@@ -1831,10 +2170,20 @@ function renderVaultRows(myCrates, forkedCrates) {
 
             <p class="tool-card-desc">${escapeHtml(t.desc || "")}</p>
 
-            <div class="tool-snippet-block">
-              <code class="tool-code">${escapeHtml(t.snippet || "")}</code>
-              <button class="btn btn-xs btn-outline copy-trigger" data-copy="${escapeHtml(t.snippet || "")}">Copy</button>
-            </div>
+            ${(t.url || (t.snippet && t.snippet.startsWith("http"))) ? `
+              <div class="tool-link-payload">
+                <span class="tool-url-preview">${escapeHtml(t.url || t.snippet)}</span>
+                <div class="tool-payload-buttons">
+                  <a href="${escapeHtml(t.url || t.snippet)}" target="_blank" rel="noopener" class="btn btn-xs btn-primary">${escapeHtml(t.action || "Launch App ↗")}</a>
+                  <button class="btn btn-xs btn-outline copy-trigger" data-copy="${escapeHtml(t.url || t.snippet)}">Copy URL</button>
+                </div>
+              </div>
+            ` : `
+              <div class="tool-snippet-block">
+                <code class="tool-code">${escapeHtml(t.snippet || "")}</code>
+                <button class="btn btn-xs btn-outline copy-trigger" data-copy="${escapeHtml(t.snippet || "")}">Copy</button>
+              </div>
+            `}
 
             ${t.tip ? `<div class="tool-tip-box">💡 ${escapeHtml(t.tip)}</div>` : ""}
           </div>
@@ -1993,8 +2342,8 @@ function renderProfileView() {
     name: handle.replace("@", ""),
     handle: handle,
     initials: handle.replace("@", "").substring(0, 2).toUpperCase(),
-    role: "BSIT Student · Holy Name University (HNU)",
-    bio: "Curating starter packs and developer tools at Holy Name University.",
+    role: "Student Curator · Web & Productivity",
+    bio: "Curating starter packs, visual bookmarks, and digital toolkits.",
     email: `${handle.replace("@", "")}@hnu.edu.ph`,
     pinnedSnippets: []
   };

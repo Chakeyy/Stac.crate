@@ -1,15 +1,12 @@
-# Stac.crate · Developer Toolkits & Starter Packs
+# Stac.crate · Supercharged Visual Utility Bookmarking
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-C2410C?style=for-the-badge&logo=github)](https://chakeyy.github.io/Stac.crate/)
 [![Course](https://img.shields.io/badge/Course-WS101%20Web%20Systems-1C1917?style=for-the-badge)](https://github.com/Chakeyy/Stac.crate)
-[![Degree](https://img.shields.io/badge/BSIT-2nd%20Year%20Finals-15803D?style=for-the-badge)](https://github.com/Chakeyy/Stac.crate)
 
 > **Live Application**: [https://chakeyy.github.io/Stac.crate/](https://chakeyy.github.io/Stac.crate/)  
 > **Course / Subject**: WS101 — Web Systems & Technologies (Finals Project)  
-> **Academic Level**: 2nd-Year Bachelor of Science in Information Technology (BSIT)  
-> **Institution**: Holy Name University (HNU) · College of Computer Studies  
 > **GitHub Author**: [Chakeyy](https://github.com/Chakeyy) (`@Chakeyy`)  
-> **Demo Student Persona**: Charles Sevilla (`charles.sevilla@hnu.edu.ph` · `@charles`, 2nd-year BSIT)
+> **Demo Curator Persona**: Charles Sevilla (`charles.sevilla@hnu.edu.ph` · `@charles`)
 
 ---
 
@@ -19,13 +16,15 @@ Explore the fully interactive Single Page Application hosted on GitHub Pages:
 
 👉 **[https://chakeyy.github.io/Stac.crate/](https://chakeyy.github.io/Stac.crate/)**
 
-*Tip: The app comes pre-seeded with 9 starter crates and student data. You can log in with `charles.sevilla@hnu.edu.ph` (any password) or explore as a guest.*
+*Tip: The app comes pre-seeded with 11 curated utility crates (Academic Research, Creative Design, Daily Web Utilities, Student Essentials, and Developer Stacks). You can log in with the pre-filled credentials or explore as a guest.*
 
 ---
 
 ## 📦 About Stac.crate
 
-**Stac.crate** is a minimalist, student-focused developer vault and starter pack manager created as a 2nd-year finals project for **WS101 (Web Systems and Technologies)** at **Holy Name University (HNU)**.
+**Stac.crate** is a supercharged visual utility bookmarking hub created as a finals project for **WS101 (Web Systems and Technologies)**.
+
+Traditional browser bookmarks are static, text-heavy, and easily forgotten. **Stac.crate** reimagines bookmarks as living, actionable **Crates**—curated collections of web applications, academic research portals, design assets, and daily utilities that anyone can launch, copy, or clone with real-time link health verification.
 
 In undergraduate computer science and IT lab courses, students constantly lose track of CDN links, database connection boilerplates, API mock endpoints, and CSS cheatsheets scattered across Discord chats, Messenger threads, and temporary text files. **Stac.crate** solves this problem by providing a centralized, shareable crate repository with real-time link health verification.
 
@@ -92,8 +91,8 @@ The application implements a responsive Single Page Application (SPA) architectu
 - **Hero Section**: Live interactive handle availability checker (`stac.crate/@charles`).
 - **Interactive Live Crate Card**: Interactive preview of `@charles/ws101` with working copy buttons.
 - **Workflow Cards**: 3-step visual guide on packing, verifying link health, and 1-click cloning.
-- **Trending Packs**: Live listing of top trending crates at Holy Name University (HNU).
-- **CTA Banner & Footer**: Dark Ink callout banner with university details and a **↻ Reset Demo Data** button.
+- **Community Spotlight**: Live listing of top curated toolkits and crates.
+- **CTA Banner & Footer**: Dark Ink callout banner and a **↻ Reset Demo Data** button.
 
 ### 3. View 2: Sign In (`#view-signin`)
 - Split-screen showcase layout with student perks list.
@@ -152,11 +151,15 @@ const STORAGE_KEY = 'stac_crate_vault_v1';
 ```
 
 ### Pre-Seeded Dataset
-The app initializes automatically with realistic HNU student data:
+The app initializes automatically with realistic student curator and toolkit data:
 
-- **Demo Persona**: Charles Sevilla (`charles.sevilla@hnu.edu.ph` · `@charles`), 2nd-year BSIT student at Holy Name University.
-- **9 Pre-Configured Crates**:
-  1. `ws101`: **WS101: Web Dev Starter Pack** (6 tools: Tailwind CDN, PDO connection, JSONPlaceholder, Tabler Icons, Coolors, DevDocs).
+- **Demo Persona**: Charles Sevilla (`charles.sevilla@hnu.edu.ph` · `@charles`), student curator.
+- **11 Pre-Configured Crates**:
+  1. `academic-research`: **Academic & Research Toolkit** (4 tools: Google Scholar, Connected Papers, Zotero, SciSpace AI).
+  2. `creative-assets`: **Creator & Visual Design Vault** (4 tools: Photopea, SVG Repo, Coolors, Unsplash).
+  3. `daily-web-utilities`: **Everyday Web Utilities** (4 tools: Excalidraw, 10MinuteMail, VirusTotal, ILovePDF).
+  4. `student-survival`: **College Study & Productivity Pack** (4 tools: Canva, AnkiWeb, Pomofocus, Wolfram|Alpha).
+  5. `ws101`: **WS101: Web Dev Starter Pack** (6 tools: Tailwind CDN, PDO connection, JSONPlaceholder, Tabler Icons, Coolors, DevDocs).
   2. `cs201-dsa`: **CS201: Data Structures in C++** (4 tools: STL Vector, VisuAlgo, Big-O Cheatsheet, Clang-Format).
   3. `git-survival`: **Git & GitHub Lab Survival** (4 tools: Feature branch workflow, SSH setup, .gitignore, Soft reset).
   4. `hackathon-private`: **Personal Hackathon Boilerplate** (Contains an intentional 404 Stripe docs link for testing the auto-fix drawer).
@@ -217,11 +220,9 @@ Stac.crate/
 
 ---
 
-## 🎓 Academic Details & Attribution
+## 🎓 Project Details & Attribution
 
 - **Project**: WS101 Finals Project — Web Systems & Technologies
-- **Curriculum**: Bachelor of Science in Information Technology (BSIT, 2nd Year)
-- **Institution**: Holy Name University (HNU) · College of Computer Studies, Tagbilaran City, Bohol, Philippines
 - **Author & GitHub Account**: [Chakeyy](https://github.com/Chakeyy) (`@Chakeyy`)
 - **Demo Persona**: Charles Sevilla (`@charles` · `charles.sevilla@hnu.edu.ph`)
 - **Live Deployment**: [https://chakeyy.github.io/Stac.crate/](https://chakeyy.github.io/Stac.crate/)

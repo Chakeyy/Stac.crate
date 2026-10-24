@@ -2187,6 +2187,71 @@ code, kbd, pre {
   margin-top: auto;
 }
 
+.tool-kind-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.kind-app {
+  background-color: #EEF2FF;
+  color: #4F46E5;
+  border: 1px solid #C7D2FE;
+}
+
+.kind-resource {
+  background-color: #ECFDF5;
+  color: #047857;
+  border: 1px solid #A7F3D0;
+}
+
+.kind-template {
+  background-color: #FFFBEB;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+}
+
+.kind-guide {
+  background-color: #F5F3FF;
+  color: #6D28D9;
+  border: 1px solid #DDD6FE;
+}
+
+.tool-link-payload {
+  background-color: var(--surface-muted);
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--ink);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  min-width: 0;
+}
+
+.tool-url-preview {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--ink-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.tool-payload-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
 /* === DASHBOARD VAULT VIEW === */
 .dashboard-header-row {
   display: flex;
@@ -3703,6 +3768,15 @@ code, kbd, pre {
   .crate-card-hero {
     height: 88px;
     padding: 0 14px;
+  }
+  .tool-link-payload {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .tool-payload-buttons {
+    width: 100%;
+    justify-content: flex-end;
   }
   .crate-header-title-row {
     flex-wrap: wrap;
