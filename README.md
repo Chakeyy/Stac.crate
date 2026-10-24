@@ -32,31 +32,32 @@ In undergraduate computer science and IT lab courses, students constantly lose t
 - **Pack Tools & Snippets**: Group CDN scripts, PDO connections, boilerplate templates, and mock API endpoints into clean, shareable crates.
 - **Link Health Monitoring**: Verify HTTP status codes (`200 OK`) and alert on deprecated or broken links (`404 Alert`) before lab submissions and grading.
 - **1-Click Forking & Raw Copying**: Clone classmates' crates directly to your personal vault with attribution preserved, or copy snippets with one click.
+- **Intentional Dark & Light Themes**: Crafted Warm Paper & Ink light mode and Warm Espresso & Obsidian dark mode with seamless system preference sync, smooth SVG icon animations, and zero-flash initialization.
 - **Global Command Palette (`⌘K` / `Ctrl+K`)**: Rapidly search across all tools, crates, categories, and snippets from anywhere in the app.
 - **Zero-Dependency Architecture**: Built entirely with pure vanilla HTML5, CSS3 custom properties, and modern ES6+ JavaScript, persisting all state to `localStorage`.
 
 ---
 
-## 🎨 Design System: Warm Paper & Ink
+## 🎨 Design System: Warm Paper (Light) & Espresso Obsidian (Dark)
 
-The user interface follows an editorial, minimalist **Warm Paper & Ink** design token specification inspired by high-quality stationery and clean developer documentation:
+The user interface follows an editorial, craft-inspired design system with carefully tuned light and dark palettes:
 
-| Token | Hex Value | Role |
-|---|---|---|
-| `--bg` | `#F7F7F4` | Warm paper base canvas background |
-| `--surface` | `#FFFFFF` | Primary card and modal container surface |
-| `--surface-subtle` | `#FBFBF9` | Secondary card background and hover states |
-| `--surface-muted` | `#EFEFEA` | Input backgrounds, code blocks, and chip pills |
-| `--border` | `#E4E4DC` | Crisp hairline dividers |
-| `--border-strong` | `#D6D6CE` | Interactive borders, card borders, and input outlines |
-| `--ink` | `#1C1917` | High-contrast dark typography & primary dark buttons |
-| `--ink-secondary` | `#57534E` | Body copy, secondary text, and descriptive labels |
-| `--ink-muted` | `#78716C` | Metadata, timestamps, and placeholder hints |
-| `--accent` | `#C2410C` | Warm terracotta brand highlight and primary actions |
-| `--accent-bg` | `#FFF7ED` | Subtle terracotta tint for callouts and active pills |
-| `--green` | `#15803D` | 200 OK Verified Alive status badge |
-| `--red` | `#DC2626` | 404 Deprecated link alert |
-| `--blue` | `#0284C7` | Informational highlights and category badges |
+| Token | Light Value | Dark Value | Role |
+|---|---|---|---|
+| `--bg` | `#F7F7F4` | `#121110` | Base canvas background |
+| `--surface` | `#FFFFFF` | `#1A1816` | Card and modal container surface |
+| `--surface-subtle` | `#FBFBF9` | `#22201D` | Secondary nested row background & hover |
+| `--surface-muted` | `#EFEFEA` | `#2C2A26` | Input background, chip pills & filters |
+| `--border` | `#E4E4DC` | `#2D2A26` | Hairline dividers & borders |
+| `--border-strong` | `#D6D6CE` | `#44403B` | Interactive borders & focus outlines |
+| `--ink` | `#1C1917` | `#F5F4F0` | High-contrast primary typography |
+| `--ink-secondary` | `#57534E` | `#A8A29E` | Secondary body copy and labels |
+| `--ink-muted` | `#78716C` | `#78716C` | Metadata, timestamps, and placeholder hints |
+| `--accent` | `#C2410C` | `#F97316` | Luminous terracotta brand highlight |
+| `--accent-bg` | `#FFF7ED` | `rgba(249,115,22,0.14)` | Terracotta tint for callouts & badges |
+| `--green` | `#15803D` | `#34D399` | 200 OK Verified Alive status badge |
+| `--red` | `#DC2626` | `#F87171` | 404 Deprecated link alert |
+| `--blue` | `#0284C7` | `#38BDF8` | Informational highlights |
 
 ---
 

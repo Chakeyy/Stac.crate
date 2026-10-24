@@ -1353,6 +1353,9 @@ function renderNavbar() {
           <button class="dropdown-item" id="menu-item-explore" type="button">
             <span class="menu-icon">🧭</span> Explore All Crates
           </button>
+          <button class="dropdown-item" id="menu-item-theme" type="button">
+            <span class="menu-icon">${getCurrentTheme() === "dark" ? "☀️" : "🌙"}</span> Theme: ${getCurrentTheme() === "dark" ? "Dark (Switch to Light)" : "Light (Switch to Dark)"}
+          </button>
           <div class="dropdown-divider"></div>
           <button class="dropdown-item text-danger" id="menu-item-signout" type="button">
             <span class="menu-icon">🚪</span> Sign Out
@@ -1428,6 +1431,14 @@ function renderNavbar() {
       });
     }
 
+    const itemTheme = document.getElementById("menu-item-theme");
+    if (itemTheme) {
+      itemTheme.addEventListener("click", () => {
+        closeUserDropdown();
+        toggleTheme();
+      });
+    }
+
     const itemSignout = document.getElementById("menu-item-signout");
     if (itemSignout) {
       itemSignout.addEventListener("click", () => {
@@ -1493,6 +1504,8 @@ function renderNavbar() {
       exploreMobilePill.classList.remove("active");
     }
   }
+
+  updateThemeToggleButtons(getCurrentTheme());
 }
 
 function closeUserDropdown() {
@@ -3124,8 +3137,83 @@ function renderAllViews() {
   attachCopyButtons(document);
 }
 
+// === THEME SYSTEM ===
+const THEME_STORAGE_KEY = "stac_crate_theme";
+
+function getCurrentTheme() {
+  const stored = localStorage.getItem(THEME_STORAGE_KEY);
+  if (stored === "dark" || stored === "light") return stored;
+  if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    return "dark";
+  }
+  return "light";
+}
+
+function applyTheme(theme, persist = true) {
+  if (persist) {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }
+  document.documentElement.setAttribute("data-theme", theme);
+  updateThemeToggleButtons(theme);
+}
+
+function toggleTheme() {
+  const current = getCurrentTheme();
+  const next = current === "dark" ? "light" : "dark";
+  applyTheme(next, true);
+  showToast(`Switched to ${next === "dark" ? "Dark" : "Light"} mode`, "normal");
+}
+
+function updateThemeToggleButtons(theme) {
+  const isDark = theme === "dark";
+  const toggleBtn = document.getElementById("theme-toggle-btn");
+  if (toggleBtn) {
+    toggleBtn.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+    toggleBtn.setAttribute("title", isDark ? "Switch to light mode" : "Switch to dark mode");
+    toggleBtn.setAttribute("aria-pressed", isDark ? "true" : "false");
+  }
+  const footerToggle = document.getElementById("footer-theme-toggle");
+  if (footerToggle) {
+    const label = footerToggle.querySelector(".footer-theme-label") || footerToggle;
+    label.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+  }
+  const dropdownThemeItem = document.getElementById("menu-item-theme");
+  if (dropdownThemeItem) {
+    dropdownThemeItem.innerHTML = `<span class="menu-icon">${isDark ? "☀️" : "🌙"}</span> Theme: ${isDark ? "Dark (Switch to Light)" : "Light (Switch to Dark)"}`;
+  }
+}
+
+function setupThemeEvents() {
+  const initialTheme = getCurrentTheme();
+  applyTheme(initialTheme, false);
+
+  const toggleBtn = document.getElementById("theme-toggle-btn");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      toggleTheme();
+    });
+  }
+
+  const footerToggle = document.getElementById("footer-theme-toggle");
+  if (footerToggle) {
+    footerToggle.addEventListener("click", () => {
+      toggleTheme();
+    });
+  }
+
+  if (window.matchMedia) {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+      const stored = localStorage.getItem(THEME_STORAGE_KEY);
+      if (!stored) {
+        applyTheme(e.matches ? "dark" : "light", false);
+      }
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   loadStateFromStorage();
+  setupThemeEvents();
   setupNavbarEvents();
   setupAuthForms();
   setupExploreEvents();
