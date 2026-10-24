@@ -9,6 +9,143 @@ const DEFAULT_USER = {
   profileViews: 348
 };
 
+const CURATORS = {
+  "@charles": {
+    name: "Charles Sevilla",
+    handle: "@charles",
+    initials: "CS",
+    role: "BSIT Sophomore · Holy Name University (HNU)",
+    bio: "BSIT Sophomore · Holy Name University (HNU) · Curating Web Systems & backend starter packs.",
+    email: "charles.sevilla@hnu.edu.ph",
+    pinnedSnippets: [
+      {
+        title: "Tailwind Play CDN (HTML Head)",
+        code: '<script src="https://cdn.tailwindcss.com"></script>'
+      },
+      {
+        title: "PHP PDO MySQL Strict Connection",
+        code: '$pdo = new PDO("mysql:host=localhost;dbname=app", "root", "");'
+      },
+      {
+        title: "JSONPlaceholder Fetch Template",
+        code: "fetch('https://jsonplaceholder.typicode.com/posts/1').then(r => r.json()).then(console.log);"
+      }
+    ]
+  },
+  "@dev_miko": {
+    name: "Miko Santos",
+    handle: "@dev_miko",
+    initials: "MS",
+    role: "BSIT Junior · Holy Name University (HNU)",
+    bio: "BSIT Junior · Holy Name University (HNU) · Building zero-budget REST APIs and backend tools.",
+    email: "miko.santos@hnu.edu.ph",
+    pinnedSnippets: [
+      {
+        title: "DummyJSON Mock Products Endpoint",
+        code: "https://dummyjson.com/products"
+      },
+      {
+        title: "Open-Meteo Weather API (Tagbilaran)",
+        code: "https://api.open-meteo.com/v1/forecast?latitude=9.64&longitude=123.85&current_weather=true"
+      },
+      {
+        title: "ipapi JSON Geolocation Lookup",
+        code: "https://ipapi.co/json/"
+      }
+    ]
+  },
+  "@alyssa_ui": {
+    name: "Alyssa Cruz",
+    handle: "@alyssa_ui",
+    initials: "AC",
+    role: "BSIT Sophomore · Holy Name University (HNU)",
+    bio: "BSIT Sophomore · Holy Name University (HNU) · Designing minimalist UI kits, SVG icons, and CSS systems.",
+    email: "alyssa.cruz@hnu.edu.ph",
+    pinnedSnippets: [
+      {
+        title: "Lucide Clean SVG Icon Template",
+        code: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'
+      },
+      {
+        title: "Inter + JetBrains Mono Web Font Stack",
+        code: '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">'
+      },
+      {
+        title: "CSS Shadow Elevation Tokens",
+        code: "--shadow-sm: 0 1px 2px rgba(0,0,0,0.05); --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);"
+      }
+    ]
+  },
+  "@carlos_tech": {
+    name: "Carlos Reyes",
+    handle: "@carlos_tech",
+    initials: "CR",
+    role: "BSIT Senior · Holy Name University (HNU)",
+    bio: "BSIT Senior · Holy Name University (HNU) · PHP, PDO database security, and SQL query optimization.",
+    email: "carlos.reyes@hnu.edu.ph",
+    pinnedSnippets: [
+      {
+        title: "PHP password_hash & verify Pattern",
+        code: "$hash = password_hash($password, PASSWORD_BCRYPT);\nif (password_verify($password, $hash)) { return true; }"
+      },
+      {
+        title: "PDO Bound Parameter SELECT",
+        code: "$stmt = $pdo->prepare('SELECT id, name FROM users WHERE email = :email');\n$stmt->execute([':email' => $email]);"
+      },
+      {
+        title: "Strict Session Cookie Headers",
+        code: "session_set_cookie_params(['lifetime' => 86400, 'path' => '/', 'httponly' => true, 'samesite' => 'Strict']);"
+      }
+    ]
+  },
+  "@sarah_codes": {
+    name: "Sarah Lim",
+    handle: "@sarah_codes",
+    initials: "SL",
+    role: "BSIT Sophomore · Holy Name University (HNU)",
+    bio: "BSIT Sophomore · Holy Name University (HNU) · Frontend layout architecture, CSS Grid, and responsive design.",
+    email: "sarah.lim@hnu.edu.ph",
+    pinnedSnippets: [
+      {
+        title: "CSS Grid Auto-Fit Responsive Columns",
+        code: "grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\ngap: 16px;"
+      },
+      {
+        title: "Modern Sticky Bottom Footer Pattern",
+        code: "body { min-height: 100vh; display: flex; flex-direction: column; }\nmain { flex: 1; }"
+      },
+      {
+        title: "Clamp Responsive Typography Formula",
+        code: "font-size: clamp(1rem, 0.8rem + 1vw, 1.5rem);"
+      }
+    ]
+  },
+  "@miguel_data": {
+    name: "Miguel Tan",
+    handle: "@miguel_data",
+    initials: "MT",
+    role: "BSIT Junior · Holy Name University (HNU)",
+    bio: "BSIT Junior · Holy Name University (HNU) · Open Philippine datasets, GeoJSON, and civic tech APIs.",
+    email: "miguel.tan@hnu.edu.ph",
+    pinnedSnippets: [
+      {
+        title: "PSGC Philippine Regions API Endpoint",
+        code: "https://psgc.gitlab.io/api/regions/"
+      },
+      {
+        title: "Leaflet Map Philippine Initializer",
+        code: "const map = L.map('map').setView([12.8797, 121.7740], 6);\nL.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);"
+      },
+      {
+        title: "PAGASA Tropical Cyclone GeoJSON",
+        code: "https://bagong.pagasa.dost.gov.ph/weather/tropical-cyclone-bulletin"
+      }
+    ]
+  }
+};
+
+const DEFAULT_STARRED_TOOL_IDS = ["t1", "t2", "t3", "t4", "t5", "t6"];
+
 const DEFAULT_CRATES = [
   {
     id: "ws101",
@@ -525,10 +662,13 @@ const STORAGE_KEY = "stac_crate_vault_v1";
 
 // === APPLICATION STATE ===
 const state = {
+  isAuthenticated: false,
   user: null,
   crates: [],
+  starredToolIds: [],
   activeView: "landing",
   activeCrateId: "ws101",
+  activeProfileHandle: "@charles",
   exploreCategory: "All",
   exploreAliveOnly: false,
   exploreSearchQuery: "",
@@ -544,23 +684,29 @@ function loadStateFromStorage() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      state.user = parsed.user || DEFAULT_USER;
+      state.isAuthenticated = parsed.isAuthenticated === true;
+      state.user = parsed.user || { ...DEFAULT_USER };
       state.crates = Array.isArray(parsed.crates) && parsed.crates.length > 0 ? parsed.crates : DEFAULT_CRATES;
+      state.starredToolIds = Array.isArray(parsed.starredToolIds) ? parsed.starredToolIds : [...DEFAULT_STARRED_TOOL_IDS];
       return;
     }
   } catch (error) {
     console.error(error);
   }
+  state.isAuthenticated = false;
   state.user = { ...DEFAULT_USER };
   state.crates = JSON.parse(JSON.stringify(DEFAULT_CRATES));
+  state.starredToolIds = [...DEFAULT_STARRED_TOOL_IDS];
   saveStateToStorage();
 }
 
 function saveStateToStorage() {
   try {
     const payload = {
+      isAuthenticated: state.isAuthenticated,
       user: state.user,
-      crates: state.crates
+      crates: state.crates,
+      starredToolIds: state.starredToolIds
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
   } catch (error) {
@@ -570,11 +716,16 @@ function saveStateToStorage() {
 
 function resetDemoData() {
   localStorage.removeItem(STORAGE_KEY);
+  state.isAuthenticated = false;
   state.user = { ...DEFAULT_USER };
   state.crates = JSON.parse(JSON.stringify(DEFAULT_CRATES));
+  state.starredToolIds = [...DEFAULT_STARRED_TOOL_IDS];
+  state.activeProfileHandle = "@charles";
+  state.dashboardTab = "my-crates";
   saveStateToStorage();
   showToast("Demo data reset to factory default!", "success");
   renderAllViews();
+  navigateTo("landing");
 }
 
 // === CLIPBOARD & TOAST SYSTEM ===
@@ -633,17 +784,45 @@ function handleCopySuccess(triggerButton) {
     const originalText = triggerButton.getAttribute("data-original-text") || triggerButton.textContent;
     triggerButton.setAttribute("data-original-text", originalText);
     triggerButton.textContent = "✓ Copied";
-    triggerButton.style.backgroundColor = "var(--green-bg)";
-    triggerButton.style.borderColor = "var(--green-border)";
-    triggerButton.style.color = "var(--green)";
+    triggerButton.classList.add("btn-copied");
 
     setTimeout(() => {
       triggerButton.textContent = originalText;
-      triggerButton.style.backgroundColor = "";
-      triggerButton.style.borderColor = "";
-      triggerButton.style.color = "";
+      triggerButton.classList.remove("btn-copied");
     }, 1800);
   }
+}
+
+function toggleStarTool(toolId) {
+  if (!toolId) return;
+  const idx = state.starredToolIds.indexOf(toolId);
+  if (idx >= 0) {
+    state.starredToolIds.splice(idx, 1);
+    showToast("Removed from Starred Tools", "normal");
+  } else {
+    state.starredToolIds.push(toolId);
+    showToast("★ Added to Starred Tools!", "success");
+  }
+  saveStateToStorage();
+}
+
+function getStarredTools() {
+  const list = [];
+  const seenIds = new Set();
+  state.crates.forEach(crate => {
+    (crate.tools || []).forEach(tool => {
+      if (state.starredToolIds.includes(tool.id) && !seenIds.has(tool.id)) {
+        seenIds.add(tool.id);
+        list.push({
+          ...tool,
+          crateTitle: crate.title,
+          crateId: crate.id,
+          crateHandle: crate.handle
+        });
+      }
+    });
+  });
+  return list;
 }
 
 // === ROUTING & NAVIGATION ===
@@ -656,6 +835,9 @@ function navigateTo(viewName, param = null) {
   if (viewName === "crate") {
     if (param) state.activeCrateId = param;
     state.crateCategoryFilter = "All";
+  } else if (viewName === "profile") {
+    state.activeProfileHandle = param || state.activeProfileHandle || "@charles";
+    state.profileTab = "published";
   }
 
   document.querySelectorAll(".view-panel").forEach(panel => {
@@ -663,7 +845,7 @@ function navigateTo(viewName, param = null) {
   });
   targetView.classList.add("active");
 
-  updateNavActiveLinks();
+  renderNavbar();
 
   if (viewName === "landing") renderLandingView();
   else if (viewName === "explore") renderExploreView();
@@ -674,72 +856,213 @@ function navigateTo(viewName, param = null) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function updateNavActiveLinks() {
-  document.querySelectorAll(".nav-link").forEach(link => {
-    const v = link.getAttribute("data-view");
-    if (v === state.activeView) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
+// === NAVBAR RENDERING ===
+function renderNavbar() {
+  const navLinks = document.getElementById("nav-links-section");
+  const authContainer = document.getElementById("nav-auth-container");
+  if (!navLinks || !authContainer) return;
 
-  renderNavAuthArea();
-}
-
-function renderNavAuthArea() {
-  const container = document.getElementById("nav-auth-container");
-  if (!container) return;
-
-  if (state.user) {
-    container.innerHTML = `
-      <div class="nav-user-pill" id="nav-user-profile-btn" title="View Public Profile">
-        <span class="user-avatar-xs">${state.user.initials || "CS"}</span>
-        <span>@${state.user.handle}</span>
-      </div>
-      <a href="#dashboard" class="btn btn-xs btn-outline nav-extra-link">Dashboard</a>
-      <button type="button" class="btn-out" id="nav-btn-logout" title="Sign Out">Out</button>
+  if (state.isAuthenticated) {
+    navLinks.innerHTML = `
+      <a href="#explore" class="nav-link ${state.activeView === "explore" ? "active" : ""}" data-view="explore">Explore</a>
+      <a href="#dashboard" class="nav-link ${state.activeView === "dashboard" ? "active" : ""}" data-view="dashboard">My Vault</a>
+      <a href="#profile" class="nav-link ${state.activeView === "profile" && state.activeProfileHandle === "@charles" ? "active" : ""}" data-view="profile" data-handle="@charles">Public Profile</a>
     `;
 
-    const profilePill = document.getElementById("nav-user-profile-btn");
-    if (profilePill) {
-      profilePill.addEventListener("click", () => navigateTo("profile"));
+    authContainer.innerHTML = `
+      <button class="btn btn-sm btn-outline nav-new-crate-btn" id="nav-btn-new-crate" type="button">+ New Crate</button>
+      <div class="user-menu-wrapper" id="user-menu-wrapper">
+        <button class="nav-user-dropdown-btn" id="nav-user-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="user-avatar-xs">${state.user.initials || "CS"}</span>
+          <span class="user-handle-desktop">@${state.user.handle || "charles"}</span>
+          <span class="dropdown-chevron">▾</span>
+        </button>
+        <div class="user-dropdown-menu" id="user-dropdown-menu" aria-hidden="true">
+          <div class="dropdown-user-header">
+            <span class="dropdown-user-name">${escapeHtml(state.user.name || "Charles Sevilla")}</span>
+            <span class="dropdown-user-email">${escapeHtml(state.user.email || "charles.sevilla@hnu.edu.ph")}</span>
+          </div>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" id="menu-item-profile" type="button">
+            <span class="menu-icon">👤</span> Public Profile (@${state.user.handle || "charles"})
+          </button>
+          <button class="dropdown-item" id="menu-item-vault" type="button">
+            <span class="menu-icon">📦</span> My Vault (Dashboard)
+          </button>
+          <button class="dropdown-item" id="menu-item-starred" type="button">
+            <span class="menu-icon">⭐</span> Starred Tools
+          </button>
+          <button class="dropdown-item" id="menu-item-new-crate" type="button">
+            <span class="menu-icon">➕</span> Create New Crate
+          </button>
+          <button class="dropdown-item" id="menu-item-explore" type="button">
+            <span class="menu-icon">🧭</span> Explore All Crates
+          </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item text-danger" id="menu-item-signout" type="button">
+            <span class="menu-icon">🚪</span> Sign Out
+          </button>
+        </div>
+      </div>
+    `;
+
+    const newCrateBtn = document.getElementById("nav-btn-new-crate");
+    if (newCrateBtn) {
+      newCrateBtn.addEventListener("click", () => openCreateEditModal(null));
     }
 
-    const logoutBtn = document.getElementById("nav-btn-logout");
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", () => {
-        state.user = null;
+    const dropdownBtn = document.getElementById("nav-user-dropdown-btn");
+    const dropdownMenu = document.getElementById("user-dropdown-menu");
+    const userMenuWrapper = document.getElementById("user-menu-wrapper");
+
+    if (dropdownBtn && dropdownMenu && userMenuWrapper) {
+      dropdownBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = dropdownMenu.classList.contains("open");
+        if (isOpen) {
+          dropdownMenu.classList.remove("open");
+          userMenuWrapper.classList.remove("open");
+          dropdownBtn.setAttribute("aria-expanded", "false");
+        } else {
+          dropdownMenu.classList.add("open");
+          userMenuWrapper.classList.add("open");
+          dropdownBtn.setAttribute("aria-expanded", "true");
+        }
+      });
+    }
+
+    const itemProfile = document.getElementById("menu-item-profile");
+    if (itemProfile) {
+      itemProfile.addEventListener("click", () => {
+        closeUserDropdown();
+        navigateTo("profile", "@charles");
+      });
+    }
+
+    const itemVault = document.getElementById("menu-item-vault");
+    if (itemVault) {
+      itemVault.addEventListener("click", () => {
+        closeUserDropdown();
+        state.dashboardTab = "my-crates";
+        navigateTo("dashboard");
+      });
+    }
+
+    const itemStarred = document.getElementById("menu-item-starred");
+    if (itemStarred) {
+      itemStarred.addEventListener("click", () => {
+        closeUserDropdown();
+        state.dashboardTab = "starred";
+        navigateTo("dashboard");
+      });
+    }
+
+    const itemNewCrate = document.getElementById("menu-item-new-crate");
+    if (itemNewCrate) {
+      itemNewCrate.addEventListener("click", () => {
+        closeUserDropdown();
+        openCreateEditModal(null);
+      });
+    }
+
+    const itemExplore = document.getElementById("menu-item-explore");
+    if (itemExplore) {
+      itemExplore.addEventListener("click", () => {
+        closeUserDropdown();
+        navigateTo("explore");
+      });
+    }
+
+    const itemSignout = document.getElementById("menu-item-signout");
+    if (itemSignout) {
+      itemSignout.addEventListener("click", () => {
+        closeUserDropdown();
+        state.isAuthenticated = false;
         saveStateToStorage();
-        renderNavAuthArea();
+        renderNavbar();
+        showToast("Signed out of Stac.crate", "normal");
         navigateTo("landing");
-        showToast("Signed out of Stac.crate");
       });
     }
   } else {
-    container.innerHTML = `
-      <a href="#signin" class="btn btn-xs btn-outline">Sign In</a>
-      <a href="#signup" class="btn btn-xs btn-accent nav-extra-link">Claim Handle →</a>
+    navLinks.innerHTML = `
+      <a href="#explore" class="nav-link ${state.activeView === "explore" ? "active" : ""}" data-view="explore">Explore</a>
+      <a href="#how-it-works" class="nav-link" id="nav-link-how-it-works">How It Works</a>
     `;
-  }
-}
 
-// === NAVBAR RENDERING ===
-function setupNavbarEvents() {
-  document.querySelectorAll(".nav-link").forEach(link => {
+    authContainer.innerHTML = `
+      <a href="#signin" class="btn btn-sm btn-ghost nav-auth-signin ${state.activeView === "signin" ? "active" : ""}" data-view="signin">Sign In</a>
+      <a href="#signup" class="btn btn-sm btn-primary nav-auth-claim ${state.activeView === "signup" ? "active" : ""}" data-view="signup">Claim Handle →</a>
+    `;
+
+    const howItWorksLink = document.getElementById("nav-link-how-it-works");
+    if (howItWorksLink) {
+      howItWorksLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (state.activeView !== "landing") {
+          navigateTo("landing");
+          setTimeout(() => {
+            const section = document.getElementById("how-it-works");
+            if (section) section.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        } else {
+          const section = document.getElementById("how-it-works");
+          if (section) section.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
+
+    authContainer.querySelectorAll("[data-view]").forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const v = link.getAttribute("data-view");
+        navigateTo(v);
+      });
+    });
+  }
+
+  navLinks.querySelectorAll("[data-view]").forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      const view = link.getAttribute("data-view");
-      const crateId = link.getAttribute("data-crate-id");
-      navigateTo(view, crateId);
+      const v = link.getAttribute("data-view");
+      const handle = link.getAttribute("data-handle");
+      navigateTo(v, handle);
     });
   });
 
+  const exploreMobilePill = document.querySelector(".nav-explore-pill");
+  if (exploreMobilePill) {
+    if (state.activeView === "explore") {
+      exploreMobilePill.classList.add("active");
+    } else {
+      exploreMobilePill.classList.remove("active");
+    }
+  }
+}
+
+function closeUserDropdown() {
+  const menu = document.getElementById("user-dropdown-menu");
+  const wrapper = document.getElementById("user-menu-wrapper");
+  const btn = document.getElementById("nav-user-dropdown-btn");
+  if (menu) menu.classList.remove("open");
+  if (wrapper) wrapper.classList.remove("open");
+  if (btn) btn.setAttribute("aria-expanded", "false");
+}
+
+function setupNavbarEvents() {
   const logo = document.getElementById("brand-logo");
   if (logo) {
     logo.addEventListener("click", (e) => {
       e.preventDefault();
       navigateTo("landing");
+    });
+  }
+
+  const exploreMobilePill = document.querySelector(".nav-explore-pill");
+  if (exploreMobilePill) {
+    exploreMobilePill.addEventListener("click", (e) => {
+      e.preventDefault();
+      navigateTo("explore");
     });
   }
 
@@ -758,11 +1081,20 @@ function renderLandingView() {
   trendingGrid.innerHTML = featured.map(crate => generateCrateCardHtml(crate)).join("");
 
   trendingGrid.querySelectorAll(".crate-card").forEach(card => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".author-link") || e.target.closest(".copy-trigger")) return;
       const cid = card.getAttribute("data-id");
       navigateTo("crate", cid);
     });
   });
+
+  const heroMockup = document.getElementById("hero-live-mockup");
+  if (heroMockup) {
+    heroMockup.onclick = (e) => {
+      if (e.target.closest(".copy-trigger") || e.target.closest(".author-link")) return;
+      navigateTo("crate", "ws101");
+    };
+  }
 
   const handleInput = document.getElementById("landing-handle-input");
   const handleStatus = document.getElementById("landing-handle-status");
@@ -827,7 +1159,7 @@ function generateCrateCardHtml(crate) {
       <div class="crate-card-footer">
         <div class="crate-card-author">
           <span class="author-avatar-sm">${escapeHtml(crate.authorInitials || "CS")}</span>
-          <span>${escapeHtml(crate.handle)}</span>
+          <span class="author-link" data-handle="${escapeHtml(crate.handle)}">${escapeHtml(crate.handle)}</span>
         </div>
         <div class="crate-card-forks">
           <span>🍴 ${crate.forks || 0}</span>
@@ -843,9 +1175,10 @@ function setupAuthForms() {
   if (formSignIn) {
     formSignIn.addEventListener("submit", () => {
       const email = document.getElementById("signin-email").value.trim();
+      state.isAuthenticated = true;
       state.user = { ...DEFAULT_USER, email: email || DEFAULT_USER.email };
       saveStateToStorage();
-      renderNavAuthArea();
+      renderNavbar();
       navigateTo("dashboard");
       showToast(`Welcome back, ${state.user.name}!`, "success");
     });
@@ -859,9 +1192,10 @@ function setupAuthForms() {
       const email = document.getElementById("signup-email").value.trim() || DEFAULT_USER.email;
       const initials = name.split(" ").map(w => w[0]).join("").substring(0, 2).toUpperCase() || "CS";
 
+      state.isAuthenticated = true;
       state.user = {
         name,
-        handle,
+        handle: handle.replace("@", ""),
         email,
         initials,
         role: "BSIT Sophomore · Holy Name University (HNU)",
@@ -869,9 +1203,9 @@ function setupAuthForms() {
         profileViews: 1
       };
       saveStateToStorage();
-      renderNavAuthArea();
+      renderNavbar();
       navigateTo("dashboard");
-      showToast(`Account @${handle} registered successfully!`, "success");
+      showToast(`Account @${state.user.handle} registered successfully!`, "success");
     });
   }
 
@@ -933,7 +1267,8 @@ function renderExploreView() {
   grid.innerHTML = filtered.map(c => generateCrateCardHtml(c)).join("");
 
   grid.querySelectorAll(".crate-card").forEach(card => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".author-link") || e.target.closest(".copy-trigger")) return;
       const cid = card.getAttribute("data-id");
       navigateTo("crate", cid);
     });
@@ -982,7 +1317,10 @@ function renderCrateDetailView() {
 
   const breadHandle = document.getElementById("crate-bread-handle");
   const breadSlug = document.getElementById("crate-bread-slug");
-  if (breadHandle) breadHandle.textContent = crate.handle;
+  if (breadHandle) {
+    breadHandle.textContent = crate.handle;
+    breadHandle.setAttribute("data-handle", crate.handle);
+  }
   if (breadSlug) breadSlug.textContent = crate.slug || crate.id;
 
   const titleEl = document.getElementById("crate-detail-title");
@@ -1001,7 +1339,7 @@ function renderCrateDetailView() {
   const isAllHealthy = healthyCount === tools.length && tools.length > 0;
 
   if (metaEl) {
-    metaEl.innerHTML = `Curated by ${escapeHtml(crate.authorName || "Charles Sevilla")} (${escapeHtml(crate.handle)}) · Updated ${escapeHtml(crate.updatedAt || "recently")} · <span class="${isAllHealthy ? "alive-dot" : "alert-dot-red"}"></span> ${healthyCount}/${tools.length} links healthy`;
+    metaEl.innerHTML = `Curated by <span class="author-link" data-handle="${escapeHtml(crate.handle)}">${escapeHtml(crate.authorName || "Charles Sevilla")} (${escapeHtml(crate.handle)})</span> · Updated ${escapeHtml(crate.updatedAt || "recently")} · <span class="${isAllHealthy ? "alive-dot" : "alert-dot-red"}"></span> ${healthyCount}/${tools.length} links healthy`;
   }
 
   const copyUrlBtn = document.getElementById("crate-copy-url-btn");
@@ -1061,27 +1399,54 @@ function renderCrateToolsGrid(tools) {
     return;
   }
 
-  grid.innerHTML = filtered.map(t => `
-    <div class="tool-card">
-      <div class="tool-card-header">
-        <div class="tool-name-group">
-          <span class="${t.healthy ? "alive-dot" : "alert-dot-red"}"></span>
-          <h3 class="tool-card-name">${escapeHtml(t.name)}</h3>
-          <span class="tool-category-badge">${escapeHtml(t.category || "General")}</span>
+  grid.innerHTML = filtered.map(t => {
+    const isStarred = state.starredToolIds.includes(t.id);
+    return `
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-name-group">
+            <span class="${t.healthy ? "alive-dot" : "alert-dot-red"}"></span>
+            <h3 class="tool-card-name">${escapeHtml(t.name)}</h3>
+            <span class="tool-category-badge">${escapeHtml(t.category || "General")}</span>
+          </div>
+          <div class="tool-card-actions">
+            <button type="button" class="tool-star-btn ${isStarred ? "starred" : ""}" data-tool-id="${escapeHtml(t.id)}" title="${isStarred ? "Remove from Starred" : "Star this tool"}">
+              <span class="star-icon">${isStarred ? "★" : "☆"}</span>
+              <span class="star-label">${isStarred ? "Starred" : "Star"}</span>
+            </button>
+            ${t.docsUrl ? `<a href="${escapeHtml(t.docsUrl)}" target="_blank" rel="noopener" class="tool-docs-link">Docs ↗</a>` : ""}
+          </div>
         </div>
-        ${t.docsUrl ? `<a href="${escapeHtml(t.docsUrl)}" target="_blank" rel="noopener" class="tool-docs-link">Docs ↗</a>` : ""}
+
+        <p class="tool-card-desc">${escapeHtml(t.desc || "")}</p>
+
+        <div class="tool-snippet-block">
+          <code class="tool-code">${escapeHtml(t.snippet || "")}</code>
+          <button class="btn btn-xs btn-outline copy-trigger" data-copy="${escapeHtml(t.snippet || "")}">Copy</button>
+        </div>
+
+        ${t.tip ? `<div class="tool-tip-box">💡 ${escapeHtml(t.tip)}</div>` : ""}
       </div>
+    `;
+  }).join("");
 
-      <p class="tool-card-desc">${escapeHtml(t.desc || "")}</p>
+  grid.querySelectorAll(".tool-star-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const tid = btn.getAttribute("data-tool-id");
+      toggleStarTool(tid);
+      const isStarred = state.starredToolIds.includes(tid);
+      btn.classList.toggle("starred", isStarred);
+      const icon = btn.querySelector(".star-icon");
+      const label = btn.querySelector(".star-label");
+      if (icon) icon.textContent = isStarred ? "★" : "☆";
+      if (label) label.textContent = isStarred ? "Starred" : "Star";
+      btn.title = isStarred ? "Remove from Starred" : "Star this tool";
 
-      <div class="tool-snippet-block">
-        <code class="tool-code">${escapeHtml(t.snippet || "")}</code>
-        <button class="btn btn-xs btn-outline copy-trigger" data-copy="${escapeHtml(t.snippet || "")}">Copy</button>
-      </div>
-
-      ${t.tip ? `<div class="tool-tip-box">💡 ${escapeHtml(t.tip)}</div>` : ""}
-    </div>
-  `).join("");
+      const tabStarred = document.getElementById("tab-starred");
+      if (tabStarred) tabStarred.textContent = `Starred Tools (${state.starredToolIds.length})`;
+    });
+  });
 
   attachCopyButtons(grid);
 }
@@ -1089,7 +1454,6 @@ function renderCrateToolsGrid(tools) {
 // === DASHBOARD VAULT VIEW RENDERING ===
 function renderDashboardView() {
   const metricsStrip = document.getElementById("dashboard-metrics-strip");
-  const healthBadge = document.getElementById("dashboard-health-badge");
 
   const myCrates = state.crates.filter(c => c.handle === "@charles");
   const forkedCrates = state.crates.filter(c => c.isForkedByCharles);
@@ -1124,8 +1488,18 @@ function renderDashboardView() {
 
   const tabMyCrates = document.getElementById("tab-my-crates");
   const tabForked = document.getElementById("tab-forked");
+  const tabStarred = document.getElementById("tab-starred");
   if (tabMyCrates) tabMyCrates.textContent = `My Crates (${myCrates.length})`;
   if (tabForked) tabForked.textContent = `Forked from Peers (${forkedCrates.length})`;
+  if (tabStarred) tabStarred.textContent = `Starred Tools (${state.starredToolIds.length})`;
+
+  document.querySelectorAll(".dash-tab").forEach(tab => {
+    if (tab.getAttribute("data-tab") === state.dashboardTab) {
+      tab.classList.add("active");
+    } else {
+      tab.classList.remove("active");
+    }
+  });
 
   renderVaultRows(myCrates, forkedCrates);
 }
@@ -1134,13 +1508,82 @@ function renderVaultRows(myCrates, forkedCrates) {
   const container = document.getElementById("vault-rows-list");
   if (!container) return;
 
+  if (state.dashboardTab === "starred") {
+    const starredTools = getStarredTools();
+    if (starredTools.length === 0) {
+      container.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 48px; background: var(--surface); border-radius: var(--radius-lg); border: 1px dashed var(--border-strong);">
+          <h3 style="font-size: 15px; font-weight: 600; color: var(--ink);">No starred tools yet</h3>
+          <p style="font-size: 13px; color: var(--ink-secondary); margin-top: 4px;">Click the ☆ Star button on any tool in a crate to bookmark it here for instant reference.</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = `
+      <div class="starred-tools-grid">
+        ${starredTools.map(t => `
+          <div class="tool-card starred-item-card">
+            <div class="tool-card-header">
+              <div class="tool-name-group">
+                <span class="${t.healthy ? "alive-dot" : "alert-dot-red"}"></span>
+                <h3 class="tool-card-name">${escapeHtml(t.name)}</h3>
+                <span class="tool-category-badge">${escapeHtml(t.category || "General")}</span>
+              </div>
+              <div class="tool-card-actions">
+                <button type="button" class="tool-star-btn starred" data-tool-id="${escapeHtml(t.id)}" title="Remove from Starred">
+                  <span class="star-icon">★</span>
+                  <span class="star-label">Starred</span>
+                </button>
+                ${t.docsUrl ? `<a href="${escapeHtml(t.docsUrl)}" target="_blank" rel="noopener" class="tool-docs-link">Docs ↗</a>` : ""}
+              </div>
+            </div>
+
+            <div class="starred-origin-row">
+              <span class="origin-label">Saved from:</span>
+              <span class="origin-crate-link" data-crate-id="${escapeHtml(t.crateId)}">${escapeHtml(t.crateTitle)}</span>
+              <span class="origin-sep">·</span>
+              <span class="author-link" data-handle="${escapeHtml(t.crateHandle)}">${escapeHtml(t.crateHandle)}</span>
+            </div>
+
+            <p class="tool-card-desc">${escapeHtml(t.desc || "")}</p>
+
+            <div class="tool-snippet-block">
+              <code class="tool-code">${escapeHtml(t.snippet || "")}</code>
+              <button class="btn btn-xs btn-outline copy-trigger" data-copy="${escapeHtml(t.snippet || "")}">Copy</button>
+            </div>
+
+            ${t.tip ? `<div class="tool-tip-box">💡 ${escapeHtml(t.tip)}</div>` : ""}
+          </div>
+        `).join("")}
+      </div>
+    `;
+
+    container.querySelectorAll(".origin-crate-link").forEach(link => {
+      link.addEventListener("click", () => {
+        const cid = link.getAttribute("data-crate-id");
+        navigateTo("crate", cid);
+      });
+    });
+
+    container.querySelectorAll(".tool-star-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const tid = btn.getAttribute("data-tool-id");
+        toggleStarTool(tid);
+        renderDashboardView();
+      });
+    });
+
+    attachCopyButtons(container);
+    return;
+  }
+
   let activeList = [];
   if (state.dashboardTab === "my-crates") {
     activeList = myCrates;
   } else if (state.dashboardTab === "forked") {
     activeList = forkedCrates;
-  } else if (state.dashboardTab === "starred") {
-    activeList = myCrates.slice(0, 2);
   }
 
   if (activeList.length === 0) {
@@ -1162,7 +1605,7 @@ function renderVaultRows(myCrates, forkedCrates) {
             <span class="${isHealthy ? "alive-dot" : "alert-dot-red"}"></span>
             <span class="vault-row-title" data-crate-id="${crate.id}">${escapeHtml(crate.title)}</span>
             <span class="visibility-pill">${escapeHtml(crate.visibility || "Public")}</span>
-            ${crate.isForkedByCharles ? `<span class="visibility-pill">Forked from ${escapeHtml(crate.forkedFrom || "@peer")}</span>` : ""}
+            ${crate.isForkedByCharles ? `<span class="visibility-pill">Forked from <span class="author-link" data-handle="${escapeHtml(crate.forkedFrom || "@peer")}">${escapeHtml(crate.forkedFrom || "@peer")}</span></span>` : ""}
           </div>
           <div class="vault-row-details">
             <span class="${isHealthy ? "status-alive" : "status-broken"}">
@@ -1255,27 +1698,115 @@ function setupDashboardEvents() {
 
 // === PUBLIC PROFILE VIEW RENDERING ===
 function renderProfileView() {
-  const grid = document.getElementById("profile-crates-grid");
-  if (!grid) return;
+  const handle = state.activeProfileHandle || "@charles";
+  const curator = CURATORS[handle] || {
+    name: handle.replace("@", ""),
+    handle: handle,
+    initials: handle.replace("@", "").substring(0, 2).toUpperCase(),
+    role: "BSIT Student · Holy Name University (HNU)",
+    bio: "Curating starter packs and developer tools at Holy Name University.",
+    email: `${handle.replace("@", "")}@hnu.edu.ph`,
+    pinnedSnippets: []
+  };
 
-  const myCrates = state.crates.filter(c => c.handle === "@charles" && c.visibility === "Public");
-  const forkedCrates = state.crates.filter(c => c.isForkedByCharles);
+  const avatarLarge = document.querySelector(".profile-avatar-large");
+  const nameEl = document.querySelector(".profile-name");
+  const handlePill = document.querySelector(".profile-handle-pill");
+  const bioEl = document.querySelector(".profile-bio");
+  const shareBtn = document.getElementById("profile-share-btn");
+  const statsStrip = document.querySelector(".profile-stats-strip");
+  const pinnedTitle = document.querySelector(".pinned-section-title");
 
-  const activeList = state.profileTab === "published" ? myCrates : forkedCrates;
+  if (avatarLarge) avatarLarge.textContent = curator.initials;
+  if (nameEl) nameEl.textContent = curator.name;
+  if (handlePill) handlePill.textContent = curator.handle;
+  if (bioEl) bioEl.textContent = curator.bio;
+
+  if (shareBtn) {
+    const shareUrl = `stac.crate/${curator.handle}`;
+    shareBtn.setAttribute("data-copy", shareUrl);
+    const span = shareBtn.querySelector("span:not(.copy-pill-badge)");
+    if (span) span.textContent = shareUrl;
+  }
+
+  if (pinnedTitle) {
+    pinnedTitle.textContent = `Pinned Quick-Copy Snippets by ${curator.handle}`;
+  }
+
+  const publishedCrates = state.crates.filter(c => c.handle.toLowerCase() === curator.handle.toLowerCase() && c.visibility === "Public");
+  const forkedCrates = curator.handle === "@charles" ? state.crates.filter(c => c.isForkedByCharles) : [];
+
+  let totalForks = 0;
+  let totalTools = 0;
+  let healthyTools = 0;
+
+  publishedCrates.forEach(c => {
+    totalForks += c.forks || 0;
+    (c.tools || []).forEach(t => {
+      totalTools++;
+      if (t.healthy) healthyTools++;
+    });
+  });
+
+  if (statsStrip) {
+    statsStrip.innerHTML = `
+      <span>📦 ${publishedCrates.length} Public Crate${publishedCrates.length === 1 ? "" : "s"}</span>
+      <span class="stat-sep">·</span>
+      <span>🍴 ${totalForks} Total Classmate Forks</span>
+      <span class="stat-sep">·</span>
+      <span class="stat-status-alive">● ${healthyTools}/${totalTools} Public Links Verified 200 OK</span>
+    `;
+  }
 
   const ptabPub = document.getElementById("ptab-published");
   const ptabFork = document.getElementById("ptab-forked");
-  if (ptabPub) ptabPub.textContent = `Published Crates (${myCrates.length})`;
+  if (ptabPub) ptabPub.textContent = `Published Crates (${publishedCrates.length})`;
   if (ptabFork) ptabFork.textContent = `Forked from Classmates (${forkedCrates.length})`;
 
-  grid.innerHTML = activeList.map(c => generateCrateCardHtml(c)).join("");
-
-  grid.querySelectorAll(".crate-card").forEach(card => {
-    card.addEventListener("click", () => {
-      const cid = card.getAttribute("data-id");
-      navigateTo("crate", cid);
-    });
+  document.querySelectorAll(".profile-tab").forEach(tab => {
+    if (tab.getAttribute("data-tab") === state.profileTab) {
+      tab.classList.add("active");
+    } else {
+      tab.classList.remove("active");
+    }
   });
+
+  const grid = document.getElementById("profile-crates-grid");
+  if (grid) {
+    const activeList = state.profileTab === "published" ? publishedCrates : forkedCrates;
+    if (activeList.length === 0) {
+      grid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 48px; background: var(--surface); border-radius: var(--radius-lg); border: 1px dashed var(--border-strong);">
+          <h3 style="font-size: 15px; font-weight: 600; color: var(--ink);">No ${state.profileTab === "published" ? "published" : "forked"} crates yet</h3>
+          <p style="font-size: 13px; color: var(--ink-secondary); margin-top: 4px;">Check back later or explore other student crates.</p>
+        </div>
+      `;
+    } else {
+      grid.innerHTML = activeList.map(c => generateCrateCardHtml(c)).join("");
+      grid.querySelectorAll(".crate-card").forEach(card => {
+        card.addEventListener("click", (e) => {
+          if (e.target.closest(".author-link") || e.target.closest(".copy-trigger")) return;
+          const cid = card.getAttribute("data-id");
+          navigateTo("crate", cid);
+        });
+      });
+    }
+  }
+
+  const pinnedGrid = document.querySelector(".pinned-snippets-grid");
+  if (pinnedGrid) {
+    const snippets = curator.pinnedSnippets && curator.pinnedSnippets.length > 0 ? curator.pinnedSnippets : CURATORS["@charles"].pinnedSnippets;
+    pinnedGrid.innerHTML = snippets.map(ps => `
+      <div class="pinned-snippet-card">
+        <div class="pinned-header">
+          <span class="pinned-tool-title">${escapeHtml(ps.title)}</span>
+          <button class="btn btn-xs btn-outline copy-trigger" data-copy="${escapeHtml(ps.code)}">Copy</button>
+        </div>
+        <code class="pinned-code-block">${escapeHtml(ps.code)}</code>
+      </div>
+    `).join("");
+    attachCopyButtons(pinnedGrid);
+  }
 }
 
 function setupProfileEvents() {
@@ -1493,6 +2024,12 @@ function setupCreateEditModalEvents() {
 
       const editId = editIdInput.value;
       const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+      if (!state.isAuthenticated) {
+        state.isAuthenticated = true;
+        state.user = { ...DEFAULT_USER };
+        renderNavbar();
+      }
 
       if (editId) {
         const crateIndex = state.crates.findIndex(c => c.id === editId);
@@ -1758,6 +2295,12 @@ function setupForkModalEvents() {
     submitBtn.addEventListener("click", () => {
       if (!crateBeingForked) return;
 
+      if (!state.isAuthenticated) {
+        state.isAuthenticated = true;
+        state.user = { ...DEFAULT_USER };
+        renderNavbar();
+      }
+
       const checkedBoxes = document.querySelectorAll("#fork-tools-checklist input[type='checkbox']:checked");
       const selectedTools = [];
       checkedBoxes.forEach(cb => {
@@ -1908,7 +2451,7 @@ function attachCopyButtons(rootElement = document) {
 }
 
 function renderAllViews() {
-  updateNavActiveLinks();
+  renderNavbar();
   if (state.activeView === "landing") renderLandingView();
   else if (state.activeView === "explore") renderExploreView();
   else if (state.activeView === "crate") renderCrateDetailView();
@@ -1928,6 +2471,23 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCommandPaletteEvents();
   setupForkModalEvents();
   setupFixDrawerEvents();
+
+  document.addEventListener("click", (e) => {
+    const authorLink = e.target.closest(".author-link");
+    if (authorLink) {
+      e.preventDefault();
+      e.stopPropagation();
+      let handle = authorLink.getAttribute("data-handle") || "@charles";
+      if (!handle.startsWith("@")) handle = "@" + handle;
+      navigateTo("profile", handle);
+      return;
+    }
+
+    const wrapper = document.getElementById("user-menu-wrapper");
+    if (wrapper && !wrapper.contains(e.target)) {
+      closeUserDropdown();
+    }
+  });
 
   const resetBtn = document.getElementById("footer-reset-demo");
   if (resetBtn) {

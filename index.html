@@ -24,19 +24,16 @@
       </div>
 
       <nav class="nav-links-section" id="nav-links-section">
-        <a href="#landing" class="nav-link" data-view="landing"><span class="nav-label-desktop">Landing</span><span class="nav-label-mobile">Landing</span></a>
-        <a href="#explore" class="nav-link" data-view="explore"><span class="nav-label-desktop">Explore Crates</span><span class="nav-label-mobile">Explore</span></a>
-        <a href="#crate" class="nav-link" data-view="crate" data-crate-id="ws101"><span class="nav-label-desktop">Crate View (@charles/ws101)</span><span class="nav-label-mobile">Crate View</span></a>
-        <a href="#profile" class="nav-link" data-view="profile"><span class="nav-label-desktop">Public Profile (@charles)</span><span class="nav-label-mobile">Profile</span></a>
-        <a href="#dashboard" class="nav-link" data-view="dashboard"><span class="nav-label-desktop">Dashboard Vault</span><span class="nav-label-mobile">My Vault</span></a>
       </nav>
 
-      <div class="nav-actions-section">
+      <div class="nav-actions-section" id="nav-actions-section">
         <button class="nav-search-trigger" id="nav-search-trigger" type="button" aria-label="Search">
           <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <span class="search-label">Search crates, tools...</span>
+          <span class="search-label">Search crates, snippets...</span>
           <kbd class="search-kbd">⌘K</kbd>
         </button>
+
+        <a href="#explore" class="btn btn-xs btn-outline nav-explore-pill" data-view="explore">Explore</a>
 
         <div class="nav-auth-container" id="nav-auth-container">
         </div>
@@ -84,7 +81,7 @@
           </div>
 
           <div class="hero-right">
-            <div class="live-mockup-window">
+            <div class="live-mockup-window" id="hero-live-mockup" title="Open full crate in detail view">
               <div class="mockup-header">
                 <div class="mockup-dots">
                   <span class="mock-dot dot-red"></span>
@@ -95,12 +92,13 @@
                   <span class="mockup-url-text">stac.crate/@charles/ws101</span>
                   <span class="mockup-alive-pill"><span class="alive-dot"></span> 6/6 Alive</span>
                 </div>
+                <span class="mockup-jump-badge">Open full crate →</span>
               </div>
 
               <div class="mockup-body">
                 <div class="mockup-crate-meta">
                   <h3 class="mockup-crate-title">WS101: Web Dev Starter Pack</h3>
-                  <p class="mockup-crate-subtitle">Curated by Charles Sevilla (@charles) · 42 classmates forked</p>
+                  <p class="mockup-crate-subtitle">Curated by <span class="author-link" data-handle="@charles">Charles Sevilla (@charles)</span> · 42 classmates forked</p>
                 </div>
 
                 <div class="mockup-snippet-list">
@@ -253,7 +251,7 @@
                 <span class="showcase-forks">42 forks</span>
               </div>
               <h4 class="showcase-card-title">WS101: Web Dev Starter</h4>
-              <p class="showcase-card-author">Curated by @charles · 6 verified tools</p>
+              <p class="showcase-card-author">Curated by <span class="author-link" data-handle="@charles">@charles</span> · 6 verified tools</p>
               <div class="showcase-tools-mini">
                 <div class="mini-tool-chip">
                   <span>Tailwind CSS Play CDN</span>
@@ -280,6 +278,10 @@
             </div>
 
             <form class="auth-form" id="form-signin" onsubmit="return false;">
+              <div class="demo-login-pill">
+                <span class="pill-sparkle">💡</span> Demo Account Pre-filled: Click &quot;Sign In →&quot; to enter @charles&#039;s vault
+              </div>
+
               <div class="form-group">
                 <label for="signin-email" class="form-label">EMAIL OR HANDLE</label>
                 <input type="text" id="signin-email" class="form-input" value="charles.sevilla@hnu.edu.ph" required autocomplete="username">
@@ -290,7 +292,7 @@
                   <label for="signin-password" class="form-label">PASSWORD</label>
                   <a href="#signin" class="form-link-subtle" onclick="alert('Demo account: use pre-filled credentials.'); return false;">Forgot password?</a>
                 </div>
-                <input type="password" id="signin-password" class="form-input" value="password123" required autocomplete="current-password">
+                <input type="password" id="signin-password" class="form-input" value="••••••••••••" required autocomplete="current-password">
               </div>
 
               <button type="submit" class="btn btn-primary btn-block" id="btn-submit-signin">
@@ -429,7 +431,7 @@
         <div class="crate-detail-breadcrumb" id="crate-breadcrumb">
           <a href="#explore" class="breadcrumb-item">Explore</a>
           <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-item" id="crate-bread-handle">@charles</span>
+          <span class="breadcrumb-item author-link" id="crate-bread-handle" data-handle="@charles">@charles</span>
           <span class="breadcrumb-sep">/</span>
           <span class="breadcrumb-current" id="crate-bread-slug">ws101-starter-pack</span>
         </div>
@@ -508,7 +510,7 @@
         <div class="dashboard-tabs-bar">
           <button class="dash-tab active" data-tab="my-crates" id="tab-my-crates">My Crates (4)</button>
           <button class="dash-tab" data-tab="forked" id="tab-forked">Forked from Peers (2)</button>
-          <button class="dash-tab" data-tab="starred" id="tab-starred">Starred Tools (12)</button>
+          <button class="dash-tab" data-tab="starred" id="tab-starred">Starred Tools (6)</button>
         </div>
 
         <div class="dashboard-tab-content" id="dashboard-tab-content">
@@ -611,7 +613,7 @@
             <li><a href="#landing">Landing Page</a></li>
             <li><a href="#explore">Explore Public Crates</a></li>
             <li><a href="#crate" data-crate-id="ws101">WS101 Starter Pack</a></li>
-            <li><a href="#profile">Charles Sevilla (@charles)</a></li>
+            <li><a href="#profile" class="author-link" data-handle="@charles">Charles Sevilla (@charles)</a></li>
             <li><a href="#dashboard">Dashboard Vault</a></li>
           </ul>
         </div>
