@@ -1642,9 +1642,9 @@ function generateCrateCardHtml(crate) {
 
   let tagList = "";
   if (Array.isArray(crate.tags) && crate.tags.length > 0) {
-    tagList = crate.tags.slice(0, 3).map(tg => `<span class="topic-pill" data-topic="${escapeHtml(tg)}">#${escapeHtml(tg)}</span>`).join("");
+    tagList = crate.tags.slice(0, 3).map(tg => `<span class="topic-pill crate-tag tag-pill" data-topic="${escapeHtml(tg)}">#${escapeHtml(tg)}</span>`).join("");
     if (crate.tags.length > 3) {
-      tagList += `<span class="topic-pill topic-pill-more">+${crate.tags.length - 3}</span>`;
+      tagList += `<span class="topic-pill topic-pill-more crate-tag tag-pill">+${crate.tags.length - 3}</span>`;
     }
   } else {
     tagList = (crate.tools || []).slice(0, 2).map(t => `<span class="tool-chip">${escapeHtml(t.name)}</span>`).join("");
@@ -2096,7 +2096,7 @@ function renderCrateDetailView() {
     const tags = Array.isArray(crate.tags) && crate.tags.length > 0
       ? crate.tags
       : [crate.category || "General"];
-    detailTagsEl.innerHTML = tags.map(tg => `<span class="detail-topic-pill" data-topic="${escapeHtml(tg)}">#${escapeHtml(tg)}</span>`).join("");
+    detailTagsEl.innerHTML = tags.map(tg => `<span class="detail-topic-pill topic-pill crate-tag tag-pill" data-topic="${escapeHtml(tg)}">#${escapeHtml(tg)}</span>`).join("");
     detailTagsEl.querySelectorAll(".detail-topic-pill").forEach(pill => {
       pill.addEventListener("click", () => {
         const topic = pill.getAttribute("data-topic");
@@ -2267,7 +2267,7 @@ function renderCrateToolsGrid(tools) {
 
     const payloadBlock = isWebLink ? `
       <div class="tool-link-payload">
-        <span class="tool-url-preview">${escapeHtml(targetUrl)}</span>
+        <span class="tool-url-preview tool-link-badge">${escapeHtml(targetUrl)}</span>
         <div class="tool-payload-buttons">
           <a href="${escapeHtml(targetUrl)}" target="_blank" rel="noopener" class="btn btn-xs btn-primary">
             ${escapeHtml(t.action || "Launch App ↗")}
@@ -2438,7 +2438,7 @@ function renderVaultRows(myCrates, forkedCrates) {
 
             ${(t.url || (t.snippet && t.snippet.startsWith("http"))) ? `
               <div class="tool-link-payload">
-                <span class="tool-url-preview">${escapeHtml(t.url || t.snippet)}</span>
+                <span class="tool-url-preview tool-link-badge">${escapeHtml(t.url || t.snippet)}</span>
                 <div class="tool-payload-buttons">
                   <a href="${escapeHtml(t.url || t.snippet)}" target="_blank" rel="noopener" class="btn btn-xs btn-primary">${escapeHtml(t.action || "Launch App ↗")}</a>
                   <button class="btn btn-xs btn-outline copy-trigger" data-copy="${escapeHtml(t.url || t.snippet)}">Copy URL</button>

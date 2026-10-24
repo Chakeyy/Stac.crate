@@ -24,8 +24,9 @@
   --modal-backdrop-bg: rgba(28, 25, 23, 0.45);
   --code-bg: #F3F3EE;
   --code-border: #E4E4DC;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 10px;
@@ -126,6 +127,17 @@ body {
   background-color: var(--bg);
   color: var(--ink);
   overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  letter-spacing: -0.03em;
 }
 
 a {
@@ -134,27 +146,180 @@ a {
 }
 
 button {
-  font-family: inherit;
+  font-family: var(--font-sans);
   cursor: pointer;
   border: none;
   background: none;
 }
 
 input, textarea, select {
-  font-family: inherit;
+  font-family: var(--font-sans);
   font-size: inherit;
 }
 
-code, kbd, pre {
+code, kbd, pre, samp {
   font-family: var(--font-mono);
 }
 
 /* === TYPOGRAPHY & UTILITIES === */
+.brand-logo,
+.brand-name,
+.brand-text,
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.bento-lead-title,
+.bento-tile-title,
+.bento-box-title,
+.bento-spot-title,
+.crate-card-title,
+.modal-title,
+.section-title,
+.view-heading,
+.mockup-crate-title,
+.how-card-title,
+.cta-banner-title,
+.showcase-title,
+.showcase-card-title,
+.auth-title,
+.crate-title,
+.vault-row-title,
+.pinned-section-title,
+.pinned-tool-title,
+.footer-links-heading,
+.modal-tools-title,
+.tool-editor-heading,
+.cmd-item-title,
+.drawer-title,
+.flagged-tool-name,
+.tool-card-name,
+.id-name {
+  font-family: var(--font-display);
+}
+
+.hero-title,
+.cta-banner-title,
+.showcase-title {
+  letter-spacing: -0.03em;
+}
+
+.section-title,
+.view-heading {
+  letter-spacing: -0.025em;
+}
+
+.crate-title,
+.auth-title,
+.bento-spot-title,
+.modal-title,
+.drawer-title,
+.bento-box-title,
+.crate-card-title,
+.how-card-title,
+.mockup-crate-title,
+.bento-lead-title,
+.bento-tile-title,
+.pinned-section-title {
+  letter-spacing: -0.02em;
+}
+
+body,
+input,
+textarea,
+select,
+button,
+.btn,
+.nav-link,
+.nav-item,
+.nav-action-btn,
+.nav-explore-pill,
+.tool-desc,
+.tool-card-desc,
+.crate-card-desc,
+.bento-spot-desc,
+.crate-description,
+.tool-item-desc,
+.modal-body,
+.modal-desc,
+.modal-subtitle,
+.modal-footer,
+.modal-help-text,
+.modal-status-text,
+.drawer-body,
+.drawer-subtitle,
+.view-subheading,
+.section-subtitle,
+.cta-banner-subtitle,
+.auth-subtitle,
+.how-card-desc,
+.mockup-crate-subtitle {
+  font-family: var(--font-sans);
+}
+
+.bento-stat-num,
+.bento-stat-lbl,
+.bento-radar-badge,
+.pulse-metric-number,
+.pulse-status-label,
+.bento-radar-pct,
+.bento-radar-meta,
+.profile-stat-val,
+.profile-stat-lbl,
+.stat-status-alive,
+.live-ping-status,
+.mockup-alive-pill,
+.mini-status-ok,
+.mini-status-warn,
+.handle-status-badge,
+.status-badge-red,
+.bento-pill-badge,
+.drawer-alert-pill,
+.visibility-pill,
+.crate-status-badge,
+.status-alive,
+.topic-radar-pill,
+.topic-pill,
+.topic-pill-more,
+.crate-tag,
+.tag-pill,
+.bento-capsule-btn,
+.detail-topic-pill,
+.tag-badge,
+.tag-badge-del,
+.mini-tag,
+.preset-tag-chip,
+.showcase-tag,
+.bento-snippet-code,
+.bento-snip-code,
+.mockup-code-preview,
+.pinned-code-block,
+.modal-tool-snippet,
+.cmd-item-snippet,
+.tool-snippet-block,
+.tool-code,
+.mini-code,
+.tool-link-badge,
+.bento-dock-domain,
+.bento-dock-sub,
+.tool-url-preview,
+.copy-url-pill,
+.id-url-pill,
+.id-url-text,
+.flagged-tool-url,
+.suggested-url,
+.fork-input-mono,
+.mini-health-name,
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-mono);
+}
+
 .view-heading {
   font-size: 26px;
   font-weight: 700;
   color: var(--ink);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .view-subheading {
@@ -337,10 +502,12 @@ code, kbd, pre {
   align-items: center;
 }
 
-.brand-logo {
+.brand-logo,
+.brand-name {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 18px;
   letter-spacing: -0.02em;
@@ -750,6 +917,7 @@ code, kbd, pre {
 }
 
 .hero-title {
+  font-family: var(--font-display);
   font-size: 46px;
   line-height: 1.1;
   font-weight: 700;
@@ -1089,9 +1257,10 @@ code, kbd, pre {
 }
 
 .section-title {
+  font-family: var(--font-display);
   font-size: 30px;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: var(--ink);
   margin-top: 4px;
 }
@@ -1286,9 +1455,10 @@ code, kbd, pre {
 }
 
 .cta-banner-title {
+  font-family: var(--font-display);
   font-size: 32px;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   margin-bottom: 12px;
 }
 
@@ -1352,10 +1522,11 @@ code, kbd, pre {
 }
 
 .showcase-title {
+  font-family: var(--font-display);
   font-size: 36px;
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--ink);
   margin-bottom: 14px;
 }
@@ -1761,7 +1932,9 @@ code, kbd, pre {
   margin-bottom: 6px;
 }
 
-.bento-spot-title {
+.bento-spot-title,
+.bento-lead-title {
+  font-family: var(--font-display);
   font-size: 19px;
   font-weight: 700;
   color: #FFFFFF;
@@ -1859,9 +2032,12 @@ code, kbd, pre {
   font-size: 14px;
 }
 
-.bento-box-title {
+.bento-box-title,
+.bento-tile-title {
+  font-family: var(--font-display);
   font-size: 13.5px;
   font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
 
@@ -1951,7 +2127,9 @@ code, kbd, pre {
   opacity: 1;
 }
 
-.bento-dock-sub {
+.bento-dock-sub,
+.bento-dock-domain {
+  font-family: var(--font-mono);
   font-size: 9.5px;
   color: var(--ink-muted);
   white-space: nowrap;
@@ -2003,17 +2181,21 @@ code, kbd, pre {
   100% { transform: scale(2.4); opacity: 0; }
 }
 
-.pulse-status-label {
+.pulse-status-label,
+.bento-stat-lbl {
+  font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--green);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.pulse-metric-number {
+.pulse-metric-number,
+.bento-stat-num {
+  font-family: var(--font-mono);
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--ink);
   letter-spacing: -0.02em;
 }
@@ -2026,9 +2208,11 @@ code, kbd, pre {
   margin: 4px 0 2px 0;
 }
 
-.bento-radar-pct {
+.bento-radar-pct,
+.bento-radar-badge {
+  font-family: var(--font-mono);
   font-size: 10.5px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--green);
   background: rgba(5, 150, 105, 0.12);
   border: 1px solid rgba(5, 150, 105, 0.3);
@@ -2065,6 +2249,7 @@ code, kbd, pre {
 }
 
 .bento-radar-meta {
+  font-family: var(--font-mono);
   font-size: 10.5px;
   color: var(--ink-secondary);
   white-space: nowrap;
@@ -2134,7 +2319,8 @@ code, kbd, pre {
   white-space: nowrap;
 }
 
-.bento-snip-code {
+.bento-snip-code,
+.bento-snippet-code {
   font-family: var(--font-mono);
   font-size: 9.5px;
   color: var(--ink-secondary);
@@ -2200,9 +2386,11 @@ code, kbd, pre {
   margin-top: 6px;
 }
 
-.bento-capsule-btn {
+.bento-capsule-btn,
+.topic-radar-pill {
+  font-family: var(--font-mono);
   font-size: 10.5px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--ink-secondary);
   background-color: var(--surface-subtle);
   border: 1px solid var(--border);
@@ -2542,8 +2730,10 @@ code, kbd, pre {
 }
 
 .crate-card-title {
+  font-family: var(--font-display);
   font-size: 16px;
   font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
 
@@ -2575,9 +2765,12 @@ code, kbd, pre {
   color: var(--ink-secondary);
 }
 
-.topic-pill {
+.topic-pill,
+.crate-tag,
+.tag-pill {
+  font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--ink-secondary);
   background-color: var(--surface-muted);
   border: 1px solid var(--border);
@@ -2711,6 +2904,7 @@ code, kbd, pre {
 }
 
 .crate-title {
+  font-family: var(--font-display);
   font-size: 28px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -2886,8 +3080,10 @@ code, kbd, pre {
 }
 
 .tool-card-name {
+  font-family: var(--font-display);
   font-size: 16px;
   font-weight: 700;
+  letter-spacing: -0.015em;
   color: var(--ink);
 }
 
@@ -3635,9 +3831,10 @@ code, kbd, pre {
 }
 
 .modal-title {
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
 
@@ -4160,8 +4357,10 @@ code, kbd, pre {
 }
 
 .drawer-title {
+  font-family: var(--font-display);
   font-size: 22px;
   font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
 
@@ -4197,8 +4396,10 @@ code, kbd, pre {
 }
 
 .flagged-tool-name {
+  font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
+  letter-spacing: -0.015em;
   color: var(--ink);
   margin-bottom: 4px;
 }
