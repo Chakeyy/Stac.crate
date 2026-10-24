@@ -155,9 +155,10 @@ const DEFAULT_CRATES = [
     handle: "@charles",
     authorName: "Charles Sevilla",
     authorInitials: "CS",
-    category: "WS101 Web Dev",
+    category: "Web Dev & WS101",
     visibility: "Public",
     coverTheme: "theme-terracotta",
+    coverImage: "assets/covers/cover-ws101.jpg",
     stackIcons: ["assets/icons/tailwindcss.svg", "assets/icons/php.svg", "assets/icons/mysql.svg"],
     forks: 42,
     views: 184,
@@ -240,9 +241,10 @@ const DEFAULT_CRATES = [
     handle: "@charles",
     authorName: "Charles Sevilla",
     authorInitials: "CS",
-    category: "WS101 Web Dev",
+    category: "Data Structures & C++",
     visibility: "Public",
     coverTheme: "theme-slate",
+    coverImage: "assets/covers/cover-dsa.jpg",
     stackIcons: ["assets/icons/cplusplus.svg", "assets/icons/vscode.svg", "assets/icons/bash.svg"],
     forks: 12,
     views: 92,
@@ -303,9 +305,10 @@ const DEFAULT_CRATES = [
     handle: "@charles",
     authorName: "Charles Sevilla",
     authorInitials: "CS",
-    category: "WS101 Web Dev",
+    category: "DevOps & Git",
     visibility: "Public",
     coverTheme: "theme-charcoal",
+    coverImage: "assets/covers/cover-git.jpg",
     stackIcons: ["assets/icons/git.svg", "assets/icons/github.svg", "assets/icons/bash.svg"],
     forks: 28,
     views: 140,
@@ -366,9 +369,10 @@ const DEFAULT_CRATES = [
     handle: "@charles",
     authorName: "Charles Sevilla",
     authorInitials: "CS",
-    category: "WS101 Web Dev",
+    category: "Fullstack & Cloud",
     visibility: "Private",
     coverTheme: "theme-emerald",
+    coverImage: "assets/covers/cover-hackathon.jpg",
     stackIcons: ["assets/icons/supabase.svg", "assets/icons/javascript.svg", "assets/icons/json.svg"],
     forks: 3,
     views: 18,
@@ -421,6 +425,7 @@ const DEFAULT_CRATES = [
     category: "Free APIs",
     visibility: "Public",
     coverTheme: "theme-sky",
+    coverImage: "assets/covers/cover-apis.jpg",
     stackIcons: ["assets/icons/json.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"],
     forks: 34,
     views: 210,
@@ -481,9 +486,10 @@ const DEFAULT_CRATES = [
     handle: "@dev_miko",
     authorName: "Miko Santos",
     authorInitials: "MS",
-    category: "UI Assets",
+    category: "UI & Design",
     visibility: "Public",
     coverTheme: "theme-violet",
+    coverImage: "assets/covers/cover-figma.jpg",
     stackIcons: ["assets/icons/figma.svg", "assets/icons/css3.svg", "assets/icons/html5.svg"],
     forks: 21,
     views: 115,
@@ -544,9 +550,10 @@ const DEFAULT_CRATES = [
     handle: "@dev_miko",
     authorName: "Miko Santos",
     authorInitials: "MS",
-    category: "Boilerplates",
+    category: "Backend & MySQL",
     visibility: "Public",
     coverTheme: "theme-indigo",
+    coverImage: "assets/covers/cover-php.jpg",
     stackIcons: ["assets/icons/php.svg", "assets/icons/mysql.svg", "assets/icons/bash.svg"],
     forks: 19,
     views: 160,
@@ -607,9 +614,10 @@ const DEFAULT_CRATES = [
     handle: "@dev_miko",
     authorName: "Miko Santos",
     authorInitials: "MS",
-    category: "Cheatsheets",
+    category: "UI & Design",
     visibility: "Public",
     coverTheme: "theme-amber",
+    coverImage: "assets/covers/cover-css.jpg",
     stackIcons: ["assets/icons/css3.svg", "assets/icons/html5.svg", "assets/icons/figma.svg"],
     forks: 15,
     views: 89,
@@ -659,9 +667,10 @@ const DEFAULT_CRATES = [
     handle: "@dev_miko",
     authorName: "Miko Santos",
     authorInitials: "MS",
-    category: "Free APIs",
+    category: "Open Data",
     visibility: "Public",
     coverTheme: "theme-teal",
+    coverImage: "assets/covers/cover-opendata.jpg",
     stackIcons: ["assets/icons/json.svg", "assets/icons/javascript.svg", "assets/icons/mysql.svg"],
     forks: 8,
     views: 64,
@@ -731,7 +740,7 @@ function getToolIcon(tool, crate) {
   return "assets/icons/vscode.svg";
 }
 
-const STORAGE_KEY = "stac_crate_vault_v2";
+const STORAGE_KEY = "stac_crate_vault_v3";
 
 // === APPLICATION STATE ===
 const state = {
@@ -756,7 +765,7 @@ function loadStateFromStorage() {
   try {
     let raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) {
-      raw = localStorage.getItem("stac_crate_vault_v1");
+      raw = localStorage.getItem("stac_crate_vault_v2") || localStorage.getItem("stac_crate_vault_v1");
     }
     if (raw) {
       const parsed = JSON.parse(raw);
@@ -766,6 +775,8 @@ function loadStateFromStorage() {
       state.crates = rawCrates.map(crate => {
         const defaultMatch = DEFAULT_CRATES.find(d => d.id === crate.id);
         const coverTheme = crate.coverTheme || (defaultMatch ? defaultMatch.coverTheme : "theme-terracotta");
+        const coverImage = crate.coverImage || (defaultMatch ? defaultMatch.coverImage : "assets/covers/cover-ws101.jpg");
+        const category = defaultMatch ? defaultMatch.category : (crate.category || "General");
         const stackIcons = (Array.isArray(crate.stackIcons) && crate.stackIcons.length > 0)
           ? crate.stackIcons
           : (defaultMatch ? defaultMatch.stackIcons : ["assets/icons/vscode.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"]);
@@ -779,6 +790,8 @@ function loadStateFromStorage() {
         return {
           ...crate,
           coverTheme,
+          coverImage,
+          category,
           stackIcons,
           tools
         };
@@ -923,7 +936,7 @@ function getStarredTools() {
 }
 
 // === ROUTING & NAVIGATION ===
-function navigateTo(viewName, param = null) {
+function navigateTo(viewName, param = null, updateHash = true) {
   const targetView = document.getElementById(`view-${viewName}`);
   if (!targetView) return;
 
@@ -935,6 +948,18 @@ function navigateTo(viewName, param = null) {
   } else if (viewName === "profile") {
     state.activeProfileHandle = param || state.activeProfileHandle || "@charles";
     state.profileTab = "published";
+  }
+
+  if (updateHash) {
+    let targetHash = viewName;
+    if (viewName === "crate") {
+      targetHash = `crate?id=${encodeURIComponent(state.activeCrateId)}`;
+    } else if (viewName === "profile") {
+      targetHash = `profile?handle=${encodeURIComponent((state.activeProfileHandle || "@charles").replace(/^@/, ""))}`;
+    }
+    if (window.location.hash !== `#${targetHash}`) {
+      window.location.hash = targetHash;
+    }
   }
 
   document.querySelectorAll(".view-panel").forEach(panel => {
@@ -951,6 +976,30 @@ function navigateTo(viewName, param = null) {
   else if (viewName === "profile") renderProfileView();
 
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function handleHashChange() {
+  const raw = window.location.hash.replace(/^#/, "").trim();
+  if (!raw) {
+    navigateTo("landing", null, false);
+    return;
+  }
+
+  const [routePart, queryPart] = raw.split("?");
+  const params = new URLSearchParams(queryPart || "");
+
+  if (routePart === "crate") {
+    const cid = params.get("id") || "ws101";
+    navigateTo("crate", cid, false);
+  } else if (routePart === "profile") {
+    let handle = params.get("handle") || "charles";
+    if (!handle.startsWith("@")) handle = "@" + handle;
+    navigateTo("profile", handle, false);
+  } else if (["landing", "signin", "signup", "explore", "dashboard"].includes(routePart)) {
+    navigateTo(routePart, null, false);
+  } else {
+    navigateTo("landing", null, false);
+  }
 }
 
 // === NAVBAR RENDERING ===
@@ -1222,6 +1271,10 @@ function renderLandingView() {
   const ctaBtn = document.getElementById("cta-claim-btn");
   const ctaInput = document.getElementById("cta-handle-input");
   if (ctaBtn && ctaInput) {
+    ctaInput.addEventListener("input", () => {
+      const val = ctaInput.value.trim().toLowerCase();
+      ctaBtn.textContent = val ? `Claim @${val} Free →` : "Claim Your Handle Free →";
+    });
     ctaBtn.addEventListener("click", () => {
       const val = ctaInput.value.trim().toLowerCase() || "charles";
       const signupHandle = document.getElementById("signup-handle");
@@ -1236,6 +1289,7 @@ function generateCrateCardHtml(crate) {
   const totalCount = (crate.tools || []).length;
   const allHealthy = totalCount > 0 && healthyCount === totalCount;
   const themeClass = crate.coverTheme || "theme-terracotta";
+  const coverImg = crate.coverImage || "assets/covers/cover-ws101.jpg";
   const icons = (Array.isArray(crate.stackIcons) && crate.stackIcons.length > 0)
     ? crate.stackIcons
     : ["assets/icons/vscode.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"];
@@ -1251,13 +1305,13 @@ function generateCrateCardHtml(crate) {
 
   return `
     <div class="crate-card" data-id="${crate.id}">
-      <div class="crate-card-hero ${escapeHtml(themeClass)}">
+      <div class="crate-card-hero ${escapeHtml(themeClass)}" style="background-image: url('${escapeHtml(coverImg)}');">
         <div class="crate-hero-stack">
           ${stackHtml}
         </div>
         <div class="crate-hero-badges">
           <span class="crate-category-badge">${escapeHtml(crate.category || "General")}</span>
-          <span class="crate-status-badge ${allHealthy ? "status-alive" : "status-warning"}">
+          <span class="crate-status-badge ${allHealthy ? "status-alive" : "status-warning btn-trigger-fix"}" data-crate-id="${escapeHtml(crate.id)}" title="${allHealthy ? "All tools verified alive" : "Click to fix broken link"}">
             <span class="status-indicator-dot"></span>
             ${healthyCount}/${totalCount} Alive
           </span>
@@ -1351,7 +1405,38 @@ function setupAuthForms() {
 }
 
 // === EXPLORE VIEW RENDERING ===
-function renderExploreView() {
+function renderExploreCategories() {
+  const categoryContainer = document.getElementById("explore-categories");
+  if (!categoryContainer) return;
+
+  const publicCrates = state.crates.filter(c => c.visibility === "Public");
+  const catCounts = {};
+  publicCrates.forEach(c => {
+    const cat = c.category || "General";
+    catCounts[cat] = (catCounts[cat] || 0) + 1;
+  });
+
+  const uniqueCats = ["All", ...Object.keys(catCounts).sort()];
+
+  categoryContainer.innerHTML = uniqueCats.map(cat => {
+    const count = cat === "All" ? publicCrates.length : (catCounts[cat] || 0);
+    const isActive = cat === state.exploreCategory;
+    return `<button class="filter-pill ${isActive ? "active" : ""}" data-category="${escapeHtml(cat)}" type="button">${escapeHtml(cat)} (${count})</button>`;
+  }).join("");
+
+  categoryContainer.querySelectorAll(".filter-pill").forEach(pill => {
+    pill.addEventListener("click", () => {
+      categoryContainer.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+      state.exploreCategory = pill.getAttribute("data-category");
+      renderExploreView(false);
+    });
+  });
+}
+
+function renderExploreView(renderCats = true) {
+  if (renderCats) renderExploreCategories();
+
   const grid = document.getElementById("explore-crates-grid");
   if (!grid) return;
 
@@ -1390,7 +1475,7 @@ function renderExploreView() {
 
   grid.querySelectorAll(".crate-card").forEach(card => {
     card.addEventListener("click", (e) => {
-      if (e.target.closest(".author-link") || e.target.closest(".copy-trigger")) return;
+      if (e.target.closest(".author-link") || e.target.closest(".copy-trigger") || e.target.closest(".btn-trigger-fix")) return;
       const cid = card.getAttribute("data-id");
       navigateTo("crate", cid);
     });
@@ -1398,18 +1483,6 @@ function renderExploreView() {
 }
 
 function setupExploreEvents() {
-  const categoryContainer = document.getElementById("explore-categories");
-  if (categoryContainer) {
-    categoryContainer.querySelectorAll(".filter-pill").forEach(pill => {
-      pill.addEventListener("click", () => {
-        categoryContainer.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
-        pill.classList.add("active");
-        state.exploreCategory = pill.getAttribute("data-category");
-        renderExploreView();
-      });
-    });
-  }
-
   const toggleAliveBtn = document.getElementById("explore-toggle-alive");
   if (toggleAliveBtn) {
     toggleAliveBtn.addEventListener("click", () => {
@@ -1419,7 +1492,7 @@ function setupExploreEvents() {
       } else {
         toggleAliveBtn.classList.remove("active");
       }
-      renderExploreView();
+      renderExploreView(false);
     });
   }
 
@@ -1427,7 +1500,7 @@ function setupExploreEvents() {
   if (searchInput) {
     searchInput.addEventListener("input", () => {
       state.exploreSearchQuery = searchInput.value.trim();
-      renderExploreView();
+      renderExploreView(false);
     });
   }
 }
@@ -1436,6 +1509,17 @@ function setupExploreEvents() {
 function renderCrateDetailView() {
   const crate = state.crates.find(c => c.id === state.activeCrateId) || state.crates[0];
   if (!crate) return;
+
+  const backBtn = document.getElementById("crate-back-btn");
+  if (backBtn) {
+    backBtn.onclick = () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        navigateTo("explore");
+      }
+    };
+  }
 
   const breadHandle = document.getElementById("crate-bread-handle");
   const breadSlug = document.getElementById("crate-bread-slug");
@@ -1464,12 +1548,14 @@ function renderCrateDetailView() {
   const heroStackEl = document.getElementById("crate-detail-hero-stack");
   const heroBadgesEl = document.getElementById("crate-detail-hero-badges");
   const themeClass = crate.coverTheme || "theme-terracotta";
+  const coverImg = crate.coverImage || "assets/covers/cover-ws101.jpg";
   const icons = (Array.isArray(crate.stackIcons) && crate.stackIcons.length > 0)
     ? crate.stackIcons
     : ["assets/icons/vscode.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"];
 
   if (heroEl) {
     heroEl.className = `crate-detail-hero-banner ${themeClass}`;
+    heroEl.style.backgroundImage = `url('${escapeHtml(coverImg)}')`;
   }
   if (heroStackEl) {
     heroStackEl.innerHTML = icons.slice(0, 3).map(icon => `
@@ -1481,29 +1567,65 @@ function renderCrateDetailView() {
   if (heroBadgesEl) {
     heroBadgesEl.innerHTML = `
       <span class="crate-category-badge">${escapeHtml(crate.category || "General")}</span>
-      <span class="crate-status-badge ${isAllHealthy ? "status-alive" : "status-warning"}">
+      <span class="crate-status-badge ${isAllHealthy ? "status-alive" : "status-warning btn-trigger-fix"}" data-crate-id="${escapeHtml(crate.id)}" title="${isAllHealthy ? "All links verified healthy" : "Click to fix broken link"}">
         <span class="status-indicator-dot"></span>
         ${healthyCount}/${tools.length} Alive
       </span>
     `;
+
+    const statusBadge = heroBadgesEl.querySelector(".crate-status-badge");
+    if (statusBadge && !isAllHealthy) {
+      statusBadge.style.cursor = "pointer";
+      statusBadge.onclick = (e) => {
+        e.stopPropagation();
+        openFixDrawer(crate);
+      };
+    }
   }
 
   if (metaEl) {
     metaEl.innerHTML = `Curated by <span class="author-link" data-handle="${escapeHtml(crate.handle)}">${escapeHtml(crate.authorName || "Charles Sevilla")} (${escapeHtml(crate.handle)})</span> · Updated ${escapeHtml(crate.updatedAt || "recently")} · <span class="${isAllHealthy ? "alive-dot" : "alert-dot-red"}"></span> ${healthyCount}/${tools.length} links healthy`;
+    if (!isAllHealthy) {
+      metaEl.style.cursor = "pointer";
+      metaEl.onclick = () => openFixDrawer(crate);
+    }
   }
 
   const copyUrlBtn = document.getElementById("crate-copy-url-btn");
   const shortUrlText = document.getElementById("crate-short-url-text");
   const targetShortUrl = crate.shortUrl || `stac.crate/${crate.handle}/${crate.id}`;
+  const fullLiveUrl = `${window.location.origin}${window.location.pathname}#crate?id=${encodeURIComponent(crate.id)}`;
   if (shortUrlText) shortUrlText.textContent = targetShortUrl;
-  if (copyUrlBtn) copyUrlBtn.setAttribute("data-copy", targetShortUrl);
+  if (copyUrlBtn) copyUrlBtn.setAttribute("data-copy", fullLiveUrl);
 
-  const forkCount = document.getElementById("crate-fork-count");
-  if (forkCount) forkCount.textContent = crate.forks || 0;
+  const contextBtnContainer = document.getElementById("crate-context-action-buttons");
+  const userHandle = (state.user && state.user.handle ? `@${state.user.handle.replace(/^@/, "")}` : "@charles").toLowerCase();
+  const isOwnCrate = crate.handle.toLowerCase() === userHandle;
 
-  const forkBtn = document.getElementById("crate-fork-btn");
-  if (forkBtn) {
-    forkBtn.onclick = () => openForkModal(crate);
+  if (contextBtnContainer) {
+    if (isOwnCrate) {
+      contextBtnContainer.innerHTML = `
+        <button class="btn btn-outline" id="crate-edit-btn" type="button">✏️ Edit Crate</button>
+        <button class="btn btn-primary" id="crate-add-tool-btn" type="button">+ Add Tool</button>
+      `;
+      const editBtn = document.getElementById("crate-edit-btn");
+      if (editBtn) editBtn.onclick = () => openCreateEditModal(crate);
+      const addToolBtn = document.getElementById("crate-add-tool-btn");
+      if (addToolBtn) {
+        addToolBtn.onclick = () => {
+          openCreateEditModal(crate);
+          showToolEditorBox(null);
+        };
+      }
+    } else {
+      contextBtnContainer.innerHTML = `
+        <button class="btn btn-accent" id="crate-fork-btn" type="button">
+          🍴 Fork Crate (<span id="crate-fork-count">${crate.forks || 0}</span>)
+        </button>
+      `;
+      const forkBtn = document.getElementById("crate-fork-btn");
+      if (forkBtn) forkBtn.onclick = () => openForkModal(crate);
+    }
   }
 
   renderCrateToolCategories(tools);
@@ -1565,6 +1687,7 @@ function renderCrateToolsGrid(tools) {
             <span class="tool-category-badge">${escapeHtml(t.category || "General")}</span>
           </div>
           <div class="tool-card-actions">
+            ${!t.healthy ? `<button type="button" class="btn btn-xs btn-outline btn-fix-tool" data-crate-id="${escapeHtml(crate.id)}" style="color: var(--red); border-color: var(--red);">⚠️ Fix Link</button>` : ""}
             <button type="button" class="tool-star-btn ${isStarred ? "starred" : ""}" data-tool-id="${escapeHtml(t.id)}" title="${isStarred ? "Remove from Starred" : "Star this tool"}">
               <span class="star-icon">${isStarred ? "★" : "☆"}</span>
               <span class="star-label">${isStarred ? "Starred" : "Star"}</span>
@@ -1891,13 +2014,14 @@ function renderProfileView() {
 
   if (shareBtn) {
     const shareUrl = `stac.crate/${curator.handle}`;
-    shareBtn.setAttribute("data-copy", shareUrl);
+    const fullProfileUrl = `${window.location.origin}${window.location.pathname}#profile?handle=${encodeURIComponent(curator.handle.replace(/^@/, ""))}`;
+    shareBtn.setAttribute("data-copy", fullProfileUrl);
     const span = shareBtn.querySelector("span:not(.copy-pill-badge)");
     if (span) span.textContent = shareUrl;
   }
 
   if (pinnedTitle) {
-    pinnedTitle.textContent = `Pinned Quick-Copy Snippets by ${curator.handle}`;
+    pinnedTitle.textContent = `Pinned Quick-Copy Snippets by ${curator.name} (${curator.handle})`;
   }
 
   const publishedCrates = state.crates.filter(c => c.handle.toLowerCase() === curator.handle.toLowerCase() && c.visibility === "Public");
@@ -1952,7 +2076,7 @@ function renderProfileView() {
       grid.innerHTML = activeList.map(c => generateCrateCardHtml(c)).join("");
       grid.querySelectorAll(".crate-card").forEach(card => {
         card.addEventListener("click", (e) => {
-          if (e.target.closest(".author-link") || e.target.closest(".copy-trigger")) return;
+          if (e.target.closest(".author-link") || e.target.closest(".copy-trigger") || e.target.closest(".btn-trigger-fix")) return;
           const cid = card.getAttribute("data-id");
           navigateTo("crate", cid);
         });
@@ -1962,7 +2086,23 @@ function renderProfileView() {
 
   const pinnedGrid = document.querySelector(".pinned-snippets-grid");
   if (pinnedGrid) {
-    const snippets = curator.pinnedSnippets && curator.pinnedSnippets.length > 0 ? curator.pinnedSnippets : CURATORS["@charles"].pinnedSnippets;
+    let snippets = curator.pinnedSnippets && curator.pinnedSnippets.length > 0 ? curator.pinnedSnippets : [];
+    if (snippets.length === 0 && publishedCrates.length > 0) {
+      publishedCrates.forEach(c => {
+        (c.tools || []).forEach(t => {
+          if (snippets.length < 3 && t.snippet) {
+            snippets.push({
+              title: `${t.name} (${c.title})`,
+              code: t.snippet
+            });
+          }
+        });
+      });
+    }
+    if (snippets.length === 0) {
+      snippets = CURATORS["@charles"].pinnedSnippets;
+    }
+
     pinnedGrid.innerHTML = snippets.map(ps => `
       <div class="pinned-snippet-card">
         <div class="pinned-header">
@@ -2647,7 +2787,19 @@ document.addEventListener("DOMContentLoaded", () => {
   setupForkModalEvents();
   setupFixDrawerEvents();
 
+  window.addEventListener("hashchange", handleHashChange);
+
   document.addEventListener("click", (e) => {
+    const fixBtn = e.target.closest(".btn-trigger-fix") || e.target.closest(".metric-health-badge.health-warning") || e.target.closest(".btn-fix-tool");
+    if (fixBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const cid = fixBtn.getAttribute("data-crate-id") || state.activeCrateId || "hackathon-private";
+      const targetCrate = state.crates.find(c => c.id === cid) || state.crates.find(c => c.id === "hackathon-private") || state.crates[0];
+      if (targetCrate) openFixDrawer(targetCrate);
+      return;
+    }
+
     const authorLink = e.target.closest(".author-link");
     if (authorLink) {
       e.preventDefault();
@@ -2673,10 +2825,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const initialHash = window.location.hash.replace("#", "") || "landing";
-  const knownViews = ["landing", "signin", "signup", "explore", "crate", "dashboard", "profile"];
-  const targetView = knownViews.includes(initialHash) ? initialHash : "landing";
-
-  navigateTo(targetView);
+  handleHashChange();
   attachCopyButtons(document);
 });

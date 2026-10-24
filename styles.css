@@ -1591,48 +1591,39 @@ code, kbd, pre {
 }
 
 .theme-terracotta {
-  background: radial-gradient(circle at 10px 10px, rgba(194, 65, 12, 0.08) 1.5px, transparent 1.5px), linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
-  background-size: 16px 16px, 100% 100%;
+  background-image: url('assets/covers/cover-ws101.jpg');
 }
 
 .theme-slate {
-  background: radial-gradient(circle at 10px 10px, rgba(71, 85, 105, 0.08) 1.5px, transparent 1.5px), linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
-  background-size: 16px 16px, 100% 100%;
+  background-image: url('assets/covers/cover-dsa.jpg');
 }
 
 .theme-charcoal {
-  background: radial-gradient(circle at 10px 10px, rgba(28, 25, 23, 0.08) 1.5px, transparent 1.5px), linear-gradient(135deg, #F5F5F4 0%, #E7E5E4 100%);
-  background-size: 16px 16px, 100% 100%;
+  background-image: url('assets/covers/cover-git.jpg');
 }
 
 .theme-emerald {
-  background: radial-gradient(circle at 10px 10px, rgba(16, 185, 129, 0.08) 1.5px, transparent 1.5px), linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
-  background-size: 16px 16px, 100% 100%;
+  background-image: url('assets/covers/cover-hackathon.jpg');
 }
 
 .theme-sky {
-  background: radial-gradient(circle at 10px 10px, rgba(14, 165, 233, 0.08) 1.5px, transparent 1.5px), linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
-  background-size: 16px 16px, 100% 100%;
+  background-image: url('assets/covers/cover-apis.jpg');
 }
 
 .theme-violet {
-  background: radial-gradient(circle at 10px 10px, rgba(139, 92, 246, 0.08) 1.5px, transparent 1.5px), linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
-  background-size: 16px 16px, 100% 100%;
+  background-image: url('assets/covers/cover-figma.jpg');
 }
 
 .theme-indigo {
-  background: radial-gradient(circle at 10px 10px, rgba(99, 102, 241, 0.08) 1.5px, transparent 1.5px), linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
-  background-size: 16px 16px, 100% 100%;
+  background-image: url('assets/covers/cover-php.jpg');
 }
 
 .theme-amber {
-  background: radial-gradient(circle at 10px 10px, rgba(217, 119, 6, 0.08) 1.5px, transparent 1.5px), linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
-  background-size: 16px 16px, 100% 100%;
+  background-image: url('assets/covers/cover-css.jpg');
 }
 
 .theme-teal {
-  background: radial-gradient(circle at 10px 10px, rgba(13, 148, 136, 0.08) 1.5px, transparent 1.5px), linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%);
-  background-size: 16px 16px, 100% 100%;
+  background-image: url('assets/covers/cover-opendata.jpg');
 }
 
 .crate-card {
@@ -1663,12 +1654,27 @@ code, kbd, pre {
   padding: 0 16px;
   border-bottom: 1px solid var(--border);
   box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.crate-card-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 18, 16, 0.42) 0%, rgba(20, 18, 16, 0.75) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .crate-hero-stack {
   display: flex;
   align-items: center;
   gap: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-icon-tile {
@@ -1702,6 +1708,8 @@ code, kbd, pre {
   flex-direction: column;
   align-items: flex-end;
   gap: 6px;
+  position: relative;
+  z-index: 1;
 }
 
 .crate-category-badge {
@@ -1837,13 +1845,21 @@ code, kbd, pre {
 }
 
 /* === CRATE DETAIL VIEW === */
+.crate-detail-top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
 .crate-detail-breadcrumb {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 13px;
   color: var(--ink-muted);
-  margin-bottom: 20px;
 }
 
 .breadcrumb-item:hover {
@@ -1869,7 +1885,7 @@ code, kbd, pre {
 }
 
 .crate-detail-hero-banner {
-  height: 104px;
+  height: 110px;
   position: relative;
   display: flex;
   align-items: center;
@@ -1877,6 +1893,25 @@ code, kbd, pre {
   padding: 0 28px;
   border-bottom: 1px solid var(--border);
   box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.crate-detail-hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 18, 16, 0.42) 0%, rgba(20, 18, 16, 0.75) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.crate-detail-hero-banner .crate-hero-stack,
+.crate-detail-hero-banner .crate-hero-badges {
+  position: relative;
+  z-index: 1;
 }
 
 .crate-header-main {

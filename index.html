@@ -63,8 +63,8 @@
             <form class="claim-handle-form" id="landing-claim-form" onsubmit="return false;">
               <div class="handle-input-wrapper">
                 <span class="handle-prefix">stac.crate/@</span>
-                <input type="text" id="landing-handle-input" class="handle-input" value="charles" placeholder="username" spellcheck="false" autocomplete="off">
-                <span class="handle-status-badge" id="landing-handle-status">✓ Available</span>
+                <input type="text" id="landing-handle-input" class="handle-input" value="" placeholder="yourname" spellcheck="false" autocomplete="off">
+                <span class="handle-status-badge" id="landing-handle-status">Enter handle</span>
               </div>
               <button type="submit" class="btn btn-accent" id="landing-claim-btn">
                 Create Free Crate →
@@ -234,10 +234,10 @@
             <form class="cta-claim-form" id="cta-claim-form" onsubmit="return false;">
               <div class="handle-input-wrapper dark-wrapper">
                 <span class="handle-prefix">stac.crate/@</span>
-                <input type="text" id="cta-handle-input" class="handle-input" value="charles" placeholder="username">
+                <input type="text" id="cta-handle-input" class="handle-input" value="" placeholder="yourname">
               </div>
               <button type="submit" class="btn btn-accent" id="cta-claim-btn">
-                Claim @charles Free →
+                Claim Your Handle Free →
               </button>
             </form>
           </div>
@@ -437,12 +437,17 @@
     <!-- === CRATE DETAIL VIEW === -->
     <section class="view-panel" id="view-crate">
       <div class="view-container">
-        <div class="crate-detail-breadcrumb" id="crate-breadcrumb">
-          <a href="#explore" class="breadcrumb-item">Explore</a>
-          <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-item author-link" id="crate-bread-handle" data-handle="@charles">@charles</span>
-          <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-current" id="crate-bread-slug">ws101-starter-pack</span>
+        <div class="crate-detail-top-nav">
+          <button class="btn btn-sm btn-outline btn-back" id="crate-back-btn" type="button">
+            ← Back to Explore
+          </button>
+          <div class="crate-detail-breadcrumb" id="crate-breadcrumb">
+            <a href="#explore" class="breadcrumb-item">Explore</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-item author-link" id="crate-bread-handle" data-handle="@charles">@charles</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current" id="crate-bread-slug">ws101-starter-pack</span>
+          </div>
         </div>
 
         <div class="crate-detail-header-card">
@@ -467,14 +472,16 @@
                 </span>
               </div>
 
-              <div class="crate-action-buttons">
+              <div class="crate-action-buttons" id="crate-action-buttons-container">
                 <button class="copy-url-pill copy-trigger" id="crate-copy-url-btn" data-copy="stac.crate/@charles/ws101">
                   <span id="crate-short-url-text">stac.crate/@charles/ws101</span>
-                  <span class="copy-pill-badge">Copy</span>
+                  <span class="copy-pill-badge">Copy Link</span>
                 </button>
-                <button class="btn btn-accent" id="crate-fork-btn">
-                  🍴 Fork Crate (<span id="crate-fork-count">42</span>)
-                </button>
+                <div id="crate-context-action-buttons" style="display: inline-flex; gap: 8px;">
+                  <button class="btn btn-accent" id="crate-fork-btn">
+                    🍴 Fork Crate (<span id="crate-fork-count">42</span>)
+                  </button>
+                </div>
               </div>
             </div>
           </div>
