@@ -1,4 +1,6 @@
-*.svg
+/*.svg
+/*.jpg
+/*.png
 preview.html
 generate-wireframes.js
 build-in-figma-console.js

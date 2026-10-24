@@ -157,6 +157,8 @@ const DEFAULT_CRATES = [
     authorInitials: "CS",
     category: "WS101 Web Dev",
     visibility: "Public",
+    coverTheme: "theme-terracotta",
+    stackIcons: ["assets/icons/tailwindcss.svg", "assets/icons/php.svg", "assets/icons/mysql.svg"],
     forks: 42,
     views: 184,
     updatedAt: "2d ago",
@@ -167,6 +169,7 @@ const DEFAULT_CRATES = [
         name: "Tailwind CSS Play CDN",
         category: "Frontend",
         healthy: true,
+        icon: "assets/icons/tailwindcss.svg",
         snippet: '<script src="https://cdn.tailwindcss.com"></script>',
         desc: "Drop directly into your HTML <head> for instant utility styling without npm.",
         tip: "Great for rapid lab prototypes without configuring a build step.",
@@ -177,6 +180,7 @@ const DEFAULT_CRATES = [
         name: "PHP PDO MySQL Connection",
         category: "Backend",
         healthy: true,
+        icon: "assets/icons/php.svg",
         snippet: '$pdo = new PDO("mysql:host=localhost;dbname=app", $user, $pass);',
         desc: "Prepared-statement database connection wrapper preventing SQL injection.",
         tip: "Always use prepared statements with bound parameters in finals.",
@@ -187,6 +191,7 @@ const DEFAULT_CRATES = [
         name: "JSONPlaceholder Fake REST",
         category: "APIs",
         healthy: true,
+        icon: "assets/icons/json.svg",
         snippet: "https://jsonplaceholder.typicode.com/posts",
         desc: "Zero-auth mock REST endpoint with dummy users, posts, and todos.",
         tip: "Test your JavaScript fetch() calls before wiring up your PHP backend.",
@@ -197,6 +202,7 @@ const DEFAULT_CRATES = [
         name: "Tabler Icons (5,200+ SVGs)",
         category: "Assets",
         healthy: true,
+        icon: "assets/icons/html5.svg",
         snippet: '<svg stroke="currentColor" stroke-width="1.5" fill="none">...</svg>',
         desc: "Open-source MIT vector icons—copy inline SVG code with zero sign-up.",
         tip: "Set stroke-width=\"1.5\" to match modern minimalist interfaces.",
@@ -207,6 +213,7 @@ const DEFAULT_CRATES = [
         name: "Coolors Hex Palette Studio",
         category: "Assets",
         healthy: true,
+        icon: "assets/icons/css3.svg",
         snippet: "--ink: #1C1917; --accent: #C2410C; --paper: #F7F7F4;",
         desc: "Generate harmonious color palettes and export directly to CSS variables.",
         tip: "Paste exported variables straight into your :root stylesheet block.",
@@ -217,6 +224,7 @@ const DEFAULT_CRATES = [
         name: "DevDocs Offline Reference",
         category: "Docs",
         healthy: true,
+        icon: "assets/icons/vscode.svg",
         snippet: "https://devdocs.io",
         desc: "Fast offline-ready documentation for HTML, CSS, JS, PHP, and MySQL.",
         tip: "Enable offline mode in your browser before lab exams.",
@@ -234,6 +242,8 @@ const DEFAULT_CRATES = [
     authorInitials: "CS",
     category: "WS101 Web Dev",
     visibility: "Public",
+    coverTheme: "theme-slate",
+    stackIcons: ["assets/icons/cplusplus.svg", "assets/icons/vscode.svg", "assets/icons/bash.svg"],
     forks: 12,
     views: 92,
     updatedAt: "5d ago",
@@ -244,9 +254,10 @@ const DEFAULT_CRATES = [
         name: "STL Vector Cheatsheet",
         category: "Docs",
         healthy: true,
-        snippet: "#include <vector>\nstd::vector<int> numbers = {1, 2, 3};\nnumbers.push_back(4);",
-        desc: "Quick syntax for push_back, size, iterators, and sorting.",
-        tip: "Use reserve() when size is known to avoid reallocation overhead.",
+        icon: "assets/icons/cplusplus.svg",
+        snippet: "vector<int> v; v.push_back(10); sort(v.begin(), v.end());",
+        desc: "Dynamic contiguous array operations with automatic resizing.",
+        tip: "Use reserve() when you know target capacity to avoid re-allocations.",
         docsUrl: "https://en.cppreference.com/w/cpp/container/vector"
       },
       {
@@ -254,9 +265,10 @@ const DEFAULT_CRATES = [
         name: "VisuAlgo Graph Visualizer",
         category: "Assets",
         healthy: true,
+        icon: "assets/icons/javascript.svg",
         snippet: "https://visualgo.net/en/graphds",
-        desc: "Interactive animation of BFS, DFS, Dijkstra, and minimum spanning trees.",
-        tip: "Great for tracing graph traversal algorithms step by step before finals.",
+        desc: "Interactive tree, heap, graph, and DFS/BFS visualizer for lab quizzes.",
+        tip: "Step through Dijkstra animations before writing code.",
         docsUrl: "https://visualgo.net"
       },
       {
@@ -264,26 +276,28 @@ const DEFAULT_CRATES = [
         name: "Big-O Complexity Reference",
         category: "Docs",
         healthy: true,
-        snippet: "Array: O(1) access, O(n) search | BST: O(log n) avg | Hash: O(1) avg",
-        desc: "Time and space complexity cheat sheet for sorting algorithms and data structures.",
-        tip: "Bookmark this for algorithm analysis exams.",
-        docsUrl: "https://www.bigocheatsheet.com/"
+        icon: "assets/icons/cplusplus.svg",
+        snippet: "O(1) < O(log n) < O(n) < O(n log n) < O(n^2)",
+        desc: "Handy runtime scaling guide for lab quiz asymptotic analysis.",
+        tip: "Binary search on sorted arrays is O(log n).",
+        docsUrl: "https://www.bigocheatsheet.com"
       },
       {
         id: "t10",
         name: "Clang-Format Lab Config",
         category: "Frontend",
         healthy: true,
-        snippet: "BasedOnStyle: Google\nIndentWidth: 4\nColumnLimit: 100",
-        desc: "Universal C++ code formatting file for clean lab submission indentation.",
-        tip: "Place in repo root to auto-format files on save in VS Code.",
-        docsUrl: "https://clang.llvm.org/docs/ClangFormat.html"
+        icon: "assets/icons/vscode.svg",
+        snippet: "BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 100",
+        desc: ".clang-format file for VS Code formatting to pass instructor auto-graders.",
+        tip: "Place in the root of your lab repository.",
+        docsUrl: "https://clang.llvm.org/docs/ClangFormatStyleOptions.html"
       }
     ]
   },
   {
     id: "git-survival",
-    slug: "git-lab-survival",
+    slug: "git-survival-guide",
     shortUrl: "stac.crate/@charles/git",
     title: "Git & GitHub Lab Survival",
     handle: "@charles",
@@ -291,76 +305,85 @@ const DEFAULT_CRATES = [
     authorInitials: "CS",
     category: "WS101 Web Dev",
     visibility: "Public",
-    forks: 7,
-    views: 64,
+    coverTheme: "theme-charcoal",
+    stackIcons: ["assets/icons/git.svg", "assets/icons/github.svg", "assets/icons/bash.svg"],
+    forks: 28,
+    views: 140,
     updatedAt: "1w ago",
-    description: "Copy-paste terminal commands for branching, resolving merge conflicts, and pushing group lab repositories.",
+    description: "Branching workflows, SSH key setup, clean commit conventions, and un-breaking merge conflicts.",
     tools: [
       {
         id: "t11",
         name: "Git Feature Branch Workflow",
         category: "Backend",
         healthy: true,
-        snippet: "git checkout -b feature/login\ngit add .\ngit commit -m \"Add auth\"\ngit push origin feature/login",
-        desc: "Standard branch creation, staging, and push workflow for group assignments.",
-        tip: "Never push directly to main during group sprint deadlines.",
-        docsUrl: "https://git-scm.com/docs/git-checkout"
+        icon: "assets/icons/git.svg",
+        snippet: "git checkout -b feature/login && git push -u origin feature/login",
+        desc: "Standard branching syntax for group projects to avoid pushing to main.",
+        tip: "Always create a PR before merging into main.",
+        docsUrl: "https://git-scm.com/doc"
       },
       {
         id: "t12",
         name: "SSH Key Setup Snippet",
         category: "Backend",
         healthy: true,
-        snippet: 'ssh-keygen -t ed25519 -C "charles.sevilla@hnu.edu.ph"',
-        desc: "Generate modern ed25519 SSH keys for GitHub authentication without personal tokens.",
-        tip: "Test connection with ssh -T git@github.com after adding to GitHub keys.",
-        docsUrl: "https://docs.github.com/en/authentication"
+        icon: "assets/icons/bash.svg",
+        snippet: 'ssh-keygen -t ed25519 -C \"student@school.edu\"',
+        desc: "Ed25519 key generation command for GitHub passwordless push on lab PCs.",
+        tip: "Save key in ~/.ssh/id_ed25519.",
+        docsUrl: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh"
       },
       {
         id: "t13",
         name: "Standard Node/PHP .gitignore",
         category: "Assets",
         healthy: true,
-        snippet: "node_modules/\nvendor/\n.env\n*.log\n.DS_Store",
-        desc: "Essential ignores for PHP, Composer, and Node.js web development assignments.",
-        tip: "Add this before running git add . on fresh projects.",
-        docsUrl: "https://git-scm.com/docs/gitignore"
+        icon: "assets/icons/github.svg",
+        snippet: "/vendor/\n/node_modules/\n.env\n.DS_Store",
+        desc: "Prevent accidental pushes of vendor directories and secrets to public repos.",
+        tip: "Commit this before running composer install or npm install.",
+        docsUrl: "https://github.com/github/gitignore"
       },
       {
         id: "t14",
         name: "Undo Last Commit Soft Reset",
         category: "Backend",
         healthy: true,
+        icon: "assets/icons/git.svg",
         snippet: "git reset --soft HEAD~1",
-        desc: "Un-commit the most recent commit while keeping all modified files intact in stage.",
-        tip: "Perfect when you forgot to include a file or typo'd the commit message.",
+        desc: "Rewinds the latest commit while preserving all changes in your working directory.",
+        tip: "Use when you committed before adding a forgotten file.",
         docsUrl: "https://git-scm.com/docs/git-reset"
       }
     ]
   },
   {
     id: "hackathon-private",
-    slug: "personal-hackathon-boilerplate",
-    shortUrl: "stac.crate/@charles/hackathon",
+    slug: "hackathon-starter-kit",
+    shortUrl: "stac.crate/@charles/hack",
     title: "Personal Hackathon Boilerplate",
     handle: "@charles",
     authorName: "Charles Sevilla",
     authorInitials: "CS",
-    category: "Free APIs",
+    category: "WS101 Web Dev",
     visibility: "Private",
-    forks: 0,
-    views: 8,
-    updatedAt: "1d ago",
-    description: "Rapid auth, webhook testing, and transactional email helpers for 24-hour student hackathons.",
+    coverTheme: "theme-emerald",
+    stackIcons: ["assets/icons/supabase.svg", "assets/icons/javascript.svg", "assets/icons/json.svg"],
+    forks: 3,
+    views: 18,
+    updatedAt: "3d ago",
+    description: "Private scaffolding with pre-configured Supabase auth, Stripe test tokens, and transactional email keys.",
     tools: [
       {
         id: "t15",
         name: "Supabase JS Auth Client",
         category: "Backend",
         healthy: true,
-        snippet: "const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);",
-        desc: "Instant email & OAuth authentication client for web apps.",
-        tip: "Store keys in .env.local before pushing to GitHub.",
+        icon: "assets/icons/supabase.svg",
+        snippet: "import { createClient } from '@supabase/supabase-js';\nconst supabase = createClient(URL, KEY);",
+        desc: "Plug-and-play PostgreSQL and authentication client for quick 24h projects.",
+        tip: "Enable Row Level Security (RLS) immediately in the dashboard.",
         docsUrl: "https://supabase.com/docs"
       },
       {
@@ -368,28 +391,28 @@ const DEFAULT_CRATES = [
         name: "Stripe Test Webhook CLI Docs",
         category: "APIs",
         healthy: false,
-        brokenUrl: "https://stripe.com/docs/webhooks/test-local-v1",
-        suggestedUrl: "https://docs.stripe.com/webhooks/quickstart",
-        snippet: "https://stripe.com/docs/webhooks/test-local-v1",
-        desc: "Local webhook forwarding documentation for payment events.",
-        tip: "Flagged 404: Page moved to docs.stripe.com/webhooks/quickstart.",
-        docsUrl: "https://stripe.com/docs/webhooks/test-local-v1"
+        icon: "assets/icons/bash.svg",
+        snippet: "stripe listen --forward-to localhost:4242/webhook",
+        desc: "Local webhook forwarding tunnel for testing payment checkout callbacks.",
+        tip: "Check signing secret matches STRIPE_WEBHOOK_SECRET in .env.",
+        docsUrl: "https://stripe.com/docs/stripe-cli"
       },
       {
         id: "t17",
         name: "Resend Transactional Email",
         category: "APIs",
         healthy: true,
-        snippet: 'await resend.emails.send({ from: "onboarding@resend.dev", to, subject, html });',
-        desc: "Zero-config transactional email API for student projects.",
-        tip: "Free tier includes 3,000 emails/month with zero credit card.",
+        icon: "assets/icons/javascript.svg",
+        snippet: "resend.emails.send({ from: 'onboarding@resend.dev', to: user.email, subject: 'Welcome!' });",
+        desc: "Zero-configuration modern SMTP alternative for email notifications.",
+        tip: "Free tier supports up to 100 emails/day.",
         docsUrl: "https://resend.com/docs"
       }
     ]
   },
   {
     id: "free-apis",
-    slug: "zero-budget-student-apis",
+    slug: "free-student-apis",
     shortUrl: "stac.crate/@dev_miko/free-apis",
     title: "Zero-Budget Student APIs",
     handle: "@dev_miko",
@@ -397,21 +420,22 @@ const DEFAULT_CRATES = [
     authorInitials: "MS",
     category: "Free APIs",
     visibility: "Public",
-    isForkedByCharles: true,
-    forkedFrom: "@dev_miko",
-    forks: 29,
+    coverTheme: "theme-sky",
+    stackIcons: ["assets/icons/json.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"],
+    forks: 34,
     views: 210,
     updatedAt: "3d ago",
-    description: "Public REST APIs with CORS enabled and zero API keys. Ideal for practicing JavaScript fetch() and async UI.",
+    description: "Hand-picked mock JSON APIs with zero authentication requirements: products, users, weather, and geolocation.",
     tools: [
       {
         id: "t18",
         name: "DummyJSON Products & Users API",
         category: "APIs",
         healthy: true,
+        icon: "assets/icons/json.svg",
         snippet: "https://dummyjson.com/products",
-        desc: "Rich fake eCommerce items, users, and carts for building store frontends.",
-        tip: "Supports pagination with ?limit=10&skip=10 query parameters.",
+        desc: "Mock REST API with 100+ items, categories, thumbnails, and search endpoints.",
+        tip: "Supports pagination with ?limit=10&skip=10 query params.",
         docsUrl: "https://dummyjson.com"
       },
       {
@@ -419,9 +443,10 @@ const DEFAULT_CRATES = [
         name: "Open-Meteo Weather JSON",
         category: "APIs",
         healthy: true,
-        snippet: "https://api.open-meteo.com/v1/forecast?latitude=9.64&longitude=123.85&current_weather=true",
-        desc: "Free weather forecast API with Bohol / Tagbilaran coordinates pre-configured.",
-        tip: "Completely open endpoint without API keys or rate limiting for student apps.",
+        icon: "assets/icons/json.svg",
+        snippet: "https://api.open-meteo.com/v1/forecast?latitude=9.65&longitude=123.85&current_weather=true",
+        desc: "Completely open weather forecast API requiring zero API keys.",
+        tip: "Coordinates preset for Tagbilaran City / Bohol coordinates.",
         docsUrl: "https://open-meteo.com"
       },
       {
@@ -429,9 +454,10 @@ const DEFAULT_CRATES = [
         name: "Public IP Geolocation JSON",
         category: "APIs",
         healthy: true,
+        icon: "assets/icons/json.svg",
         snippet: "https://ipapi.co/json/",
-        desc: "Detect client IP, city, region, and ISP in a single JSON call.",
-        tip: "Use for setting default language or country selection in checkout labs.",
+        desc: "Returns visitor city, country, postal code, and ISP information in JSON.",
+        tip: "Great for automatically detecting student campus IP blocks.",
         docsUrl: "https://ipapi.co"
       },
       {
@@ -439,38 +465,40 @@ const DEFAULT_CRATES = [
         name: "REST Countries & Flags Endpoint",
         category: "APIs",
         healthy: true,
-        snippet: "https://restcountries.com/v3.1/all?fields=name,flags,capital",
-        desc: "Official country names, SVG flag images, and ISO alpha codes.",
-        tip: "Filter fields in URL to minimize JSON payload size.",
+        icon: "assets/icons/json.svg",
+        snippet: "https://restcountries.com/v3.1/name/philippines",
+        desc: "Country metadata, flag SVG URLs, borders, currencies, and languages.",
+        tip: "Use fields filter like ?fields=name,flags,capital to reduce payload.",
         docsUrl: "https://restcountries.com"
       }
     ]
   },
   {
     id: "figma-ui-vault",
-    slug: "figma-ui-asset-vault",
-    shortUrl: "stac.crate/@alyssa_ui/figma-vault",
+    slug: "figma-ui-vault",
+    shortUrl: "stac.crate/@dev_miko/figma",
     title: "Figma & UI Asset Vault",
-    handle: "@alyssa_ui",
-    authorName: "Alyssa Cruz",
-    authorInitials: "AC",
-    category: "UI & Icons",
+    handle: "@dev_miko",
+    authorName: "Miko Santos",
+    authorInitials: "MS",
+    category: "UI Assets",
     visibility: "Public",
-    isForkedByCharles: true,
-    forkedFrom: "@alyssa_ui",
-    forks: 35,
-    views: 195,
+    coverTheme: "theme-violet",
+    stackIcons: ["assets/icons/figma.svg", "assets/icons/css3.svg", "assets/icons/html5.svg"],
+    forks: 21,
+    views: 115,
     updatedAt: "4d ago",
-    description: "Free SVG icon libraries, hex palette generators, and wireframe kits that export cleanly to HTML and CSS.",
+    description: "Lucide icons, typography pairings, modern CSS resets, and Unsplash placeholder parameters.",
     tools: [
       {
         id: "t22",
         name: "Lucide SVG Icons",
         category: "Assets",
         healthy: true,
-        snippet: '<i data-lucide="folder-code"></i>\n<script src="https://unpkg.com/lucide@latest"></script>',
-        desc: "Modern community-maintained SVG icon toolkit with 1,400+ vector glyphs.",
-        tip: "Call lucide.createIcons() once in DOMContentLoaded.",
+        icon: "assets/icons/figma.svg",
+        snippet: '<script src="https://unpkg.com/lucide@latest"></script><script>lucide.createIcons();</script>',
+        desc: "Clean, consistent icon set with official Lucide Figma community file.",
+        tip: "Call lucide.createIcons() after dynamically appending HTML.",
         docsUrl: "https://lucide.dev"
       },
       {
@@ -478,9 +506,10 @@ const DEFAULT_CRATES = [
         name: "Google Fonts Inter & JetBrains Mono",
         category: "Frontend",
         healthy: true,
-        snippet: '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">',
-        desc: "Pairing high-contrast sans-serif body text with clean monospace code snippets.",
-        tip: "Add preconnect links before the font stylesheet to avoid render block.",
+        icon: "assets/icons/css3.svg",
+        snippet: '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">',
+        desc: "Clean typographic pairing for modern dashboard and code editors.",
+        tip: "Add font-display: swap to prevent layout shifts.",
         docsUrl: "https://fonts.google.com"
       },
       {
@@ -488,46 +517,51 @@ const DEFAULT_CRATES = [
         name: "Modern CSS Reset Snippet",
         category: "Frontend",
         healthy: true,
+        icon: "assets/icons/css3.svg",
         snippet: "*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }",
-        desc: "Eliminates browser margin inconsistencies and fixes box model calculation.",
-        tip: "Put this at line 1 of every project stylesheet.",
-        docsUrl: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS"
+        desc: "Standard box-sizing and padding reset snippet to eliminate default browser quirks.",
+        tip: "Paste at the very top of your global CSS stylesheet.",
+        docsUrl: "https://piccalil.li/blog/a-modern-css-reset/"
       },
       {
         id: "t25",
         name: "Unsplash Source Image URL",
         category: "Assets",
         healthy: true,
-        snippet: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
-        desc: "High quality royalty-free placeholder image for developer portfolio demos.",
-        tip: "Adjust w= query parameter to request correctly sized responsive images.",
+        icon: "assets/icons/html5.svg",
+        snippet: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80",
+        desc: "Curated high-resolution placeholder images for student web portfolio mockups.",
+        tip: "Specify w= and q= parameters to ensure fast lab page loads.",
         docsUrl: "https://unsplash.com"
       }
     ]
   },
   {
     id: "php-auth-sql",
-    slug: "php-auth-sql-boilerplates",
-    shortUrl: "stac.crate/@carlos_tech/php-auth",
+    slug: "php-auth-boilerplates",
+    shortUrl: "stac.crate/@dev_miko/php",
     title: "PHP Auth & SQL Boilerplates",
-    handle: "@carlos_tech",
-    authorName: "Carlos Reyes",
-    authorInitials: "CR",
-    category: "PHP & MySQL",
+    handle: "@dev_miko",
+    authorName: "Miko Santos",
+    authorInitials: "MS",
+    category: "Boilerplates",
     visibility: "Public",
+    coverTheme: "theme-indigo",
+    stackIcons: ["assets/icons/php.svg", "assets/icons/mysql.svg", "assets/icons/bash.svg"],
     forks: 19,
-    views: 142,
-    updatedAt: "6d ago",
-    description: "Session login handlers, bcrypt password hashing, and prepared statement wrappers for college finals.",
+    views: 160,
+    updatedAt: "1w ago",
+    description: "Bcrypt password hashing, prepared statement SELECT, session guards, and MySQL schema creation.",
     tools: [
       {
         id: "t26",
         name: "PDO Prepared Statement Query",
         category: "Backend",
         healthy: true,
+        icon: "assets/icons/php.svg",
         snippet: '$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");\n$stmt->execute([$email]);\n$user = $stmt->fetch();',
-        desc: "Parameterized PDO execution preventing SQL injections completely.",
-        tip: "Never concatenate raw variables directly into SQL strings.",
+        desc: "Secure parameter-bound SQL query preventing malicious user input.",
+        tip: "Never concatenate PHP variables directly into SQL strings.",
         docsUrl: "https://www.php.net/manual/en/pdo.prepare.php"
       },
       {
@@ -535,9 +569,10 @@ const DEFAULT_CRATES = [
         name: "Password Hash & Verify Bcrypt",
         category: "Backend",
         healthy: true,
-        snippet: '$hash = password_hash($password, PASSWORD_BCRYPT);\nif (password_verify($input, $hash)) { echo "authenticated"; }',
-        desc: "Secure standard cryptographic hashing algorithm built into modern PHP.",
-        tip: "Store hashes in VARCHAR(255) columns in MySQL tables.",
+        icon: "assets/icons/php.svg",
+        snippet: '$hash = password_hash($pass, PASSWORD_BCRYPT);\nif (password_verify($pass, $hash)) { ... }',
+        desc: "Official PHP password hashing standard with automatic cryptographic salting.",
+        tip: "Always store passwords in a VARCHAR(255) column.",
         docsUrl: "https://www.php.net/manual/en/function.password-hash.php"
       },
       {
@@ -545,46 +580,51 @@ const DEFAULT_CRATES = [
         name: "PHP Session Auth Guard",
         category: "Backend",
         healthy: true,
-        snippet: 'session_start();\nif (!isset($_SESSION["user_id"])) {\n    header("Location: login.php");\n    exit();\n}',
-        desc: "Essential authorization check protecting student dashboard routes.",
-        tip: "Always invoke exit() immediately after sending a Location redirect.",
-        docsUrl: "https://www.php.net/manual/en/book.session.php"
+        icon: "assets/icons/php.svg",
+        snippet: "session_start();\nif (!isset($_SESSION['user_id'])) {\n    header('Location: signin.php');\n    exit();\n}",
+        desc: "Four-line route protector for authenticated student dashboard views.",
+        tip: "Call session_start() at the top before any HTML output.",
+        docsUrl: "https://www.php.net/manual/en/features.sessions.php"
       },
       {
         id: "t29",
         name: "MySQL Users Table Schema",
         category: "Backend",
         healthy: true,
-        snippet: "CREATE TABLE users (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    email VARCHAR(191) UNIQUE NOT NULL,\n    password_hash VARCHAR(255) NOT NULL,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);",
-        desc: "Strict utf8mb4 users table structure with unique index on email.",
-        tip: "Use VARCHAR(191) for indexed columns under MySQL InnoDB limits.",
-        docsUrl: "https://dev.mysql.com/doc/"
+        icon: "assets/icons/mysql.svg",
+        snippet: "CREATE TABLE users (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  email VARCHAR(191) UNIQUE NOT NULL,\n  password_hash VARCHAR(255) NOT NULL,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);",
+        desc: "Normalized SQL table blueprint for user accounts in XAMPP MySQL.",
+        tip: "Use VARCHAR(191) to guarantee compatibility with utf8mb4 indexes.",
+        docsUrl: "https://dev.mysql.com/doc"
       }
     ]
   },
   {
     id: "css-flex-grid",
     slug: "css-flex-grid-cheatsheet",
-    shortUrl: "stac.crate/@sarah_codes/css-grid",
+    shortUrl: "stac.crate/@dev_miko/css",
     title: "CSS Flex & Grid Cheatsheet",
-    handle: "@sarah_codes",
-    authorName: "Sarah Lim",
-    authorInitials: "SL",
-    category: "UI & Icons",
+    handle: "@dev_miko",
+    authorName: "Miko Santos",
+    authorInitials: "MS",
+    category: "Cheatsheets",
     visibility: "Public",
-    forks: 14,
-    views: 118,
-    updatedAt: "1w ago",
-    description: "Interactive visual guides for centering layouts, grid template areas, and responsive mobile breakpoints.",
+    coverTheme: "theme-amber",
+    stackIcons: ["assets/icons/css3.svg", "assets/icons/html5.svg", "assets/icons/figma.svg"],
+    forks: 15,
+    views: 89,
+    updatedAt: "6d ago",
+    description: "Responsive auto-fit grid, sticky footer layout, clamp() fluid typography, and centering tricks.",
     tools: [
       {
         id: "t30",
         name: "Auto-Fit Responsive CSS Grid",
         category: "Frontend",
         healthy: true,
-        snippet: "display: grid;\ngrid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\ngap: 1.5rem;",
-        desc: "Fluid card grid that wraps smoothly on smartphones without writing media queries.",
-        tip: "The auto-fit keyword stretches columns to fill remaining container space.",
+        icon: "assets/icons/css3.svg",
+        snippet: "display: grid;\ngrid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\ngap: 20px;",
+        desc: "Zero-media-query responsive card grid that automatically wraps on mobile.",
+        tip: "Use auto-fit rather than auto-fill to stretch cards across full width.",
         docsUrl: "https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns"
       },
       {
@@ -592,46 +632,51 @@ const DEFAULT_CRATES = [
         name: "Flexbox Sticky Footer Layout",
         category: "Frontend",
         healthy: true,
+        icon: "assets/icons/css3.svg",
         snippet: "body { min-height: 100vh; display: flex; flex-direction: column; }\nmain { flex: 1; }",
-        desc: "Guarantees footer stays pinned to the viewport bottom on short pages.",
-        tip: "Give the main content container flex: 1 to absorb remaining vertical height.",
-        docsUrl: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox"
+        desc: "Keeps footer pinned to bottom of viewport even on short pages.",
+        tip: "Apply flex: 1 to the direct container between navbar and footer.",
+        docsUrl: "https://css-tricks.com/couple-takes-sticky-footer/"
       },
       {
         id: "t32",
         name: "Clamp() Fluid Typography",
         category: "Frontend",
         healthy: true,
-        snippet: "font-size: clamp(1.5rem, 4vw + 1rem, 3rem);",
-        desc: "Scales heading font smoothly between minimum and maximum boundaries.",
-        tip: "Replaces multiple font-size breakpoints with one single declaration.",
+        icon: "assets/icons/css3.svg",
+        snippet: "font-size: clamp(1.5rem, 2.5vw + 1rem, 3rem);",
+        desc: "Fluid text scaling from mobile to ultra-wide displays without breakpoint steps.",
+        tip: "Minimum value is 1.5rem, preferred is 2.5vw + 1rem, maximum is 3rem.",
         docsUrl: "https://developer.mozilla.org/en-US/docs/Web/CSS/clamp"
       }
     ]
   },
   {
     id: "ph-open-data",
-    slug: "philippine-open-data-apis",
-    shortUrl: "stac.crate/@miguel_data/ph-data",
+    slug: "philippine-open-data",
+    shortUrl: "stac.crate/@dev_miko/ph-data",
     title: "Philippine Open Data & APIs",
-    handle: "@miguel_data",
-    authorName: "Miguel Tan",
-    authorInitials: "MT",
+    handle: "@dev_miko",
+    authorName: "Miko Santos",
+    authorInitials: "MS",
     category: "Free APIs",
     visibility: "Public",
-    forks: 22,
-    views: 164,
-    updatedAt: "3d ago",
-    description: "Localized datasets for capstone projects: PH zip codes, PSGC geographic codes, and PAGASA weather feeds.",
+    coverTheme: "theme-teal",
+    stackIcons: ["assets/icons/json.svg", "assets/icons/javascript.svg", "assets/icons/mysql.svg"],
+    forks: 8,
+    views: 64,
+    updatedAt: "2w ago",
+    description: "Philippine Standard Geographic Code (PSGC), zip codes, holiday calendar, and PAGASA cyclone data.",
     tools: [
       {
         id: "t33",
         name: "PSGC Regions & Provinces JSON",
         category: "APIs",
         healthy: true,
-        snippet: "https://psgc.gitlab.io/api/regions/",
-        desc: "Philippine Standard Geographic Code API listing all 17 administrative regions.",
-        tip: "Access /api/provinces/ and /api/cities-municipalities/ for cascading dropdowns.",
+        icon: "assets/icons/json.svg",
+        snippet: "https://psgc.gitlab.io/api/regions.json",
+        desc: "Open static REST mirror for Philippine administrative regions, provinces, and cities.",
+        tip: "Includes official 9-digit PSGC codes for address cascades.",
         docsUrl: "https://psgc.gitlab.io/api/"
       },
       {
@@ -639,16 +684,18 @@ const DEFAULT_CRATES = [
         name: "PH Postal & Zip Code Lookup",
         category: "APIs",
         healthy: true,
-        snippet: "https://raw.githubusercontent.com/sunnyp/philippine-zip-codes/master/zipcodes.json",
-        desc: "Raw JSON mapping of all Philippine postal zip codes by city and province.",
-        tip: "Cache this JSON in localStorage to prevent repeated network requests.",
-        docsUrl: "https://github.com/sunnyp/philippine-zip-codes"
+        icon: "assets/icons/json.svg",
+        snippet: "https://raw.githubusercontent.com/admix/ph-zip-codes/master/zipcodes.json",
+        desc: "Crowdsourced raw JSON mapping of Philippine municipalities to 4-digit postal codes.",
+        tip: "Cache in localStorage to prevent repeated network requests.",
+        docsUrl: "https://github.com/admix/ph-zip-codes"
       },
       {
         id: "t35",
         name: "PAGASA Tropical Cyclone Feed",
         category: "APIs",
         healthy: true,
+        icon: "assets/icons/json.svg",
         snippet: "https://bagong.pagasa.dost.gov.ph/weather/cyclone-bulletin",
         desc: "Official storm bulletins, typhoon tracks, and tropical cyclone warning signals.",
         tip: "Ideal for student disaster preparedness systems and capstone apps.",
@@ -658,7 +705,33 @@ const DEFAULT_CRATES = [
   }
 ];
 
-const STORAGE_KEY = "stac_crate_vault_v1";
+function getToolIcon(tool, crate) {
+  if (tool && tool.icon) return tool.icon;
+  const name = (tool && tool.name ? tool.name.toLowerCase() : "");
+  const cat = (tool && tool.category ? tool.category.toLowerCase() : "");
+  if (name.includes("tailwind")) return "assets/icons/tailwindcss.svg";
+  if (name.includes("php")) return "assets/icons/php.svg";
+  if (name.includes("mysql") || name.includes("sql")) return "assets/icons/mysql.svg";
+  if (name.includes("c++") || name.includes("stl") || name.includes("clang") || name.includes("gcc")) return "assets/icons/cplusplus.svg";
+  if (name.includes("github")) return "assets/icons/github.svg";
+  if (name.includes("git")) return "assets/icons/git.svg";
+  if (name.includes("figma") || name.includes("lucide")) return "assets/icons/figma.svg";
+  if (name.includes("css") || name.includes("flex") || name.includes("grid") || name.includes("font") || name.includes("palette")) return "assets/icons/css3.svg";
+  if (name.includes("html") || name.includes("image")) return "assets/icons/html5.svg";
+  if (name.includes("supabase")) return "assets/icons/supabase.svg";
+  if (name.includes("json") || name.includes("api") || name.includes("weather") || name.includes("geo") || name.includes("pagasa") || name.includes("psgc") || name.includes("postal")) return "assets/icons/json.svg";
+  if (name.includes("bash") || name.includes("ssh") || name.includes("cli") || name.includes("terminal")) return "assets/icons/bash.svg";
+  if (name.includes("vscode") || name.includes("devdocs") || name.includes("editor")) return "assets/icons/vscode.svg";
+  if (name.includes("js") || name.includes("javascript") || name.includes("visualgo") || name.includes("fetch")) return "assets/icons/javascript.svg";
+  if (crate && Array.isArray(crate.stackIcons) && crate.stackIcons.length > 0) return crate.stackIcons[0];
+  if (cat === "frontend") return "assets/icons/html5.svg";
+  if (cat === "backend") return "assets/icons/php.svg";
+  if (cat === "apis") return "assets/icons/json.svg";
+  if (cat === "assets") return "assets/icons/figma.svg";
+  return "assets/icons/vscode.svg";
+}
+
+const STORAGE_KEY = "stac_crate_vault_v2";
 
 // === APPLICATION STATE ===
 const state = {
@@ -681,13 +754,37 @@ const state = {
 // === STORAGE HELPERS ===
 function loadStateFromStorage() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    let raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) {
+      raw = localStorage.getItem("stac_crate_vault_v1");
+    }
     if (raw) {
       const parsed = JSON.parse(raw);
       state.isAuthenticated = parsed.isAuthenticated === true;
       state.user = parsed.user || { ...DEFAULT_USER };
-      state.crates = Array.isArray(parsed.crates) && parsed.crates.length > 0 ? parsed.crates : DEFAULT_CRATES;
+      const rawCrates = Array.isArray(parsed.crates) && parsed.crates.length > 0 ? parsed.crates : DEFAULT_CRATES;
+      state.crates = rawCrates.map(crate => {
+        const defaultMatch = DEFAULT_CRATES.find(d => d.id === crate.id);
+        const coverTheme = crate.coverTheme || (defaultMatch ? defaultMatch.coverTheme : "theme-terracotta");
+        const stackIcons = (Array.isArray(crate.stackIcons) && crate.stackIcons.length > 0)
+          ? crate.stackIcons
+          : (defaultMatch ? defaultMatch.stackIcons : ["assets/icons/vscode.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"]);
+        const tools = (crate.tools || []).map(t => {
+          const defaultTool = defaultMatch ? (defaultMatch.tools || []).find(dt => dt.id === t.id) : null;
+          return {
+            ...t,
+            icon: t.icon || (defaultTool ? defaultTool.icon : getToolIcon(t, crate))
+          };
+        });
+        return {
+          ...crate,
+          coverTheme,
+          stackIcons,
+          tools
+        };
+      });
       state.starredToolIds = Array.isArray(parsed.starredToolIds) ? parsed.starredToolIds : [...DEFAULT_STARRED_TOOL_IDS];
+      saveStateToStorage();
       return;
     }
   } catch (error) {
@@ -1135,34 +1232,59 @@ function renderLandingView() {
 }
 
 function generateCrateCardHtml(crate) {
-  const allHealthy = crate.tools && crate.tools.every(t => t.healthy);
+  const healthyCount = (crate.tools || []).filter(t => t.healthy).length;
+  const totalCount = (crate.tools || []).length;
+  const allHealthy = totalCount > 0 && healthyCount === totalCount;
+  const themeClass = crate.coverTheme || "theme-terracotta";
+  const icons = (Array.isArray(crate.stackIcons) && crate.stackIcons.length > 0)
+    ? crate.stackIcons
+    : ["assets/icons/vscode.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"];
+
+  const stackHtml = icons.slice(0, 3).map(icon => `
+    <div class="hero-icon-tile">
+      <img src="${escapeHtml(icon)}" alt="" class="tech-icon-img" />
+    </div>
+  `).join("");
+
   const tagList = (crate.tools || []).slice(0, 2).map(t => `<span class="tool-chip">${escapeHtml(t.name)}</span>`).join("");
   const extraCount = (crate.tools || []).length > 2 ? `<span class="tool-chip">+${(crate.tools || []).length - 2}</span>` : "";
 
   return `
     <div class="crate-card" data-id="${crate.id}">
-      <div class="crate-card-header">
-        <div class="crate-card-status-title">
-          <span class="${allHealthy ? "alive-dot" : "alert-dot-red"}"></span>
+      <div class="crate-card-hero ${escapeHtml(themeClass)}">
+        <div class="crate-hero-stack">
+          ${stackHtml}
+        </div>
+        <div class="crate-hero-badges">
+          <span class="crate-category-badge">${escapeHtml(crate.category || "General")}</span>
+          <span class="crate-status-badge ${allHealthy ? "status-alive" : "status-warning"}">
+            <span class="status-indicator-dot"></span>
+            ${healthyCount}/${totalCount} Alive
+          </span>
+        </div>
+      </div>
+
+      <div class="crate-card-body">
+        <div class="crate-card-header">
           <h3 class="crate-card-title">${escapeHtml(crate.title)}</h3>
+          <span class="visibility-pill">${escapeHtml(crate.visibility || "Public")}</span>
         </div>
-        <span class="visibility-pill">${escapeHtml(crate.visibility || "Public")}</span>
-      </div>
 
-      <p class="crate-card-desc">${escapeHtml(crate.description)}</p>
+        <p class="crate-card-desc">${escapeHtml(crate.description)}</p>
 
-      <div class="crate-card-tags">
-        ${tagList}
-        ${extraCount}
-      </div>
-
-      <div class="crate-card-footer">
-        <div class="crate-card-author">
-          <span class="author-avatar-sm">${escapeHtml(crate.authorInitials || "CS")}</span>
-          <span class="author-link" data-handle="${escapeHtml(crate.handle)}">${escapeHtml(crate.handle)}</span>
+        <div class="crate-card-tags">
+          ${tagList}
+          ${extraCount}
         </div>
-        <div class="crate-card-forks">
-          <span>🍴 ${crate.forks || 0}</span>
+
+        <div class="crate-card-footer">
+          <div class="crate-card-author">
+            <span class="author-avatar-sm">${escapeHtml(crate.authorInitials || "CS")}</span>
+            <span class="author-link" data-handle="${escapeHtml(crate.handle)}">${escapeHtml(crate.handle)}</span>
+          </div>
+          <div class="crate-card-forks">
+            <span>🍴 ${crate.forks || 0}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1338,6 +1460,34 @@ function renderCrateDetailView() {
   const healthyCount = tools.filter(t => t.healthy).length;
   const isAllHealthy = healthyCount === tools.length && tools.length > 0;
 
+  const heroEl = document.getElementById("crate-detail-hero");
+  const heroStackEl = document.getElementById("crate-detail-hero-stack");
+  const heroBadgesEl = document.getElementById("crate-detail-hero-badges");
+  const themeClass = crate.coverTheme || "theme-terracotta";
+  const icons = (Array.isArray(crate.stackIcons) && crate.stackIcons.length > 0)
+    ? crate.stackIcons
+    : ["assets/icons/vscode.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"];
+
+  if (heroEl) {
+    heroEl.className = `crate-detail-hero-banner ${themeClass}`;
+  }
+  if (heroStackEl) {
+    heroStackEl.innerHTML = icons.slice(0, 3).map(icon => `
+      <div class="hero-icon-tile">
+        <img src="${escapeHtml(icon)}" alt="" class="tech-icon-img" />
+      </div>
+    `).join("");
+  }
+  if (heroBadgesEl) {
+    heroBadgesEl.innerHTML = `
+      <span class="crate-category-badge">${escapeHtml(crate.category || "General")}</span>
+      <span class="crate-status-badge ${isAllHealthy ? "status-alive" : "status-warning"}">
+        <span class="status-indicator-dot"></span>
+        ${healthyCount}/${tools.length} Alive
+      </span>
+    `;
+  }
+
   if (metaEl) {
     metaEl.innerHTML = `Curated by <span class="author-link" data-handle="${escapeHtml(crate.handle)}">${escapeHtml(crate.authorName || "Charles Sevilla")} (${escapeHtml(crate.handle)})</span> · Updated ${escapeHtml(crate.updatedAt || "recently")} · <span class="${isAllHealthy ? "alive-dot" : "alert-dot-red"}"></span> ${healthyCount}/${tools.length} links healthy`;
   }
@@ -1399,12 +1549,17 @@ function renderCrateToolsGrid(tools) {
     return;
   }
 
+  const crate = state.crates.find(c => c.id === state.activeCrateId);
   grid.innerHTML = filtered.map(t => {
     const isStarred = state.starredToolIds.includes(t.id);
+    const toolIcon = getToolIcon(t, crate);
     return `
       <div class="tool-card">
         <div class="tool-card-header">
           <div class="tool-name-group">
+            <span class="tool-tech-icon-badge">
+              <img src="${escapeHtml(toolIcon)}" alt="" class="tech-icon-img" />
+            </span>
             <span class="${t.healthy ? "alive-dot" : "alert-dot-red"}"></span>
             <h3 class="tool-card-name">${escapeHtml(t.name)}</h3>
             <span class="tool-category-badge">${escapeHtml(t.category || "General")}</span>
@@ -1522,10 +1677,15 @@ function renderVaultRows(myCrates, forkedCrates) {
 
     container.innerHTML = `
       <div class="starred-tools-grid">
-        ${starredTools.map(t => `
+        ${starredTools.map(t => {
+          const toolIcon = getToolIcon(t);
+          return `
           <div class="tool-card starred-item-card">
             <div class="tool-card-header">
               <div class="tool-name-group">
+                <span class="tool-tech-icon-badge">
+                  <img src="${escapeHtml(toolIcon)}" alt="" class="tech-icon-img" />
+                </span>
                 <span class="${t.healthy ? "alive-dot" : "alert-dot-red"}"></span>
                 <h3 class="tool-card-name">${escapeHtml(t.name)}</h3>
                 <span class="tool-category-badge">${escapeHtml(t.category || "General")}</span>
@@ -1555,7 +1715,8 @@ function renderVaultRows(myCrates, forkedCrates) {
 
             ${t.tip ? `<div class="tool-tip-box">💡 ${escapeHtml(t.tip)}</div>` : ""}
           </div>
-        `).join("")}
+        `;
+        }).join("")}
       </div>
     `;
 
@@ -1597,27 +1758,33 @@ function renderVaultRows(myCrates, forkedCrates) {
     const isHealthy = healthyCount === tools.length && tools.length > 0;
     const toolsSummary = tools.map(t => t.name).join(", ");
     const hasBrokenTool = tools.some(t => !t.healthy);
+    const primaryIcon = (Array.isArray(crate.stackIcons) && crate.stackIcons.length > 0) ? crate.stackIcons[0] : "assets/icons/vscode.svg";
 
     return `
       <div class="vault-row">
-        <div class="vault-row-main">
-          <div class="vault-row-header">
-            <span class="${isHealthy ? "alive-dot" : "alert-dot-red"}"></span>
-            <span class="vault-row-title" data-crate-id="${crate.id}">${escapeHtml(crate.title)}</span>
-            <span class="visibility-pill">${escapeHtml(crate.visibility || "Public")}</span>
-            ${crate.isForkedByCharles ? `<span class="visibility-pill">Forked from <span class="author-link" data-handle="${escapeHtml(crate.forkedFrom || "@peer")}">${escapeHtml(crate.forkedFrom || "@peer")}</span></span>` : ""}
+        <div class="vault-row-body">
+          <div class="vault-row-icon-tile">
+            <img src="${escapeHtml(primaryIcon)}" alt="" class="tech-icon-img" />
           </div>
-          <div class="vault-row-details">
-            <span class="${isHealthy ? "status-alive" : "status-broken"}">
-              ${isHealthy ? `${healthyCount}/${tools.length} Alive` : `${healthyCount}/${tools.length} Alive · 1 Broken (404)`}
-            </span>
-          </div>
-          <div class="vault-row-meta">
-            <span class="vault-tools-summary">${escapeHtml(toolsSummary)}</span>
-            <span>·</span>
-            <span>${crate.forks || 0} forks</span>
-            <span>·</span>
-            <span>${crate.views || 0} views</span>
+          <div class="vault-row-main">
+            <div class="vault-row-header">
+              <span class="${isHealthy ? "alive-dot" : "alert-dot-red"}"></span>
+              <span class="vault-row-title" data-crate-id="${crate.id}">${escapeHtml(crate.title)}</span>
+              <span class="visibility-pill">${escapeHtml(crate.visibility || "Public")}</span>
+              ${crate.isForkedByCharles ? `<span class="visibility-pill">Forked from <span class="author-link" data-handle="${escapeHtml(crate.forkedFrom || "@peer")}">${escapeHtml(crate.forkedFrom || "@peer")}</span></span>` : ""}
+            </div>
+            <div class="vault-row-details">
+              <span class="${isHealthy ? "status-alive" : "status-broken"}">
+                ${isHealthy ? `${healthyCount}/${tools.length} Alive` : `${healthyCount}/${tools.length} Alive · 1 Broken (404)`}
+              </span>
+            </div>
+            <div class="vault-row-meta">
+              <span class="vault-tools-summary">${escapeHtml(toolsSummary)}</span>
+              <span>·</span>
+              <span>${crate.forks || 0} forks</span>
+              <span>·</span>
+              <span>${crate.views || 0} views</span>
+            </div>
           </div>
         </div>
 
@@ -2054,22 +2221,28 @@ function setupCreateEditModalEvents() {
           authorInitials: "CS",
           category: catInput.value,
           visibility: visInput.value,
+          coverTheme: "theme-terracotta",
+          stackIcons: ["assets/icons/vscode.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"],
           forks: 0,
           views: 1,
           updatedAt: "Just now",
           description: descInput.value.trim() || `Curated toolpack by Charles Sevilla for ${catInput.value}.`,
-          tools: state.modalCrateDraftTools.length > 0 ? [...state.modalCrateDraftTools] : [
+          tools: (state.modalCrateDraftTools.length > 0 ? [...state.modalCrateDraftTools] : [
             {
               id: `t_${Date.now()}`,
               name: "Starter Toolkit CDN",
               category: "Frontend",
               healthy: true,
+              icon: "assets/icons/tailwindcss.svg",
               snippet: '<script src="https://cdn.tailwindcss.com"></script>',
               desc: "Quick initialization script.",
               tip: "Verified 200 OK.",
               docsUrl: "https://devdocs.io"
             }
-          ]
+          ]).map(t => ({
+            ...t,
+            icon: t.icon || getToolIcon(t)
+          }))
         };
         state.crates.unshift(newCrate);
         showToast("New crate published to your vault!", "success");
@@ -2320,13 +2493,15 @@ function setupForkModalEvents() {
         authorInitials: "CS",
         category: crateBeingForked.category,
         visibility: "Public",
+        coverTheme: crateBeingForked.coverTheme || "theme-terracotta",
+        stackIcons: (Array.isArray(crateBeingForked.stackIcons) && crateBeingForked.stackIcons.length > 0) ? [...crateBeingForked.stackIcons] : ["assets/icons/vscode.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"],
         isForkedByCharles: true,
         forkedFrom: crateBeingForked.handle,
         forks: 0,
         views: 1,
         updatedAt: "Just now",
         description: `Forked from ${crateBeingForked.handle}. ${crateBeingForked.description}`,
-        tools: selectedTools
+        tools: selectedTools.map(t => ({ ...t, icon: t.icon || getToolIcon(t, crateBeingForked) }))
       };
 
       crateBeingForked.forks = (crateBeingForked.forks || 0) + 1;
