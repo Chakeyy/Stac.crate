@@ -1678,7 +1678,6 @@ function generateCrateCardHtml(crate) {
 
         <div class="crate-card-tags">
           ${tagList}
-          ${extraCount}
         </div>
 
         <div class="crate-card-footer">
@@ -1853,6 +1852,12 @@ function renderExploreView(renderCats = true) {
     });
   });
 
+  const activeSpotTab = document.querySelector(".bento-spot-tab.active");
+  const spotId = activeSpotTab ? activeSpotTab.getAttribute("data-spot-id") : "academic-research";
+  if (document.getElementById("bento-spotlight-bg")) {
+    updateBentoSpotlight(spotId);
+  }
+
   const capsuleBtns = document.querySelectorAll("#bento-capsules-cloud .bento-capsule-btn");
   capsuleBtns.forEach(btn => {
     const topic = btn.getAttribute("data-topic");
@@ -1862,6 +1867,22 @@ function renderExploreView(renderCats = true) {
       btn.classList.remove("active");
     }
   });
+
+  const clearTopicBtn = document.getElementById("bento-clear-topic");
+  if (clearTopicBtn) {
+    clearTopicBtn.style.display = state.exploreSearchQuery ? "inline-flex" : "none";
+  }
+
+  const catalogDivider = document.getElementById("catalog-divider-label");
+  if (catalogDivider) {
+    if (state.exploreSearchQuery) {
+      catalogDivider.textContent = `FILTERED BY #${state.exploreSearchQuery.toUpperCase()} (${filtered.length} ${filtered.length === 1 ? "CRATE" : "CRATES"})`;
+    } else if (state.exploreCategory && state.exploreCategory !== "All") {
+      catalogDivider.textContent = `CATEGORY: ${state.exploreCategory.toUpperCase()} (${filtered.length} ${filtered.length === 1 ? "CRATE" : "CRATES"})`;
+    } else {
+      catalogDivider.textContent = `ALL VERIFIED CRATES & TOOLKITS (${publicCrates.length})`;
+    }
+  }
 
   const ratioEl = document.getElementById("bento-pulse-alive-ratio");
   if (ratioEl) {
@@ -1874,6 +1895,58 @@ function renderExploreView(renderCats = true) {
       });
     });
     ratioEl.textContent = `${aliveTools} / ${totalTools}`;
+  }
+}
+
+function updateBentoSpotlight(spotId) {
+  const crate = state.crates.find(c => c.id === spotId);
+  if (!crate) return;
+
+  const bgEl = document.getElementById("bento-spotlight-bg");
+  if (bgEl && crate.coverImage) {
+    bgEl.style.backgroundImage = `url('${crate.coverImage}')`;
+  }
+
+  const statusEl = document.getElementById("bento-spot-status");
+  if (statusEl) {
+    const healthyCount = (crate.tools || []).filter(t => t.healthy).length;
+    const totalCount = (crate.tools || []).length;
+    statusEl.textContent = `${healthyCount}/${totalCount} Verified 200 OK · ${crate.handle || "@charles"}`;
+  }
+
+  const titleEl = document.getElementById("bento-spot-title");
+  if (titleEl) {
+    titleEl.textContent = crate.title;
+  }
+
+  const descEl = document.getElementById("bento-spot-desc");
+  if (descEl) {
+    descEl.textContent = crate.description;
+  }
+
+  const toolsEl = document.getElementById("bento-spot-tools");
+  if (toolsEl) {
+    const topTools = (crate.tools || []).slice(0, 3);
+    toolsEl.innerHTML = topTools.map(t => {
+      let displayName = t.name.replace(/ Online Photoshop| Free Icons| Curated Stock| Virtual Board| Inboxes| URL Inspector/, "");
+      return `
+        <a href="${escapeHtml(t.url)}" target="_blank" rel="noopener" class="bento-tool-pill">
+          <img src="${escapeHtml(t.icon || 'assets/icons/chrome.svg')}" alt="" class="bento-mini-icon">
+          <span>${escapeHtml(displayName)}</span>
+          <span class="bento-arrow">↗</span>
+        </a>
+      `;
+    }).join("");
+  }
+
+  const forksEl = document.getElementById("bento-spot-forks");
+  if (forksEl) {
+    forksEl.textContent = `🍴 ${crate.forks || 0} community forks`;
+  }
+
+  const openBtn = document.getElementById("bento-open-featured");
+  if (openBtn) {
+    openBtn.setAttribute("data-crate-id", crate.id);
   }
 }
 
@@ -1898,6 +1971,17 @@ function setupExploreEvents() {
       renderExploreView(false);
     });
   }
+
+  const spotTabs = document.querySelectorAll(".bento-spot-tab");
+  spotTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      const spotId = tab.getAttribute("data-spot-id");
+      if (!spotId) return;
+      spotTabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      updateBentoSpotlight(spotId);
+    });
+  });
 
   const bentoOpenFeatured = document.getElementById("bento-open-featured");
   if (bentoOpenFeatured) {
@@ -1932,6 +2016,17 @@ function setupExploreEvents() {
     });
   });
 
+  const clearTopicBtn = document.getElementById("bento-clear-topic");
+  if (clearTopicBtn) {
+    clearTopicBtn.addEventListener("click", () => {
+      state.exploreSearchQuery = "";
+      const sInput = document.getElementById("explore-search-input");
+      if (sInput) sInput.value = "";
+      document.querySelectorAll("#bento-capsules-cloud .bento-capsule-btn").forEach(b => b.classList.remove("active"));
+      renderExploreView(false);
+    });
+  }
+
   const bentoRescanBtn = document.getElementById("bento-btn-rescan");
   if (bentoRescanBtn) {
     bentoRescanBtn.addEventListener("click", () => {
@@ -1957,6 +2052,11 @@ function setupExploreEvents() {
         showToast(`All ${aliveTools} tools across ${publicCrates.length} crates re-verified: 200 OK (avg 38ms)`);
       }, 550);
     });
+  }
+
+  const bentoBoxEl = document.getElementById("explore-bento-spotlight");
+  if (bentoBoxEl) {
+    attachCopyButtons(bentoBoxEl);
   }
 }
 
@@ -3520,7 +3620,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resetBtn = document.getElementById("footer-reset-demo");
   if (resetBtn) {
     resetBtn.addEventListener("click", () => {
-      if (confirm("Reset demo vault data back to the default 9 crates?")) {
+      if (confirm("Reset demo vault data back to the default crates?")) {
         resetDemoData();
       }
     });

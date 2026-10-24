@@ -427,17 +427,25 @@
 
         <!-- === EXPLORE BENTO SPOTLIGHT === -->
         <div class="explore-bento-grid" id="explore-bento-spotlight">
-          <div class="bento-box bento-featured" id="bento-featured-box">
-            <div class="bento-featured-hero" style="background-image: url('assets/covers/cover-research.jpg');">
-              <div class="bento-featured-scrim"></div>
-              <div class="bento-featured-top">
-                <span class="bento-pill-badge">✨ Featured Spotlight Crate</span>
-                <span class="bento-status-badge"><span class="alive-dot"></span> 4/4 Verified 200 OK</span>
+          <div class="bento-box bento-spotlight" id="bento-featured-box">
+            <div class="bento-spotlight-bg" id="bento-spotlight-bg" style="background-image: url('assets/covers/cover-research.jpg');"></div>
+            <div class="bento-spotlight-scrim"></div>
+            <div class="bento-spotlight-inner">
+              <div class="bento-spot-topbar">
+                <span class="bento-pill-badge">✦ Spotlight Crate</span>
+                <div class="bento-spot-tabs">
+                  <button type="button" class="bento-spot-tab active" data-spot-id="academic-research">Research</button>
+                  <button type="button" class="bento-spot-tab" data-spot-id="creative-assets">Design</button>
+                  <button type="button" class="bento-spot-tab" data-spot-id="daily-web-utilities">Utilities</button>
+                </div>
               </div>
-              <div class="bento-featured-content">
-                <h2 class="bento-featured-title">Academic &amp; Research Toolkit</h2>
-                <p class="bento-featured-desc">Scholarly search, visual citation graphs, reference annotation, and literature review copilot.</p>
-                <div class="bento-featured-tools-strip">
+              <div class="bento-spot-body">
+                <div class="bento-spot-meta" id="bento-spot-meta">
+                  <span class="alive-dot"></span> <span id="bento-spot-status">4/4 Verified 200 OK · @charles</span>
+                </div>
+                <h2 class="bento-spot-title" id="bento-spot-title">Academic &amp; Research Toolkit</h2>
+                <p class="bento-spot-desc" id="bento-spot-desc">Scholarly search, visual citation graphs, reference annotation, and literature review copilot.</p>
+                <div class="bento-spot-tools" id="bento-spot-tools">
                   <a href="https://scholar.google.com" target="_blank" rel="noopener" class="bento-tool-pill">
                     <img src="assets/icons/google.svg" alt="" class="bento-mini-icon">
                     <span>Google Scholar</span>
@@ -455,66 +463,125 @@
                   </a>
                 </div>
               </div>
-            </div>
-            <div class="bento-featured-footer">
-              <div class="bento-curator-info">
-                <span class="author-avatar-sm">CS</span>
-                <span>Curated by <strong class="author-link" data-handle="@charles">@charles</strong> · 38 forks</span>
+              <div class="bento-spot-footer">
+                <span class="bento-spot-forks" id="bento-spot-forks">🍴 38 community forks</span>
+                <button type="button" class="btn btn-xs btn-accent bento-open-btn" id="bento-open-featured" data-crate-id="academic-research">Explore Crate →</button>
               </div>
-              <button type="button" class="btn btn-sm btn-accent bento-open-btn" id="bento-open-featured" data-crate-id="academic-research">Open Full Crate →</button>
             </div>
           </div>
 
-          <div class="bento-box bento-launchpad">
+          <div class="bento-box bento-dock">
             <div class="bento-box-header">
               <div class="bento-box-title-group">
                 <span class="bento-icon-label">⚡</span>
-                <h3 class="bento-box-title">Instant Web Launchpad</h3>
+                <h3 class="bento-box-title">Instant Launchpad</h3>
               </div>
-              <span class="bento-badge-subtle">1-Click Launch</span>
+              <span class="bento-badge-subtle">1-Click Apps</span>
             </div>
-            <p class="bento-box-desc">Jump straight into high-utility web applications without login delays.</p>
-            <div class="bento-launch-list">
-              <a href="https://www.photopea.com" target="_blank" rel="noopener" class="bento-launch-item">
-                <div class="bento-launch-left">
-                  <div class="bento-app-icon"><img src="assets/icons/photoshop.svg" alt="" class="tech-icon-img"></div>
-                  <div class="bento-app-meta">
-                    <span class="bento-app-name">Photopea Editor</span>
-                    <span class="bento-app-sub">Online Photoshop &amp; PSD</span>
-                  </div>
+            <div class="bento-dock-grid">
+              <a href="https://www.photopea.com" target="_blank" rel="noopener" class="bento-dock-tile">
+                <div class="bento-dock-icon"><img src="assets/icons/photoshop.svg" alt="" class="tech-icon-img"></div>
+                <div class="bento-dock-meta">
+                  <span class="bento-dock-name">Photopea<span class="bento-dock-arrow">↗</span></span>
+                  <span class="bento-dock-sub">PSD Editor</span>
                 </div>
-                <span class="bento-launch-btn">Launch ↗</span>
               </a>
-              <a href="https://excalidraw.com" target="_blank" rel="noopener" class="bento-launch-item">
-                <div class="bento-launch-left">
-                  <div class="bento-app-icon"><img src="assets/icons/canva.svg" alt="" class="tech-icon-img"></div>
-                  <div class="bento-app-meta">
-                    <span class="bento-app-name">Excalidraw</span>
-                    <span class="bento-app-sub">Hand-drawn Whiteboard</span>
-                  </div>
+              <a href="https://excalidraw.com" target="_blank" rel="noopener" class="bento-dock-tile">
+                <div class="bento-dock-icon"><img src="assets/icons/canva.svg" alt="" class="tech-icon-img"></div>
+                <div class="bento-dock-meta">
+                  <span class="bento-dock-name">Excalidraw<span class="bento-dock-arrow">↗</span></span>
+                  <span class="bento-dock-sub">Whiteboard</span>
                 </div>
-                <span class="bento-launch-btn">Launch ↗</span>
               </a>
-              <a href="https://coolors.co" target="_blank" rel="noopener" class="bento-launch-item">
-                <div class="bento-launch-left">
-                  <div class="bento-app-icon"><img src="assets/icons/css3.svg" alt="" class="tech-icon-img"></div>
-                  <div class="bento-app-meta">
-                    <span class="bento-app-name">Coolors Studio</span>
-                    <span class="bento-app-sub">Hex Palette Harmonizer</span>
-                  </div>
+              <a href="https://coolors.co" target="_blank" rel="noopener" class="bento-dock-tile">
+                <div class="bento-dock-icon"><img src="assets/icons/css3.svg" alt="" class="tech-icon-img"></div>
+                <div class="bento-dock-meta">
+                  <span class="bento-dock-name">Coolors<span class="bento-dock-arrow">↗</span></span>
+                  <span class="bento-dock-sub">Palettes</span>
                 </div>
-                <span class="bento-launch-btn">Launch ↗</span>
               </a>
-              <a href="https://pomofocus.io" target="_blank" rel="noopener" class="bento-launch-item">
-                <div class="bento-launch-left">
-                  <div class="bento-app-icon"><img src="assets/icons/chrome.svg" alt="" class="tech-icon-img"></div>
-                  <div class="bento-app-meta">
-                    <span class="bento-app-name">Pomofocus Timer</span>
-                    <span class="bento-app-sub">25/5 Deep Focus Cycle</span>
-                  </div>
+              <a href="https://pomofocus.io" target="_blank" rel="noopener" class="bento-dock-tile">
+                <div class="bento-dock-icon"><img src="assets/icons/chrome.svg" alt="" class="tech-icon-img"></div>
+                <div class="bento-dock-meta">
+                  <span class="bento-dock-name">Pomofocus<span class="bento-dock-arrow">↗</span></span>
+                  <span class="bento-dock-sub">Focus Timer</span>
                 </div>
-                <span class="bento-launch-btn">Launch ↗</span>
               </a>
+              <a href="https://squoosh.app" target="_blank" rel="noopener" class="bento-dock-tile">
+                <div class="bento-dock-icon"><img src="assets/icons/html5.svg" alt="" class="tech-icon-img"></div>
+                <div class="bento-dock-meta">
+                  <span class="bento-dock-name">Squoosh<span class="bento-dock-arrow">↗</span></span>
+                  <span class="bento-dock-sub">Image Compress</span>
+                </div>
+              </a>
+              <a href="https://devdocs.io" target="_blank" rel="noopener" class="bento-dock-tile">
+                <div class="bento-dock-icon"><img src="assets/icons/vscode.svg" alt="" class="tech-icon-img"></div>
+                <div class="bento-dock-meta">
+                  <span class="bento-dock-name">DevDocs<span class="bento-dock-arrow">↗</span></span>
+                  <span class="bento-dock-sub">API Docs</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="bento-box bento-radar">
+            <div class="bento-pulse-top">
+              <div class="pulse-indicator-ring">
+                <span class="pulse-core-dot"></span>
+                <span class="pulse-wave"></span>
+              </div>
+              <span class="pulse-status-label">Link Telemetry</span>
+            </div>
+            <div class="bento-radar-metric-row">
+              <span class="pulse-metric-number" id="bento-pulse-alive-ratio">48 / 48</span>
+              <span class="bento-radar-pct">100% OK</span>
+            </div>
+            <div class="bento-health-bar" title="12 verified public crates: 100% OK">
+              <span class="health-seg"></span>
+              <span class="health-seg"></span>
+              <span class="health-seg"></span>
+              <span class="health-seg"></span>
+              <span class="health-seg"></span>
+              <span class="health-seg"></span>
+              <span class="health-seg"></span>
+              <span class="health-seg"></span>
+              <span class="health-seg"></span>
+              <span class="health-seg"></span>
+              <span class="health-seg"></span>
+              <span class="health-seg"></span>
+            </div>
+            <div class="bento-radar-footer">
+              <span class="bento-radar-meta">12 Public Crates · Avg 38ms</span>
+              <button type="button" class="btn btn-xs btn-outline pulse-rescan-btn" id="bento-btn-rescan">
+                <span class="rescan-icon">↻</span> Verify
+              </button>
+            </div>
+          </div>
+
+          <div class="bento-box bento-snippets">
+            <div class="bento-box-header">
+              <div class="bento-box-title-group">
+                <span class="bento-icon-label">📋</span>
+                <h3 class="bento-box-title">Quick Copy</h3>
+              </div>
+              <span class="bento-badge-subtle">1-Click</span>
+            </div>
+            <div class="bento-snip-list">
+              <button type="button" class="bento-snip-row copy-trigger" data-copy="&lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;">
+                <span class="bento-snip-name">Tailwind CDN</span>
+                <code class="bento-snip-code">cdn.tailwindcss.com</code>
+                <span class="bento-snip-act">Copy</span>
+              </button>
+              <button type="button" class="bento-snip-row copy-trigger" data-copy="git reset --soft HEAD~1">
+                <span class="bento-snip-name">Git Soft Undo</span>
+                <code class="bento-snip-code">reset --soft HEAD~1</code>
+                <span class="bento-snip-act">Copy</span>
+              </button>
+              <button type="button" class="bento-snip-row copy-trigger" data-copy="const data = await fetch(url).then(r =&gt; r.json());">
+                <span class="bento-snip-name">Fetch JSON</span>
+                <code class="bento-snip-code">await fetch(url)...</code>
+                <span class="bento-snip-act">Copy</span>
+              </button>
             </div>
           </div>
 
@@ -522,11 +589,13 @@
             <div class="bento-box-header">
               <div class="bento-box-title-group">
                 <span class="bento-icon-label">🏷️</span>
-                <h3 class="bento-box-title">Curated Topic Capsules</h3>
+                <h3 class="bento-box-title">Topic Radar</h3>
               </div>
-              <span class="bento-badge-subtle">Click to Filter</span>
+              <div class="bento-topics-actions">
+                <button type="button" class="bento-clear-topic-btn" id="bento-clear-topic" style="display: none;">Reset ✕</button>
+                <span class="bento-badge-subtle" id="bento-topic-hint">Click to Filter</span>
+              </div>
             </div>
-            <p class="bento-box-desc">Filter crates and bookmarks by topic tag across all community curators.</p>
             <div class="bento-capsules-cloud" id="bento-capsules-cloud">
               <button type="button" class="bento-capsule-btn" data-topic="Research">
                 <span class="capsule-hash">#</span>Research
@@ -549,9 +618,6 @@
               <button type="button" class="bento-capsule-btn" data-topic="Frontend">
                 <span class="capsule-hash">#</span>Frontend
               </button>
-              <button type="button" class="bento-capsule-btn" data-topic="Backend">
-                <span class="capsule-hash">#</span>Backend
-              </button>
               <button type="button" class="bento-capsule-btn" data-topic="Git">
                 <span class="capsule-hash">#</span>Git
               </button>
@@ -560,25 +626,10 @@
               </button>
             </div>
           </div>
-
-          <div class="bento-box bento-pulse">
-            <div class="bento-pulse-top">
-              <div class="pulse-indicator-ring">
-                <span class="pulse-core-dot"></span>
-                <span class="pulse-wave"></span>
-              </div>
-              <span class="pulse-status-label">Live Link Health</span>
-            </div>
-            <div class="pulse-metric-number" id="bento-pulse-alive-ratio">48 / 48</div>
-            <div class="pulse-metric-sub">100% Verified Alive (200 OK) · 0 Broken</div>
-            <button type="button" class="btn btn-xs btn-outline pulse-rescan-btn" id="bento-btn-rescan">
-              <span class="rescan-icon">↻</span> Re-scan All Links
-            </button>
-          </div>
         </div>
 
         <div class="explore-catalog-divider">
-          <span class="catalog-divider-label">ALL VERIFIED CRATES &amp; TOOLKITS</span>
+          <span class="catalog-divider-label" id="catalog-divider-label">ALL VERIFIED CRATES &amp; TOOLKITS (12)</span>
         </div>
 
         <div class="explore-filter-bar">
