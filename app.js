@@ -991,8 +991,8 @@ function renderNavbar() {
     `;
 
     authContainer.innerHTML = `
-      <a href="#signin" class="btn btn-sm btn-ghost nav-auth-signin ${state.activeView === "signin" ? "active" : ""}" data-view="signin">Sign In</a>
-      <a href="#signup" class="btn btn-sm btn-primary nav-auth-claim ${state.activeView === "signup" ? "active" : ""}" data-view="signup">Claim Handle →</a>
+      <a href="#signin" id="nav-btn-signin" class="btn btn-sm btn-ghost nav-auth-signin ${state.activeView === "signin" ? "active" : ""}" data-view="signin">Sign In</a>
+      <a href="#signup" id="nav-btn-signup" class="btn btn-sm btn-primary nav-auth-claim ${state.activeView === "signup" ? "active" : ""}" data-view="signup">Claim Handle →</a>
     `;
 
     const howItWorksLink = document.getElementById("nav-link-how-it-works");

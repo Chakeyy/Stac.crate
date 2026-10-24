@@ -229,7 +229,7 @@ code, kbd, pre {
 
 .form-grid-2col {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 14px;
 }
 
@@ -247,6 +247,11 @@ code, kbd, pre {
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   height: 56px;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  overflow-x: clip;
+  box-sizing: border-box;
 }
 
 .nav-container {
@@ -525,6 +530,24 @@ code, kbd, pre {
 }
 
 /* === VIEW CONTAINERS === */
+.app-main,
+.view-panel,
+.hero-container,
+.view-container,
+.how-it-works-section,
+.trending-section,
+.cta-banner-section,
+.top-navbar {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.top-navbar {
+  overflow-x: clip;
+}
+
 .app-main {
   flex: 1;
 }
@@ -557,7 +580,7 @@ code, kbd, pre {
 
 /* === LANDING VIEW === */
 .hero-container {
-  max-width: 1320px;
+  max-width: min(1320px, 100vw);
   margin: 0 auto;
   padding: 56px 24px 40px 24px;
   background-image: radial-gradient(rgba(28, 25, 23, 0.07) 1px, transparent 1px);
@@ -567,9 +590,19 @@ code, kbd, pre {
 
 .hero-columns {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   gap: 48px;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.hero-left,
+.hero-right {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
 }
 
 .hero-pill-badge {
@@ -613,6 +646,8 @@ code, kbd, pre {
   gap: 10px;
   margin-bottom: 24px;
   max-width: 520px;
+  width: 100%;
+  min-width: 0;
 }
 
 .handle-input-wrapper {
@@ -624,6 +659,10 @@ code, kbd, pre {
   border-radius: var(--radius-md);
   padding: 0 12px;
   height: 44px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   transition: border-color var(--transition-fast);
 }
 
@@ -636,10 +675,14 @@ code, kbd, pre {
   color: var(--ink-muted);
   font-weight: 500;
   user-select: none;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .handle-input {
-  flex: 1;
+  flex: 1 1 0%;
+  width: 100%;
+  min-width: 0;
   border: none;
   outline: none;
   padding: 6px 8px;
@@ -658,6 +701,7 @@ code, kbd, pre {
   padding: 2px 8px;
   border-radius: var(--radius-full);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .hero-trust-strip {
@@ -666,6 +710,8 @@ code, kbd, pre {
   gap: 12px;
   font-size: 13px;
   color: var(--ink-muted);
+  width: 100%;
+  max-width: 100%;
 }
 
 .trust-check {
@@ -685,6 +731,10 @@ code, kbd, pre {
   overflow: hidden;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   cursor: pointer;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .live-mockup-window:hover {
@@ -699,6 +749,9 @@ code, kbd, pre {
   display: flex;
   align-items: center;
   gap: 16px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .mockup-jump-badge {
@@ -713,6 +766,7 @@ code, kbd, pre {
   border-radius: var(--radius-full);
   margin-left: auto;
   white-space: nowrap;
+  flex-shrink: 0;
   transition: all var(--transition-fast);
 }
 
@@ -724,6 +778,7 @@ code, kbd, pre {
 .mockup-dots {
   display: flex;
   gap: 6px;
+  flex-shrink: 0;
 }
 
 .mock-dot {
@@ -737,7 +792,8 @@ code, kbd, pre {
 .dot-green { background-color: #10B981; }
 
 .mockup-url-bar {
-  flex: 1;
+  flex: 1 1 0%;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -747,16 +803,22 @@ code, kbd, pre {
   padding: 3px 12px;
   font-size: 12px;
   color: var(--ink-secondary);
+  box-sizing: border-box;
 }
 
 .mockup-alive-pill {
   font-size: 11px;
   font-weight: 600;
   color: var(--green);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .mockup-body {
   padding: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .mockup-crate-meta {
@@ -781,6 +843,8 @@ code, kbd, pre {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .mockup-snippet-row {
@@ -792,6 +856,10 @@ code, kbd, pre {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 10px 14px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .mockup-snippet-info {
@@ -799,13 +867,17 @@ code, kbd, pre {
   flex-direction: column;
   gap: 4px;
   min-width: 0;
-  flex: 1;
+  flex: 1 1 0%;
+  overflow: hidden;
 }
 
 .mockup-tool-name {
   font-size: 13px;
   font-weight: 600;
   color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mockup-code-preview {
@@ -818,6 +890,13 @@ code, kbd, pre {
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.mockup-snippet-row .copy-trigger {
+  flex-shrink: 0;
 }
 
 .hero-fold-indicator {
@@ -875,7 +954,7 @@ code, kbd, pre {
 
 .how-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -1096,7 +1175,7 @@ code, kbd, pre {
 .auth-split-container {
   min-height: calc(100vh - 56px);
   display: grid;
-  grid-template-columns: 660px 1fr;
+  grid-template-columns: 660px minmax(0, 1fr);
 }
 
 .auth-showcase-panel {
@@ -1487,7 +1566,7 @@ code, kbd, pre {
 
 .crates-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -1724,7 +1803,7 @@ code, kbd, pre {
 
 .tools-grid-2col {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -2035,7 +2114,7 @@ code, kbd, pre {
 
 .starred-tools-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -2203,7 +2282,7 @@ code, kbd, pre {
 
 .pinned-snippets-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -2267,7 +2346,7 @@ code, kbd, pre {
 
 .footer-top-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 48px;
   padding-bottom: 36px;
   border-bottom: 1px solid var(--border);
@@ -2520,7 +2599,7 @@ code, kbd, pre {
 
 .tool-editor-inputs {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 12px;
 }
 
@@ -2951,22 +3030,28 @@ code, kbd, pre {
 /* === RESPONSIVE BREAKPOINTS === */
 @media (max-width: 1024px) {
   .hero-columns {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hero-left,
+  .hero-right {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
   }
   .crates-grid, .how-cards-grid, .pinned-snippets-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .tools-grid-2col {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .auth-split-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .auth-showcase-panel {
     display: none;
   }
   .footer-top-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 28px;
   }
 }
@@ -3011,6 +3096,9 @@ code, kbd, pre {
   .top-navbar {
     height: 56px;
     padding: 0;
+    max-width: 100vw;
+    overflow-x: clip;
+    width: 100%;
   }
   .nav-container {
     height: 100%;
@@ -3044,6 +3132,18 @@ code, kbd, pre {
     padding: 5px 8px;
     font-size: 12px;
   }
+  #nav-btn-signup,
+  .nav-auth-claim {
+    display: none !important;
+  }
+  #nav-btn-signin,
+  .nav-auth-signin {
+    padding: 6px 12px;
+    font-size: 13px;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: var(--radius-md);
+  }
   .user-handle-desktop {
     display: none;
   }
@@ -3060,7 +3160,7 @@ code, kbd, pre {
     width: min(calc(100vw - 24px), 260px);
   }
   .starred-tools-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   input[type="text"],
   input[type="email"],
@@ -3073,73 +3173,161 @@ code, kbd, pre {
   }
   .view-container {
     padding: 24px 16px 48px 16px;
+    max-width: 100vw;
+    overflow-x: hidden;
+    width: 100%;
   }
   .crates-grid,
   .how-cards-grid,
   .pinned-snippets-grid,
   .tools-grid-2col {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .how-card,
   .crate-card,
   .pinned-snippet-card,
   .tool-card {
     min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .form-grid-2col {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .form-col-span-2 {
     grid-column: span 1;
   }
   .hero-container {
     padding: 28px 16px 28px 16px;
+    max-width: 100vw;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  .hero-columns {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero-left,
+  .hero-right {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
   }
   .hero-title {
     font-size: 32px;
     line-height: 1.15;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
   .hero-description {
     font-size: 15px;
     margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
   .claim-handle-form {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
-    max-width: 100%;
-  }
-  .claim-handle-form .handle-input-wrapper {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
-  .claim-handle-form .handle-input {
+  .claim-handle-form .handle-input-wrapper,
+  .handle-input-wrapper {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .claim-handle-form .handle-input,
+  .handle-input {
+    flex: 1 1 0%;
+    width: 100%;
     min-width: 0;
   }
   #landing-claim-btn {
     width: 100%;
+    max-width: 100%;
     height: 44px;
+    box-sizing: border-box;
   }
   .hero-trust-strip {
+    display: flex;
     flex-wrap: wrap;
-    gap: 8px 12px;
+    justify-content: flex-start;
+    gap: 6px 12px;
+    width: 100%;
+    max-width: 100%;
     font-size: 12px;
   }
   .live-mockup-window {
     width: 100%;
     max-width: 100%;
+    min-width: 0;
+  }
+  .mockup-dots,
+  .mockup-jump-badge {
+    display: none !important;
+  }
+  .mockup-header {
+    gap: 0;
+    padding: 10px 12px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .mockup-url-bar {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 0%;
+    min-width: 0;
   }
   .mockup-body {
     padding: 14px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .mockup-snippet-list {
+    width: 100%;
+    max-width: 100%;
   }
   .mockup-snippet-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
     min-width: 0;
+    box-sizing: border-box;
   }
   .mockup-snippet-info {
+    flex: 1 1 0%;
     min-width: 0;
+    overflow: hidden;
+  }
+  .mockup-code-preview {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .mockup-snippet-row .copy-trigger {
+    flex-shrink: 0;
   }
   .how-it-works-section,
   .trending-section {
     padding: 32px 16px;
+    max-width: 100vw;
+    overflow-x: hidden;
+    width: 100%;
   }
   .section-header-flex {
     flex-direction: column;
@@ -3149,9 +3337,14 @@ code, kbd, pre {
   .cta-banner-section {
     padding: 0 16px;
     margin: 28px auto 40px auto;
+    max-width: 100vw;
+    overflow-x: hidden;
+    width: 100%;
   }
   .cta-dark-banner {
     padding: 28px 18px;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .cta-banner-title {
     font-size: 24px;
@@ -3160,17 +3353,25 @@ code, kbd, pre {
     flex-direction: column;
     width: 100%;
     max-width: 100%;
+    min-width: 0;
     gap: 10px;
   }
   .cta-claim-form .handle-input-wrapper {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   .cta-claim-form .handle-input {
+    flex: 1 1 0%;
+    width: 100%;
     min-width: 0;
   }
   .cta-claim-form .btn {
     width: 100%;
+    max-width: 100%;
     height: 44px;
+    box-sizing: border-box;
   }
   .auth-split-container {
     min-height: auto;
@@ -3262,7 +3463,7 @@ code, kbd, pre {
   .dashboard-header-actions {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 8px;
   }
   .dashboard-header-actions .btn {
@@ -3368,7 +3569,7 @@ code, kbd, pre {
     padding: 16px;
   }
   .tool-editor-inputs {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .modal-footer {
     flex-direction: column;
@@ -3417,6 +3618,12 @@ code, kbd, pre {
   }
 }
 
+@media (max-width: 600px) {
+  .trust-divider {
+    display: none;
+  }
+}
+
 @media (max-width: 480px) {
   .tool-snippet-block {
     flex-direction: column;
@@ -3441,7 +3648,7 @@ code, kbd, pre {
 
 @media (max-width: 420px) {
   .mockup-header {
-    gap: 8px;
+    gap: 0;
     padding: 10px 12px;
   }
   .mockup-dots {
