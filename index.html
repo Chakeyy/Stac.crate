@@ -113,7 +113,7 @@
               <div class="mockup-body">
                 <div class="mockup-crate-meta">
                   <h3 class="mockup-crate-title">WS101: Web Dev Starter Pack</h3>
-                  <p class="mockup-crate-subtitle">Curated by <span class="author-link" data-handle="@charles">Charles Sevilla (@charles)</span> · 42 classmates forked</p>
+                  <p class="mockup-crate-subtitle">Curated by <span class="author-link" data-handle="@charles">Charles Sevilla (@charles)</span> · 42 curators forked</p>
                 </div>
 
                 <div class="mockup-snippet-list">
@@ -265,9 +265,9 @@
       <div class="auth-split-container">
         <div class="auth-showcase-panel">
           <div class="auth-showcase-inner">
-            <span class="showcase-tag">STAC.CRATE FOR STUDENTS</span>
+            <span class="showcase-tag">STAC.CRATE FOR EVERYONE</span>
             <h2 class="showcase-title">Pack your tools.<br>Share your stack.</h2>
-            <p class="showcase-desc">Bundle CDN links, boilerplates, and free APIs into one verified link that teammates can fork in a single click.</p>
+            <p class="showcase-desc">Bundle web apps, research tools, and utility scripts into one verified link that teammates and friends can fork in a single click.</p>
 
             <div class="showcase-card">
               <div class="showcase-card-header">
@@ -347,7 +347,7 @@
               <div class="id-avatar-circle">CS</div>
               <div class="id-info">
                 <h4 class="id-name" id="preview-id-name">Charles Sevilla</h4>
-                <p class="id-role">Student Curator · Web &amp; Product Enthusiast</p>
+                <p class="id-role">Curator · Web &amp; Product Enthusiast</p>
                 <div class="id-url-pill">
                   <span class="id-url-text" id="preview-id-url">Public profile: stac.crate/@charles</span>
                 </div>
@@ -359,7 +359,7 @@
             </div>
 
             <div class="showcase-footer-note">
-              <span>Free forever for students · No ID upload required</span>
+              <span>100% Free forever · Open to everyone worldwide</span>
             </div>
           </div>
         </div>
@@ -422,7 +422,7 @@
       <div class="view-container">
         <div class="explore-header">
           <h1 class="view-heading">Explore Public Crates</h1>
-          <p class="view-subheading">Peer-curated starter packs, CDN links, and zero-key APIs verified for student projects.</p>
+          <p class="view-subheading">Curated web apps, research toolkits, daily utilities, and dev starter packs verified for everyone.</p>
         </div>
 
         <div class="explore-filter-bar">
@@ -478,6 +478,7 @@
             <p class="crate-description" id="crate-detail-description">
               Essential provision kit for 2nd-year Web Systems: CDN styling, PDO database script, and mock APIs.
             </p>
+            <div class="crate-detail-tags-row" id="crate-detail-tags-row"></div>
 
             <div class="crate-meta-row">
               <div class="crate-author-pill">
@@ -566,11 +567,11 @@
                 <h1 class="profile-name">Charles Sevilla</h1>
                 <span class="profile-handle-pill">@charles</span>
               </div>
-              <p class="profile-bio">Student Curator · Curating essential web toolkits, research stacks, and daily productivity packs.</p>
+              <p class="profile-bio">Curating essential web toolkits, research stacks, creative assets, and daily productivity packs.</p>
               <div class="profile-stats-strip">
                 <span>📦 3 Public Crates</span>
                 <span class="stat-sep">·</span>
-                <span>🍴 61 Total Classmate Forks</span>
+                <span>🍴 61 Total Community Forks</span>
                 <span class="stat-sep">·</span>
                 <span class="stat-status-alive">● 18/18 Public Links Verified 200 OK</span>
               </div>
@@ -585,7 +586,7 @@
 
           <div class="profile-tabs-bar">
             <button class="profile-tab active" data-tab="published" id="ptab-published">Published Crates (3)</button>
-            <button class="profile-tab" data-tab="forked" id="ptab-forked">Forked from Classmates (2)</button>
+            <button class="profile-tab" data-tab="forked" id="ptab-forked">Forked from Community (2)</button>
           </div>
         </div>
 
@@ -700,12 +701,19 @@
           </div>
 
           <div class="form-group">
-            <label for="crate-form-category" class="form-label">TOPIC TAG</label>
+            <label for="crate-form-category" class="form-label">PRIMARY CATEGORY</label>
             <select id="crate-form-category" class="form-select">
-              <option value="WS101 Web Dev">WS101 Web Dev</option>
-              <option value="Free APIs">Free APIs</option>
-              <option value="PHP &amp; MySQL">PHP &amp; MySQL</option>
-              <option value="UI &amp; Icons">UI &amp; Icons</option>
+              <option value="Research &amp; Study">Research &amp; Study</option>
+              <option value="Design &amp; Media">Design &amp; Media</option>
+              <option value="Productivity &amp; Tools">Productivity &amp; Tools</option>
+              <option value="Everyday Web Utilities">Everyday Web Utilities</option>
+              <option value="Web Development">Web Development</option>
+              <option value="APIs &amp; Cloud">APIs &amp; Cloud</option>
+              <option value="Backend &amp; Database">Backend &amp; Database</option>
+              <option value="DevOps &amp; Git">DevOps &amp; Git</option>
+              <option value="Algorithms &amp; DSA">Algorithms &amp; DSA</option>
+              <option value="Writing &amp; Docs">Writing &amp; Docs</option>
+              <option value="General &amp; Other">General &amp; Other</option>
             </select>
           </div>
 
@@ -715,6 +723,32 @@
               <option value="Public">🌐 Public</option>
               <option value="Private">🔒 Private</option>
             </select>
+          </div>
+
+          <div class="form-group form-col-span-2">
+            <label class="form-label">TOPIC TAGS (CUSTOM OR QUICK PRESETS)</label>
+            <div class="tags-builder-box">
+              <div class="tags-builder-chips" id="crate-tags-selected"></div>
+              <div class="tags-builder-input-row">
+                <input type="text" id="crate-form-tag-input" class="form-input tags-builder-input" placeholder="Type custom tag &amp; press Enter or comma (e.g. Notion, Literature, Writing)...">
+                <button type="button" class="btn btn-sm btn-outline" id="btn-add-custom-tag">+ Add Tag</button>
+              </div>
+              <div class="preset-tags-strip" id="preset-tags-strip">
+                <span class="preset-lead-label">Quick Presets:</span>
+                <button type="button" class="preset-tag-chip" data-tag="Research">#Research</button>
+                <button type="button" class="preset-tag-chip" data-tag="Design">#Design</button>
+                <button type="button" class="preset-tag-chip" data-tag="Productivity">#Productivity</button>
+                <button type="button" class="preset-tag-chip" data-tag="Study">#Study</button>
+                <button type="button" class="preset-tag-chip" data-tag="Web Apps">#Web Apps</button>
+                <button type="button" class="preset-tag-chip" data-tag="APIs">#APIs</button>
+                <button type="button" class="preset-tag-chip" data-tag="Frontend">#Frontend</button>
+                <button type="button" class="preset-tag-chip" data-tag="Database">#Database</button>
+                <button type="button" class="preset-tag-chip" data-tag="Writing">#Writing</button>
+                <button type="button" class="preset-tag-chip" data-tag="Cheatsheet">#Cheatsheet</button>
+                <button type="button" class="preset-tag-chip" data-tag="Open Source">#Open Source</button>
+                <button type="button" class="preset-tag-chip" data-tag="Daily Tools">#Daily Tools</button>
+              </div>
+            </div>
           </div>
 
           <div class="form-group form-col-span-2">
@@ -822,7 +856,7 @@
         <div class="fork-dest-row">
           <span class="fork-label">NEW CRATE URL UNDER YOUR HANDLE</span>
           <div class="fork-url-box">
-            <span class="fork-url-text" id="fork-dest-url">stac.crate/@charles/zero-budget-student-apis</span>
+            <span class="fork-url-text" id="fork-dest-url">stac.crate/@charles/zero-budget-public-apis</span>
           </div>
         </div>
 

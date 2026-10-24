@@ -4,7 +4,7 @@ const DEFAULT_USER = {
   initials: "CS",
   handle: "charles",
   email: "charles.sevilla@hnu.edu.ph",
-  role: "Student Curator · Web & Product Systems",
+  role: "Curator · Web & Product Systems",
   bio: "Curating essential productivity tools, research links, and web starter packs.",
   profileViews: 348
 };
@@ -14,7 +14,7 @@ const CURATORS = {
     name: "Charles Sevilla",
     handle: "@charles",
     initials: "CS",
-    role: "Student Curator · Web & Product Systems",
+    role: "Curator · Web & Product Systems",
     bio: "Curating essential productivity tools, research links, and web starter packs.",
     email: "charles.sevilla@hnu.edu.ph",
     pinnedSnippets: [
@@ -160,6 +160,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-sky",
     coverImage: "assets/covers/cover-research.jpg",
     stackIcons: ["assets/icons/google.svg", "assets/icons/notion.svg", "assets/icons/chrome.svg"],
+    tags: ["Research", "Academic", "Citations", "Study", "Literature"],
     forks: 38,
     views: 245,
     updatedAt: "1d ago",
@@ -232,6 +233,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-violet",
     coverImage: "assets/covers/cover-figma.jpg",
     stackIcons: ["assets/icons/photoshop.svg", "assets/icons/figma.svg", "assets/icons/canva.svg"],
+    tags: ["Design", "Creative", "Vector", "Color", "Canvas"],
     forks: 45,
     views: 290,
     updatedAt: "2d ago",
@@ -304,6 +306,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-emerald",
     coverImage: "assets/covers/cover-tools.jpg",
     stackIcons: ["assets/icons/chrome.svg", "assets/icons/canva.svg", "assets/icons/google.svg"],
+    tags: ["Utilities", "Web Tools", "Formatting", "Media", "Converters"],
     forks: 29,
     views: 180,
     updatedAt: "3d ago",
@@ -319,7 +322,7 @@ const DEFAULT_CRATES = [
         url: "https://excalidraw.com",
         action: "Launch App ↗",
         desc: "Virtual whiteboard with hand-drawn aesthetic, end-to-end encryption, and live peer collaboration.",
-        tip: "Click 'Live Collaboration' to generate a room link for brainstorming with classmates.",
+        tip: "Click 'Live Collaboration' to generate a room link for brainstorming with teammates and collaborators.",
         docsUrl: "https://excalidraw.com"
       },
       {
@@ -376,6 +379,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-amber",
     coverImage: "assets/covers/cover-study.jpg",
     stackIcons: ["assets/icons/notion.svg", "assets/icons/canva.svg", "assets/icons/chrome.svg"],
+    tags: ["Productivity", "Study", "Focus", "Knowledge", "Calculations"],
     forks: 33,
     views: 220,
     updatedAt: "4d ago",
@@ -448,6 +452,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-terracotta",
     coverImage: "assets/covers/cover-ws101.jpg",
     stackIcons: ["assets/icons/tailwindcss.svg", "assets/icons/php.svg", "assets/icons/mysql.svg"],
+    tags: ["Web Dev", "Frontend", "Tailwind", "AlpineJS", "Icons"],
     forks: 42,
     views: 184,
     updatedAt: "2d ago",
@@ -534,6 +539,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-slate",
     coverImage: "assets/covers/cover-dsa.jpg",
     stackIcons: ["assets/icons/cplusplus.svg", "assets/icons/vscode.svg", "assets/icons/bash.svg"],
+    tags: ["Algorithms", "DSA", "Data Structures", "Visualization", "Cheatsheet"],
     forks: 12,
     views: 92,
     updatedAt: "5d ago",
@@ -598,6 +604,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-charcoal",
     coverImage: "assets/covers/cover-git.jpg",
     stackIcons: ["assets/icons/git.svg", "assets/icons/github.svg", "assets/icons/bash.svg"],
+    tags: ["Git", "DevOps", "Version Control", "Workflow", "Cheatsheet"],
     forks: 28,
     views: 140,
     updatedAt: "1w ago",
@@ -620,8 +627,8 @@ const DEFAULT_CRATES = [
         category: "Backend",
         healthy: true,
         icon: "assets/icons/bash.svg",
-        snippet: 'ssh-keygen -t ed25519 -C \"student@school.edu\"',
-        desc: "Ed25519 key generation command for GitHub passwordless push on lab PCs.",
+        snippet: 'ssh-keygen -t ed25519 -C \"user@workstation.local\"',
+        desc: "Ed25519 key generation command for GitHub passwordless push on any PC.",
         tip: "Save key in ~/.ssh/id_ed25519.",
         docsUrl: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh"
       },
@@ -662,6 +669,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-emerald",
     coverImage: "assets/covers/cover-hackathon.jpg",
     stackIcons: ["assets/icons/supabase.svg", "assets/icons/javascript.svg", "assets/icons/json.svg"],
+    tags: ["Hackathon", "APIs", "Boilerplate", "Fullstack", "Prototyping"],
     forks: 3,
     views: 18,
     updatedAt: "3d ago",
@@ -704,17 +712,18 @@ const DEFAULT_CRATES = [
   },
   {
     id: "free-apis",
-    slug: "free-student-apis",
+    slug: "free-public-apis",
     shortUrl: "stac.crate/@dev_miko/free-apis",
-    title: "Zero-Budget Student APIs",
+    title: "Zero-Budget Public & Free APIs",
     handle: "@dev_miko",
     authorName: "Miko Santos",
     authorInitials: "MS",
-    category: "Free APIs",
+    category: "APIs & Cloud",
     visibility: "Public",
     coverTheme: "theme-sky",
     coverImage: "assets/covers/cover-apis.jpg",
     stackIcons: ["assets/icons/json.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"],
+    tags: ["APIs", "Free Data", "Weather", "Mock Data", "Open APIs"],
     forks: 34,
     views: 210,
     updatedAt: "3d ago",
@@ -750,7 +759,7 @@ const DEFAULT_CRATES = [
         icon: "assets/icons/json.svg",
         snippet: "https://ipapi.co/json/",
         desc: "Returns visitor city, country, postal code, and ISP information in JSON.",
-        tip: "Great for automatically detecting student campus IP blocks.",
+        tip: "Great for automatically detecting client location and regional IP blocks.",
         docsUrl: "https://ipapi.co"
       },
       {
@@ -779,6 +788,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-violet",
     coverImage: "assets/covers/cover-figma.jpg",
     stackIcons: ["assets/icons/figma.svg", "assets/icons/css3.svg", "assets/icons/html5.svg"],
+    tags: ["UI Design", "Figma", "Design System", "CSS Tokens", "Assets"],
     forks: 21,
     views: 115,
     updatedAt: "4d ago",
@@ -824,8 +834,8 @@ const DEFAULT_CRATES = [
         healthy: true,
         icon: "assets/icons/html5.svg",
         snippet: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80",
-        desc: "Curated high-resolution placeholder images for student web portfolio mockups.",
-        tip: "Specify w= and q= parameters to ensure fast lab page loads.",
+        desc: "Curated high-resolution placeholder images for web app and portfolio mockups.",
+        tip: "Specify w= and q= parameters to ensure fast page loads.",
         docsUrl: "https://unsplash.com"
       }
     ]
@@ -843,6 +853,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-indigo",
     coverImage: "assets/covers/cover-php.jpg",
     stackIcons: ["assets/icons/php.svg", "assets/icons/mysql.svg", "assets/icons/bash.svg"],
+    tags: ["Backend", "PHP", "MySQL", "Database", "Security"],
     forks: 19,
     views: 160,
     updatedAt: "1w ago",
@@ -877,7 +888,7 @@ const DEFAULT_CRATES = [
         healthy: true,
         icon: "assets/icons/php.svg",
         snippet: "session_start();\nif (!isset($_SESSION['user_id'])) {\n    header('Location: signin.php');\n    exit();\n}",
-        desc: "Four-line route protector for authenticated student dashboard views.",
+        desc: "Four-line route protector for authenticated dashboard views.",
         tip: "Call session_start() at the top before any HTML output.",
         docsUrl: "https://www.php.net/manual/en/features.sessions.php"
       },
@@ -907,6 +918,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-amber",
     coverImage: "assets/covers/cover-css.jpg",
     stackIcons: ["assets/icons/css3.svg", "assets/icons/html5.svg", "assets/icons/figma.svg"],
+    tags: ["CSS", "Frontend", "Flexbox", "Grid", "Cheatsheet"],
     forks: 15,
     views: 89,
     updatedAt: "6d ago",
@@ -960,6 +972,7 @@ const DEFAULT_CRATES = [
     coverTheme: "theme-teal",
     coverImage: "assets/covers/cover-opendata.jpg",
     stackIcons: ["assets/icons/json.svg", "assets/icons/javascript.svg", "assets/icons/mysql.svg"],
+    tags: ["Open Data", "APIs", "Geography", "Weather", "Government"],
     forks: 8,
     views: 64,
     updatedAt: "2w ago",
@@ -995,7 +1008,7 @@ const DEFAULT_CRATES = [
         icon: "assets/icons/json.svg",
         snippet: "https://bagong.pagasa.dost.gov.ph/weather/cyclone-bulletin",
         desc: "Official storm bulletins, typhoon tracks, and tropical cyclone warning signals.",
-        tip: "Ideal for student disaster preparedness systems and capstone apps.",
+        tip: "Ideal for disaster preparedness and emergency response apps.",
         docsUrl: "https://bagong.pagasa.dost.gov.ph"
       }
     ]
@@ -1039,7 +1052,7 @@ function getToolIcon(tool, crate) {
   return "assets/icons/chrome.svg";
 }
 
-const STORAGE_KEY = "stac_crate_vault_v4";
+const STORAGE_KEY = "stac_crate_vault_v5";
 
 // === APPLICATION STATE ===
 const state = {
@@ -1056,7 +1069,8 @@ const state = {
   dashboardTab: "my-crates",
   profileTab: "published",
   crateCategoryFilter: "All",
-  modalCrateDraftTools: []
+  modalCrateDraftTools: [],
+  modalCrateDraftTags: []
 };
 
 // === STORAGE HELPERS ===
@@ -1064,7 +1078,7 @@ function loadStateFromStorage() {
   try {
     let raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) {
-      raw = localStorage.getItem("stac_crate_vault_v3") || localStorage.getItem("stac_crate_vault_v2") || localStorage.getItem("stac_crate_vault_v1");
+      raw = localStorage.getItem("stac_crate_vault_v4") || localStorage.getItem("stac_crate_vault_v3") || localStorage.getItem("stac_crate_vault_v2") || localStorage.getItem("stac_crate_vault_v1");
     }
     if (raw) {
       const parsed = JSON.parse(raw);
@@ -1079,6 +1093,9 @@ function loadStateFromStorage() {
         const stackIcons = (Array.isArray(crate.stackIcons) && crate.stackIcons.length > 0)
           ? crate.stackIcons
           : (defaultMatch ? defaultMatch.stackIcons : ["assets/icons/chrome.svg", "assets/icons/google.svg", "assets/icons/notion.svg"]);
+        const tags = (Array.isArray(crate.tags) && crate.tags.length > 0)
+          ? crate.tags
+          : (defaultMatch && Array.isArray(defaultMatch.tags) ? defaultMatch.tags : [category]);
         const tools = (crate.tools || []).map(t => {
           const defaultTool = defaultMatch ? (defaultMatch.tools || []).find(dt => dt.id === t.id) : null;
           return {
@@ -1095,6 +1112,7 @@ function loadStateFromStorage() {
           coverImage,
           category,
           stackIcons,
+          tags,
           tools
         };
       });
@@ -1622,8 +1640,18 @@ function generateCrateCardHtml(crate) {
     </div>
   `).join("");
 
-  const tagList = (crate.tools || []).slice(0, 2).map(t => `<span class="tool-chip">${escapeHtml(t.name)}</span>`).join("");
-  const extraCount = (crate.tools || []).length > 2 ? `<span class="tool-chip">+${(crate.tools || []).length - 2}</span>` : "";
+  let tagList = "";
+  if (Array.isArray(crate.tags) && crate.tags.length > 0) {
+    tagList = crate.tags.slice(0, 3).map(tg => `<span class="topic-pill" data-topic="${escapeHtml(tg)}">#${escapeHtml(tg)}</span>`).join("");
+    if (crate.tags.length > 3) {
+      tagList += `<span class="topic-pill topic-pill-more">+${crate.tags.length - 3}</span>`;
+    }
+  } else {
+    tagList = (crate.tools || []).slice(0, 2).map(t => `<span class="tool-chip">${escapeHtml(t.name)}</span>`).join("");
+    if ((crate.tools || []).length > 2) {
+      tagList += `<span class="tool-chip">+${(crate.tools || []).length - 2}</span>`;
+    }
+  }
 
   return `
     <div class="crate-card" data-id="${crate.id}">
@@ -1765,8 +1793,10 @@ function renderExploreView(renderCats = true) {
   const publicCrates = state.crates.filter(c => c.visibility === "Public");
 
   const filtered = publicCrates.filter(c => {
-    if (state.exploreCategory !== "All" && c.category !== state.exploreCategory) {
-      return false;
+    if (state.exploreCategory !== "All") {
+      const matchCat = c.category === state.exploreCategory;
+      const matchTag = Array.isArray(c.tags) && c.tags.some(t => t.toLowerCase() === state.exploreCategory.toLowerCase());
+      if (!matchCat && !matchTag) return false;
     }
     if (state.exploreAliveOnly) {
       const allHealthy = c.tools && c.tools.every(t => t.healthy);
@@ -1774,11 +1804,18 @@ function renderExploreView(renderCats = true) {
     }
     if (state.exploreSearchQuery) {
       const q = state.exploreSearchQuery.toLowerCase();
-      const inTitle = c.title.toLowerCase().includes(q);
-      const inDesc = c.description.toLowerCase().includes(q);
-      const inHandle = c.handle.toLowerCase().includes(q);
-      const inTools = (c.tools || []).some(t => t.name.toLowerCase().includes(q) || (t.snippet && t.snippet.toLowerCase().includes(q)));
-      if (!inTitle && !inDesc && !inHandle && !inTools) return false;
+      const inTitle = (c.title || "").toLowerCase().includes(q);
+      const inDesc = (c.description || "").toLowerCase().includes(q);
+      const inHandle = (c.handle || "").toLowerCase().includes(q);
+      const inCategory = (c.category || "").toLowerCase().includes(q);
+      const inTags = (c.tags || []).some(t => t.toLowerCase().includes(q));
+      const inTools = (c.tools || []).some(t =>
+        (t.name || "").toLowerCase().includes(q) ||
+        (t.snippet && t.snippet.toLowerCase().includes(q)) ||
+        (t.desc && t.desc.toLowerCase().includes(q)) ||
+        (t.url && t.url.toLowerCase().includes(q))
+      );
+      if (!inTitle && !inDesc && !inHandle && !inCategory && !inTags && !inTools) return false;
     }
     return true;
   });
@@ -1797,6 +1834,19 @@ function renderExploreView(renderCats = true) {
 
   grid.querySelectorAll(".crate-card").forEach(card => {
     card.addEventListener("click", (e) => {
+      const topicPill = e.target.closest(".topic-pill");
+      if (topicPill) {
+        e.stopPropagation();
+        const topic = topicPill.getAttribute("data-topic");
+        if (topic) {
+          state.exploreSearchQuery = topic;
+          const searchInput = document.getElementById("explore-search-input");
+          if (searchInput) searchInput.value = topic;
+          renderExploreView(false);
+          return;
+        }
+      }
+
       if (e.target.closest(".author-link") || e.target.closest(".copy-trigger") || e.target.closest(".btn-trigger-fix")) return;
       const cid = card.getAttribute("data-id");
       navigateTo("crate", cid);
@@ -1857,6 +1907,26 @@ function renderCrateDetailView() {
   if (titleEl) titleEl.textContent = crate.title;
   if (descEl) descEl.textContent = crate.description;
   if (visEl) visEl.textContent = crate.visibility || "Public";
+
+  const detailTagsEl = document.getElementById("crate-detail-tags-row");
+  if (detailTagsEl) {
+    const tags = Array.isArray(crate.tags) && crate.tags.length > 0
+      ? crate.tags
+      : [crate.category || "General"];
+    detailTagsEl.innerHTML = tags.map(tg => `<span class="detail-topic-pill" data-topic="${escapeHtml(tg)}">#${escapeHtml(tg)}</span>`).join("");
+    detailTagsEl.querySelectorAll(".detail-topic-pill").forEach(pill => {
+      pill.addEventListener("click", () => {
+        const topic = pill.getAttribute("data-topic");
+        state.exploreSearchQuery = topic;
+        navigateTo("explore");
+        setTimeout(() => {
+          const searchInput = document.getElementById("explore-search-input");
+          if (searchInput) searchInput.value = topic;
+          renderExploreView(false);
+        }, 50);
+      });
+    });
+  }
 
   const avatarEl = document.getElementById("crate-author-avatar");
   const metaEl = document.getElementById("crate-author-meta");
@@ -2355,7 +2425,7 @@ function renderProfileView() {
     name: handle.replace("@", ""),
     handle: handle,
     initials: handle.replace("@", "").substring(0, 2).toUpperCase(),
-    role: "Student Curator · Web & Productivity",
+    role: "Curator · Web & Productivity",
     bio: "Curating starter packs, visual bookmarks, and digital toolkits.",
     email: `${handle.replace("@", "")}@hnu.edu.ph`,
     pinnedSnippets: []
@@ -2405,7 +2475,7 @@ function renderProfileView() {
     statsStrip.innerHTML = `
       <span>📦 ${publishedCrates.length} Public Crate${publishedCrates.length === 1 ? "" : "s"}</span>
       <span class="stat-sep">·</span>
-      <span>🍴 ${totalForks} Total Classmate Forks</span>
+      <span>🍴 ${totalForks} Total Community Forks</span>
       <span class="stat-sep">·</span>
       <span class="stat-status-alive">● ${healthyTools}/${totalTools} Public Links Verified 200 OK</span>
     `;
@@ -2414,7 +2484,7 @@ function renderProfileView() {
   const ptabPub = document.getElementById("ptab-published");
   const ptabFork = document.getElementById("ptab-forked");
   if (ptabPub) ptabPub.textContent = `Published Crates (${publishedCrates.length})`;
-  if (ptabFork) ptabFork.textContent = `Forked from Classmates (${forkedCrates.length})`;
+  if (ptabFork) ptabFork.textContent = `Forked from Community (${forkedCrates.length})`;
 
   document.querySelectorAll(".profile-tab").forEach(tab => {
     if (tab.getAttribute("data-tab") === state.profileTab) {
@@ -2431,7 +2501,7 @@ function renderProfileView() {
       grid.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 48px; background: var(--surface); border-radius: var(--radius-lg); border: 1px dashed var(--border-strong);">
           <h3 style="font-size: 15px; font-weight: 600; color: var(--ink);">No ${state.profileTab === "published" ? "published" : "forked"} crates yet</h3>
-          <p style="font-size: 13px; color: var(--ink-secondary); margin-top: 4px;">Check back later or explore other student crates.</p>
+          <p style="font-size: 13px; color: var(--ink-secondary); margin-top: 4px;">Check back later or explore other community crates.</p>
         </div>
       `;
     } else {
@@ -2502,30 +2572,37 @@ function openCreateEditModal(crateToEdit = null) {
   const formDesc = document.getElementById("crate-form-desc");
   const editIdInput = document.getElementById("modal-crate-edit-id");
   const submitBtn = document.getElementById("modal-create-btn-submit");
+  const tagInput = document.getElementById("crate-form-tag-input");
+  if (tagInput) tagInput.value = "";
 
   if (crateToEdit) {
     titleEl.textContent = "Edit Crate";
     subtitleEl.textContent = crateToEdit.shortUrl || `stac.crate/@charles/${crateToEdit.slug}`;
     formTitle.value = crateToEdit.title;
-    formCategory.value = crateToEdit.category || "WS101 Web Dev";
+    formCategory.value = crateToEdit.category || "Research & Study";
     formVis.value = crateToEdit.visibility || "Public";
     formDesc.value = crateToEdit.description || "";
     editIdInput.value = crateToEdit.id;
     submitBtn.textContent = "Save Changes →";
     state.modalCrateDraftTools = JSON.parse(JSON.stringify(crateToEdit.tools || []));
+    state.modalCrateDraftTags = Array.isArray(crateToEdit.tags) && crateToEdit.tags.length > 0
+      ? [...crateToEdit.tags]
+      : [crateToEdit.category || "General"];
   } else {
     titleEl.textContent = "Create New Crate";
     subtitleEl.textContent = "stac.crate/@charles/new-pack";
     formTitle.value = "";
-    formCategory.value = "WS101 Web Dev";
+    formCategory.value = "Research & Study";
     formVis.value = "Public";
     formDesc.value = "";
     editIdInput.value = "";
     submitBtn.textContent = "Publish Crate →";
     state.modalCrateDraftTools = [];
+    state.modalCrateDraftTags = ["Research", "Productivity"];
   }
 
   renderModalDraftTools();
+  renderModalDraftTags();
   hideToolEditorBox();
 
   modal.classList.add("open");
@@ -2538,6 +2615,62 @@ function closeCreateEditModal() {
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
   }
+}
+
+function renderModalDraftTags() {
+  const container = document.getElementById("crate-tags-selected");
+  if (!container) return;
+
+  if (!state.modalCrateDraftTags || state.modalCrateDraftTags.length === 0) {
+    container.innerHTML = `<span style="font-size: 12px; color: var(--ink-muted); padding: 4px 0;">No tags added yet. Choose a preset below or type a custom tag.</span>`;
+  } else {
+    container.innerHTML = state.modalCrateDraftTags.map(tg => `
+      <span class="tag-badge">
+        #${escapeHtml(tg)}
+        <button type="button" class="tag-badge-del" data-tag="${escapeHtml(tg)}" aria-label="Remove tag">&times;</button>
+      </span>
+    `).join("");
+
+    container.querySelectorAll(".tag-badge-del").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const tagToRemove = btn.getAttribute("data-tag");
+        removeDraftTag(tagToRemove);
+      });
+    });
+  }
+
+  const presetStrip = document.getElementById("preset-tags-strip");
+  if (presetStrip) {
+    presetStrip.querySelectorAll(".preset-tag-chip").forEach(chip => {
+      const tagVal = chip.getAttribute("data-tag");
+      const isSelected = state.modalCrateDraftTags && state.modalCrateDraftTags.some(t => t.toLowerCase() === tagVal.toLowerCase());
+      if (isSelected) {
+        chip.classList.add("active");
+      } else {
+        chip.classList.remove("active");
+      }
+    });
+  }
+}
+
+function addDraftTag(raw) {
+  if (!raw) return;
+  const cleaned = raw.replace(/^#+/, "").trim();
+  if (cleaned.length < 2) return;
+  if (!state.modalCrateDraftTags) state.modalCrateDraftTags = [];
+  const exists = state.modalCrateDraftTags.some(t => t.toLowerCase() === cleaned.toLowerCase());
+  if (!exists) {
+    state.modalCrateDraftTags.push(cleaned);
+    renderModalDraftTags();
+  }
+}
+
+function removeDraftTag(tagToRemove) {
+  if (!state.modalCrateDraftTags || !tagToRemove) return;
+  state.modalCrateDraftTags = state.modalCrateDraftTags.filter(t => t.toLowerCase() !== tagToRemove.toLowerCase());
+  renderModalDraftTags();
 }
 
 function renderModalDraftTools() {
@@ -2659,8 +2792,8 @@ function setupCreateEditModalEvents() {
         category: catInput.value,
         healthy: true,
         snippet: snippet || name,
-        desc: `${name} reference for rapid student development.`,
-        tip: tipInput.value.trim() || "Ready for instant deployment in lab work.",
+        desc: `${name} reference for rapid development and daily workflows.`,
+        tip: tipInput.value.trim() || "Verified and ready for instant launch and deployment.",
         docsUrl: snippet.startsWith("http") ? snippet : "https://devdocs.io"
       };
 
@@ -2672,6 +2805,48 @@ function setupCreateEditModalEvents() {
 
       renderModalDraftTools();
       hideToolEditorBox();
+    });
+  }
+
+  const tagInput = document.getElementById("crate-form-tag-input");
+  const addTagBtn = document.getElementById("btn-add-custom-tag");
+
+  if (tagInput) {
+    tagInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === ",") {
+        e.preventDefault();
+        const val = tagInput.value.trim();
+        if (val) {
+          addDraftTag(val);
+          tagInput.value = "";
+        }
+      }
+    });
+  }
+
+  if (addTagBtn && tagInput) {
+    addTagBtn.addEventListener("click", () => {
+      const val = tagInput.value.trim();
+      if (val) {
+        addDraftTag(val);
+        tagInput.value = "";
+        tagInput.focus();
+      }
+    });
+  }
+
+  const presetStrip = document.getElementById("preset-tags-strip");
+  if (presetStrip) {
+    presetStrip.querySelectorAll(".preset-tag-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const tag = chip.getAttribute("data-tag");
+        const exists = state.modalCrateDraftTags && state.modalCrateDraftTags.some(t => t.toLowerCase() === tag.toLowerCase());
+        if (exists) {
+          removeDraftTag(tag);
+        } else {
+          addDraftTag(tag);
+        }
+      });
     });
   }
 
@@ -2707,6 +2882,9 @@ function setupCreateEditModalEvents() {
           state.crates[crateIndex].category = catInput.value;
           state.crates[crateIndex].visibility = visInput.value;
           state.crates[crateIndex].description = descInput.value.trim();
+          state.crates[crateIndex].tags = (state.modalCrateDraftTags && state.modalCrateDraftTags.length > 0)
+            ? [...state.modalCrateDraftTags]
+            : [catInput.value];
           state.crates[crateIndex].tools = [...state.modalCrateDraftTools];
           state.crates[crateIndex].updatedAt = "Just now";
         }
@@ -2725,6 +2903,9 @@ function setupCreateEditModalEvents() {
           visibility: visInput.value,
           coverTheme: "theme-terracotta",
           stackIcons: ["assets/icons/vscode.svg", "assets/icons/javascript.svg", "assets/icons/html5.svg"],
+          tags: (state.modalCrateDraftTags && state.modalCrateDraftTags.length > 0)
+            ? [...state.modalCrateDraftTags]
+            : [catInput.value],
           forks: 0,
           views: 1,
           updatedAt: "Just now",

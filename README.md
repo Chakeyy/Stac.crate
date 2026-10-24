@@ -26,12 +26,13 @@ Explore the fully interactive Single Page Application hosted on GitHub Pages:
 
 Traditional browser bookmarks are static, text-heavy, and easily forgotten. **Stac.crate** reimagines bookmarks as living, actionable **Crates**—curated collections of web applications, academic research portals, design assets, and daily utilities that anyone can launch, copy, or clone with real-time link health verification.
 
-In undergraduate computer science and IT lab courses, students constantly lose track of CDN links, database connection boilerplates, API mock endpoints, and CSS cheatsheets scattered across Discord chats, Messenger threads, and temporary text files. **Stac.crate** solves this problem by providing a centralized, shareable crate repository with real-time link health verification.
+Digital builders, researchers, creators, and students constantly lose track of essential web apps, reference documentation, boilerplates, and utility links scattered across chat threads, browser bookmarks, and temporary scratchpads. **Stac.crate** solves this problem by providing a centralized, shareable visual crate repository with real-time link health verification.
 
 ### Key Capabilities
-- **Pack Tools & Snippets**: Group CDN scripts, PDO connections, boilerplate templates, and mock API endpoints into clean, shareable crates.
-- **Link Health Monitoring**: Verify HTTP status codes (`200 OK`) and alert on deprecated or broken links (`404 Alert`) before lab submissions and grading.
-- **1-Click Forking & Raw Copying**: Clone classmates' crates directly to your personal vault with attribution preserved, or copy snippets with one click.
+- **Pack Tools & Snippets**: Group web apps, research tools, CDN scripts, and mock API endpoints into clean, shareable crates.
+- **Link Health Monitoring**: Verify HTTP status codes (`200 OK`) and alert on deprecated or broken links (`404 Alert`) before sharing with teammates, clients, or publishing online.
+- **1-Click Forking & Raw Copying**: Clone community crates directly to your personal vault with attribution preserved, or copy snippets with one click.
+- **Custom Topic Tags & Quick Presets**: Organize crates with flexible custom tags or popular presets with live search and tag filtering.
 - **Intentional Dark & Light Themes**: Crafted Warm Paper & Ink light mode and Warm Espresso & Obsidian dark mode with seamless system preference sync, smooth SVG icon animations, and zero-flash initialization.
 - **Global Command Palette (`⌘K` / `Ctrl+K`)**: Rapidly search across all tools, crates, categories, and snippets from anywhere in the app.
 - **Zero-Dependency Architecture**: Built entirely with pure vanilla HTML5, CSS3 custom properties, and modern ES6+ JavaScript, persisting all state to `localStorage`.
@@ -123,10 +124,10 @@ The application implements a responsive Single Page Application (SPA) architectu
 - 3 filterable tabs: `My Crates (4)`, `Forked from Peers (2)`, and `Starred Tools (12)`.
 - Direct crate creation and 404 auto-repair triggers.
 
-### 8. View 7: Public Student Profile (`#view-profile`)
-- Student curator identity card with avatar, bio, and university credentials.
+### 8. View 7: Public Profile (`#view-profile`)
+- Curator identity card with avatar, bio, and public portfolio links.
 - Summary metrics strip (Crates, Community Forks, Starred Tools).
-- Filterable tabs: `Published Crates` and `Forked from Classmates`.
+- Filterable tabs: `Published Crates` and `Forked from Community`.
 - Pinned quick-copy snippet showcase.
 
 ---
@@ -134,11 +135,11 @@ The application implements a responsive Single Page Application (SPA) architectu
 ### Interactive Overlays
 
 - **Overlay 1: Create / Edit Crate Modal (`#modal-create-crate`)**:
-  Allows students to author new crates or update existing ones, dynamically adding tools, snippet codes, docs URLs, and tags.
+  Allows creators to author new crates or update existing ones, dynamically adding custom topic tags, snippet codes, launch URLs, and tools.
 - **Overlay 2: Quick Search Command Palette (`#modal-cmd-k`)**:
   Triggered via keyboard shortcut `⌘K` or `Ctrl+K` (or navbar search button). Offers live fuzzy-matching search across all tools, crates, and snippets.
 - **Overlay 3: 1-Click Fork Crate Modal (`#modal-fork-crate`)**:
-  Enables students to clone any peer's crate to their own account with individual tool checkboxes and full author attribution preservation.
+  Enables users to clone any public crate to their own account with individual tool checkboxes and full author attribution preservation.
 - **Overlay 4: Broken Link (404) Auto-Fix Drawer (`#drawer-fix-link`)**:
   Slide-over drawer that surfaces dead URLs (such as deprecated Stripe webhook docs) and provides a 1-click update to a verified active replacement URL, bringing crate health back to 100% OK.
 
